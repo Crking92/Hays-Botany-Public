@@ -36,7 +36,10 @@ def main():
     insist(len(grass)==1 and grass[0].get("live_url") is None and grass[0].get("status")=="STAGING_NOT_LIVE", "grass must retain legacy learner fallback")
     for c in live:
         insist(c.get("live_url")=="https://crking92.github.io/"+c["id"]+"/site/", "unsafe or mismatched family URL: "+c["id"])
-        insist(c.get("photos_deployed_in_this_collection")==0, "text-only photo publication marker must remain zero: "+c["id"])
+        if c.get("status")=="LIVE_VERIFIED_CC_GALLERY":
+            insist(c["id"]=="Hays-Botany-Asteraceae" and c.get("photos_deployed_in_this_collection")==153 and c.get("photographed_species")==112, "Unexpected verified CC photo release")
+        else:
+            insist(c.get("photos_deployed_in_this_collection")==0, "text-only photo publication marker must remain zero: "+c["id"])
     insist(sum(c["installed_species_baseline"] for c in live)==1079, "unexpected live family text-index coverage")
     insist(all(c.get("repository", "").startswith("Crking92/Hays-Botany-") for c in collections), "unexpected destination repository")
     byid = Counter(s.get("id") for s in species)
@@ -66,7 +69,7 @@ def main():
         print("\n".join("ERROR: " + s for s in errors))
         return 1
     print(f"PASS: {len(species)} species / {len(families)} families / {len(collections)} assigned collections.")
-    print("PASS: nine verified live text-only family learners and 112 grass fallback records; no new image galleries released.")
+    print("PASS: eight verified public text learners plus one 153-photo CC Asteraceae learner; 112 grass fallback records.")
     print("PASS: original authoritative learner preserved; static hub asset references present.")
     return 0
 

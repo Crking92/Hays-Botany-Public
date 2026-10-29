@@ -44,7 +44,7 @@
       "id": "Hays-Botany-Monocots-Aquatics",
       "title": "Monocots & Aquatics",
       "repository": "Crking92/Hays-Botany-Monocots-Aquatics",
-      "status": "SETUP_ONLY_NOT_LIVE",
+      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
       "families": [
         "Alismataceae",
         "Amaryllidaceae",
@@ -81,7 +81,7 @@
       "id": "Hays-Botany-Lamiales",
       "title": "Lamiales",
       "repository": "Crking92/Hays-Botany-Lamiales",
-      "status": "SETUP_ONLY_NOT_LIVE",
+      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
       "families": [
         "Acanthaceae",
         "Bignoniaceae",
@@ -103,7 +103,7 @@
       "id": "Hays-Botany-Asterid-Allies",
       "title": "Asterid & Allies",
       "repository": "Crking92/Hays-Botany-Asterid-Allies",
-      "status": "SETUP_ONLY_NOT_LIVE",
+      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
       "families": [
         "Apocynaceae",
         "Boraginaceae",
@@ -124,7 +124,7 @@
       "id": "Hays-Botany-Cacti-Buttercups",
       "title": "Cacti & Buttercups",
       "repository": "Crking92/Hays-Botany-Cacti-Buttercups",
-      "status": "SETUP_ONLY_NOT_LIVE",
+      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
       "families": [
         "Amaranthaceae",
         "Berberidaceae",
@@ -149,7 +149,7 @@
       "id": "Hays-Botany-Spurges-Mallows",
       "title": "Spurges & Mallows",
       "repository": "Crking92/Hays-Botany-Spurges-Mallows",
-      "status": "SETUP_ONLY_NOT_LIVE",
+      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
       "families": [
         "Balsaminaceae",
         "Bixaceae",
@@ -173,7 +173,7 @@
       "id": "Hays-Botany-Trees-Shrubs",
       "title": "Trees & Shrubs",
       "repository": "Crking92/Hays-Botany-Trees-Shrubs",
-      "status": "SETUP_ONLY_NOT_LIVE",
+      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
       "families": [
         "Altingiaceae",
         "Anacardiaceae",
@@ -220,7 +220,7 @@
       "id": "Hays-Botany-Mixed-Families",
       "title": "Mixed & Families",
       "repository": "Crking92/Hays-Botany-Mixed-Families",
-      "status": "SETUP_ONLY_NOT_LIVE",
+      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
       "families": [
         "Apiaceae",
         "Apodanthaceae",

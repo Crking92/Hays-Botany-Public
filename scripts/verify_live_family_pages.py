@@ -42,18 +42,36 @@ def test(item):
   doc=json.loads(raw)
   entries=doc["entries"]
   if len(entries)!=count:raise ValueError("Species count mismatch "+str(len(entries)))
-  if doc.get("site_release_stage")!="PUBLIC_TEXT_ONLY_PREVIEW_PHOTOS_HELD":
-   raise ValueError("Current photo-safe publication stage missing")
   if len({s["id"] for s in entries})!=count:raise ValueError("Duplicate species IDs")
   sample=get(base+"site/data/species/"+entries[0]["id"]+".json")
   card=json.loads(sample)
-  if card["id"]!=entries[0]["id"] or card.get("verified_photos")!=[]:
-   raise ValueError("Missing index match or unsafe embedded photos")
+  if card["id"]!=entries[0]["id"]:
+   raise ValueError("Missing exact species index match")
+  photos=0
+  if name=="Hays-Botany-Asteraceae":
+   summary=json.loads(get(base+"site/data/preview-summary.json"))
+   if summary.get("strict_public_cc") is not True or summary.get("verified_photo_copies")!=153:
+    raise ValueError("Asteraceae exact strict-CC photo release not live yet")
+   photos=summary["verified_photo_copies"]
+   doc=json.loads(get(base+"site/data/species/achillea-millefolium.json"))
+   verified=doc.get("verified_photos") or []
+   if not verified:raise ValueError("Asteraceae photo learner missing verified yarrow gallery")
+   shot=verified[0]
+   if shot["noncommercial_only"] or shot["private_rights_review_only"] or not shot["source_page"].startswith("https://"):
+    raise ValueError("Unexpected public gallery rights condition")
+   image=get(base+"site/"+shot["src"])
+   if image[:3]!=b"\\xff\\xd8\\xff":
+    raise ValueError("Source-credited photo path not serving JPEG pixels")
+  else:
+   if doc.get("site_release_stage")!="PUBLIC_TEXT_ONLY_PREVIEW_PHOTOS_HELD":
+    raise ValueError("Current photo-safe publication stage missing")
+   if card.get("verified_photos")!=[]:
+    raise ValueError("Text-only collection unexpectedly embeds source photos")
   css=get(base+"site/styles.css")
   js=get(base+"site/app.js")
   if not css or b"data/species/" not in js:
    raise ValueError("CSS or card JavaScript missing")
-  rec.update({"status":"PASS","species":count,"photos_embedded":0,"sample":card["id"],
+  rec.update({"status":"PASS","species":count,"photos_embedded":photos,"sample":card["id"],
               "index_url":base+"site/data/collection-index.json",
               "public_site_url":base})
  except Exception as e:rec.update({"status":"FAIL","error":str(e)[:230]})
@@ -64,7 +82,7 @@ out={"status":"PASS" if all(x["status"]=="PASS" for x in results) else "PARTIAL"
      "families_tested":len(EXPECTED),
      "families_passed":sum(x["status"]=="PASS" for x in results),
      "species_passed":sum(x.get("species",0) for x in results),
-     "photos_embedded":0,
+     "photos_embedded":sum(x.get("photos_embedded",0) for x in results),
      "includes_poaceae":False,
      "hub_routes_modified":False,
      "results":results}

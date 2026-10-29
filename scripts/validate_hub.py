@@ -30,7 +30,7 @@ def main():
     insist(len(species) == index.get("source_count") == 1191, "unexpected source species count")
     insist(len(families) == 146, "unexpected family count")
     insist(len(collections) == 10, "expected ten collections")
-    live=[c for c in collections if c.get("status")=="LIVE_TEXT_ONLY_PREVIEW"]
+    live=[c for c in collections if c.get("status") in ("LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY")]
     grass=[c for c in collections if c.get("id")=="Hays-Botany-Poaceae"]
     insist(len(live)==9, "exactly nine verified existing-data text learners")
     insist(len(grass)==1 and grass[0].get("live_url") is None and grass[0].get("status")=="STAGING_NOT_LIVE", "grass must retain legacy learner fallback")

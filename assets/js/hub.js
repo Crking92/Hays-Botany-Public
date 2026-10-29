@@ -117,7 +117,7 @@ function showFailure(e){
 async function start(){
   try {
     const [index,hub]=await Promise.all([getJSON("./data/species-index.json"),getJSON("./data/collections.json")]);
-    if(index.status!=="STAGING_READ_ONLY_SOURCE_SNAPSHOT"||hub.status!=="NINE_VERIFIED_FAMILY_TEXT_SITES_GRASSES_LEGACY_FALLBACK"||!Array.isArray(index.records)||!Array.isArray(hub.collections)||!Array.isArray(hub.families))throw Error("Hub data schema or staging-only routing status was not recognized.");
+    if(index.status!=="STAGING_READ_ONLY_SOURCE_SNAPSHOT"||!["NINE_VERIFIED_FAMILY_TEXT_SITES_GRASSES_LEGACY_FALLBACK","NINE_VERIFIED_FAMILY_PHOTO_GALLERIES_GRASSES_LEGACY_FALLBACK"].includes(hub.status)||!Array.isArray(index.records)||!Array.isArray(hub.collections)||!Array.isArray(hub.families))throw Error("Hub data schema or staging-only routing status was not recognized.");
     if(index.records.length!==index.source_count||hub.collections.length!==10)throw Error("Indexed data counts did not match the saved baseline.");
     state.source=hub;
     state.species=index.records.map(x=>({...x,_label:token(x.search_label),_search:token([x.id,x.genus,x.family,x.search_label].join(" "))}));

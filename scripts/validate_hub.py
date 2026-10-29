@@ -44,7 +44,11 @@ def main():
     live=[c for c in collections if c.get("status") in ("LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY")]
     grass=[c for c in collections if c.get("id")=="Hays-Botany-Poaceae"]
     insist(len(live)==9,"nine verified family learners expected")
-    insist(len(grass)==1 and grass[0].get("live_url") is None and grass[0].get("status")=="STAGING_NOT_LIVE","grass must retain legacy fallback until explicit cutover")
+    insist(len(grass)==1 and grass[0].get("live_url") is None and grass[0].get("status")=="LIVE_REVIEW_ONLY_NOT_ROUTED","grass must retain original search routing until explicit cutover")
+    if len(grass)==1:
+        insist(grass[0].get("review_url")=="https://crking92.github.io/Hays-Botany-Poaceae/site/","grass review URL must be the tested dedicated learner")
+        insist(grass[0].get("active_species_destination")=="ORIGINAL_LEGACY_LEARNER","grass search default must remain original")
+        insist(grass[0].get("review_published_photo_files")==369 and grass[0].get("review_visible_photo_panels")==465,"grass review gallery inventory drift")
     for c in live:
         insist(c.get("live_url")=="https://crking92.github.io/"+c["id"]+"/site/","wrong or unverified live family URL: "+c["id"])
         if c.get("status")=="LIVE_VERIFIED_CC_GALLERY":
@@ -84,7 +88,7 @@ def main():
         print("\n".join("ERROR: " + s for s in errors))
         return 1
     print(f"PASS: {len(species)} species / {len(families)} families / {len(collections)} assigned collections.")
-    print("PASS: live family photo links checked; 112 grass fallback records until Poaceae site QA.")
+    print("PASS: nine routed family galleries and optional live grass review link; 112 grass results retain original fallback.")
     print("PASS: original authoritative learner preserved; static hub asset references present.")
     return 0
 

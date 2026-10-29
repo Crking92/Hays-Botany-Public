@@ -89,7 +89,8 @@ function renderCollections(){
   for(const group of state.collections){
     const card=el("article","collectioncard");
     const live=["LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY"].includes(group.status);
-    const label=group.status==="LIVE_VERIFIED_CC_GALLERY"?"Live field-ID learner · "+group.photos_deployed_in_this_collection+" verified photographs":live?"Live field-ID text learner · photo review pending":"Grass learner in preparation · original site available";
+    const grassReview=group.id==="Hays-Botany-Poaceae" && group.status==="LIVE_REVIEW_ONLY_NOT_ROUTED";
+    const label=group.status==="LIVE_VERIFIED_CC_GALLERY"?"Live field-ID learner · "+group.photos_deployed_in_this_collection+" verified photographs":live?"Live field-ID text learner · photo review pending":grassReview?"Live grass review · "+group.review_published_photo_files+" source photo files / "+group.review_visible_photo_panels+" panels · original fallback active":"Grass learner in preparation · original site available";
     card.append(el("span","status",label));
     card.append(el("h3","",prettyCollectionName(group.id)));
     card.append(el("p","",group.families.length+" "+(group.families.length===1?"family":"families")+" · "+group.installed_species_baseline+" source species"));
@@ -103,6 +104,10 @@ function renderCollections(){
     }else{
       const old=el("a","button","Open original grass learner");
       old.href=state.source.canonical_site+"?species=schizachyrium-scoparium";old.target="_blank";old.rel="noopener noreferrer";links.append(old);
+      if(grassReview){
+        const review=el("a","button secondary","Try dedicated grass learner");
+        review.href=group.review_url;review.target="_blank";review.rel="noopener noreferrer";links.append(review);
+      }
     }
     links.append(sourceLink);card.append(links);frag.append(card);
   }

@@ -8,14 +8,18 @@
       "id": "Hays-Botany-Poaceae",
       "title": "Poaceae",
       "repository": "Crking92/Hays-Botany-Poaceae",
-      "status": "STAGING_NOT_LIVE",
+      "status": "LIVE_REVIEW_ONLY_NOT_ROUTED",
       "families": [
         "Poaceae"
       ],
       "installed_species_baseline": 112,
       "github_url": "https://github.com/Crking92/Hays-Botany-Poaceae",
       "live_url": null,
-      "active_species_destination": "ORIGINAL_LEGACY_LEARNER"
+      "active_species_destination": "ORIGINAL_LEGACY_LEARNER",
+      "review_url": "https://crking92.github.io/Hays-Botany-Poaceae/site/",
+      "review_published_photo_files": 369,
+      "review_visible_photo_panels": 465,
+      "review_photographed_species": 103
     },
     {
       "id": "Hays-Botany-Asteraceae",

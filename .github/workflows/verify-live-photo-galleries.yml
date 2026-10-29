@@ -1,0 +1,23 @@
+name: Verify every published existing-source family photograph
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/verify_live_photo_galleries.py'
+      - '.github/workflows/verify-live-photo-galleries.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decoder
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Verify all nine family lesson indexes, galleries and image pixels
+        run: python scripts/verify_live_photo_galleries.py

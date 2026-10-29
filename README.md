@@ -1,3 +1,5 @@
+> **Latest existing-source migration checkpoint — October 29, 2026:** This hub now routes **nine live photo-backed family learners** covering **1,079 species** (all non-grass assigned taxa) and **643 source-credited public photo references**. Of those, **641 photos are GitHub-hosted** and two Lamiales photos remain Wikimedia-linked. All nine galleries passed live HTTP image fetch and decode testing at the prior 573-photo checkpoint; the newer Lamiales/Asteraceae photo backfill is being rechecked separately. **Poaceae's 112 species** remain routed to the original learner until its dedicated Pages website is activated and verified. Family staging branches are future botanical write destinations; the original learner is read-only fallback. No new photography was collected during this migration. The earlier planning/preview descriptions below are historical and superseded where they say family websites are unpublished, private, or text-only.
+
 # Hays Botany — Central Hub (staging preview)
 
 **This repository is intended for the future central public hub for the Hays Botany Visual Learner. It is NOT currently the production site.**

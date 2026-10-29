@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#244a36">
+  <meta name="description" content="Hays Botany Visual Learner — future central hub staging preview. Browse all ten planned family collections and search the current original learner.">
+  <title>Hays Botany | Collection Hub Preview</title>
+  <link rel="icon" href="https://crking92.github.io/Hays-County-Botany/assets/app-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/hub.css">
+  <script defer src="./assets/js/hub.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="nav">
+  <a href="#home" class="brand" aria-label="Hays Botany hub home"><span class="brandmark" aria-hidden="true">✳</span><span>Hays Botany</span></a>
+  <nav class="tabs" aria-label="Main"><a href="#species">Find a plant</a><a href="#families">Families</a><a href="#collections">Collections</a><a href="https://crking92.github.io/Hays-County-Botany/" target="_blank" rel="noopener noreferrer">Current learner ↗</a></nav>
+</div></header>
+<main id="main" class="wrap">
+  <section class="hero" id="home" aria-labelledby="heroTitle">
+    <div class="kicker">Central Texas visual plant identification · Hub preview</div>
+    <h1 id="heroTitle">Find the plant.<br>Learn what to look for.</h1>
+    <p>One place to find the right learner, browse families, and learn field-identification characters. The original Visual Learner remains the live source while family collections are prepared.</p>
+    <div class="heroactions"><a class="button bright" href="#species">Find a plant</a><a class="button light" href="#collections">Explore family collections</a></div>
+  </section>
+  <div class="notice" role="status"><strong>Preview only:</strong> This repository is not the public replacement yet. Every species result opens the <a href="https://crking92.github.io/Hays-County-Botany/" target="_blank" rel="noopener noreferrer">current working learner</a>. We will only switch a family link after its own release is approved and verified.</div>
+  <div class="statgrid" aria-label="Indexed coverage">
+    <div class="stat"><strong id="speciesCount">—</strong><span>species indexed</span></div>
+    <div class="stat"><strong id="familyCount">—</strong><span>families</span></div>
+    <div class="stat"><strong id="collectionCount">—</strong><span>planned collections</span></div>
+  </div>
+  <section id="species" aria-labelledby="speciesTitle" class="content-section">
+    <div class="sectionhead"><div><div class="eyebrow">01 · Search</div><h2 id="speciesTitle">Start with a plant</h2></div></div>
+    <p class="muted">Search a species ID, scientific-name search label, genus, or family. Names in this starter index are derived from stable IDs; the original species page remains authoritative for accepted names and common names.</p>
+    <label class="searchlabel" for="searchInput">Search all indexed plants</label>
+    <div class="searchrow"><input id="searchInput" class="search" type="search" placeholder="e.g. little bluestem, Schizachyrium, Asteraceae…" autocomplete="off" aria-controls="results" aria-describedby="searchNote"><button id="clearSearch" class="button secondary" type="button">Clear</button></div>
+    <p id="searchNote" class="muted micro">Tip: searches work best with scientific names, family names, and stable species IDs until common-name metadata is migrated.</p>
+    <p id="resultSummary" class="resultsummary" aria-live="polite">Loading the species index…</p>
+    <div id="results" class="results" aria-label="Species search results"></div>
+    <div class="moreline"><button id="moreResults" class="button secondary" type="button" hidden>Show more results</button></div>
+  </section>
+  <section id="families" aria-labelledby="familyTitle" class="content-section">
+    <div class="sectionhead"><div><div class="eyebrow">02 · Browse</div><h2 id="familyTitle">Browse plant families</h2></div></div>
+    <p class="muted">All families retain an assigned destination. For now, choosing a family filters the search index; it does not pretend its new collection website is live.</p>
+    <label class="searchlabel" for="familyFilter">Find a family</label>
+    <input id="familyFilter" type="search" class="search" placeholder="e.g. Poaceae or grass" autocomplete="off" aria-controls="familiesGrid">
+    <div id="familiesGrid" class="familygrid"></div>
+  </section>
+  <section id="collections" aria-labelledby="collectionsTitle" class="content-section">
+    <div class="sectionhead"><div><div class="eyebrow">03 · Future structure</div><h2 id="collectionsTitle">Ten family collections</h2></div></div>
+    <p class="muted">These are GitHub staging repositories, not released family websites. The original learner remains available for every plant in the meantime.</p>
+    <div id="collectionsGrid" class="collectiongrid"></div>
+  </section>
+  <section id="learn" aria-labelledby="learnTitle" class="content-section">
+    <div class="sectionhead"><div><div class="eyebrow">04 · Keep learning</div><h2 id="learnTitle">Field ID, glossary &amp; quiz</h2></div></div>
+    <div class="featuregrid">
+      <article class="feature"><span class="featureico" aria-hidden="true">☘</span><h3>Visual Learner</h3><p>Real photographs, morphology-first teaching, and look-alike comparisons.</p><a class="button secondary" href="https://crking92.github.io/Hays-County-Botany/" target="_blank" rel="noopener noreferrer">Open current Learner ↗</a></article>
+      <article class="feature"><span class="featureico" aria-hidden="true">⌕</span><h3>Field ID</h3><p>Short, practical plant identification clues, expanding into detail as needed.</p><a class="button secondary" href="https://crking92.github.io/Hays-County-Botany/" target="_blank" rel="noopener noreferrer">Open current Field ID ↗</a></article>
+      <article class="feature"><span class="featureico" aria-hidden="true">◎</span><h3>Glossary &amp; quiz</h3><p>Learn parts of plants and test your skills using the original site's shared lessons.</p><a class="button secondary" href="https://crking92.github.io/Hays-County-Botany/" target="_blank" rel="noopener noreferrer">Open current learning tools ↗</a></article>
+    </div>
+  </section>
+  <footer class="footer"><p>Hays Botany ID · <strong>Glass Root Garden</strong> · Educational field learner in progress.</p><p>Photo rights and attribution remain with each creator. No third-party source photographs are copied into this hub preview. <a href="https://github.com/Crking92/Hays-Botany-Public">Hub source</a> · <a href="https://crking92.github.io/Hays-County-Botany/">Current public learner</a></p><p class="micro" id="sourceStamp"></p></footer>
+</main>
+</body>
+</html>

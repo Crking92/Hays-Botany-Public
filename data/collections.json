@@ -38,10 +38,12 @@
       "github_url": "https://github.com/Crking92/Hays-Botany-Asteraceae",
       "live_url": "https://crking92.github.io/Hays-Botany-Asteraceae/site/",
       "active_species_destination": "VERIFIED_FAMILY_CC_PHOTO_LEARNER",
-      "photos_deployed_in_this_collection": 162,
-      "photographed_species": 116,
-      "verified_live_photo_smoke_run": "https://github.com/Crking92/Hays-Botany-Public/actions/runs/40889445918",
-      "media_policy": "ONLY_EXISTING_SOURCE_RIGHTS_SCREENED_IMAGES; EXTRA_HELD_PHOTOS_EXCLUDED"
+      "photos_deployed_in_this_collection": 172,
+      "photographed_species": 124,
+      "verified_live_photo_smoke_run": "https://github.com/Crking92/Hays-Botany-Asteraceae/actions/runs/40933112050",
+      "media_policy": "ONLY_EXISTING_SOURCE_RIGHTS_SCREENED_IMAGES; EXTRA_HELD_PHOTOS_EXCLUDED",
+      "known_no_published_photo_species": 56,
+      "source_rights_audit": "https://github.com/Crking92/Hays-Botany-Asteraceae/blob/main/migration/ASTERACEAE_EXISTING_SOURCE_RECOVERY_CHECKPOINT_20261029.md"
     },
     {
       "id": "Hays-Botany-Fabaceae",

@@ -31,7 +31,7 @@ def main():
     insist(len(families) == 146, "unexpected family count")
     insist(len(collections) == 10, "expected ten collections")
     expected_photos={
-        "Hays-Botany-Asteraceae":(162,116),
+        "Hays-Botany-Asteraceae":(172,124),
         "Hays-Botany-Fabaceae":(18,11),
         "Hays-Botany-Monocots-Aquatics":(35,23),
         "Hays-Botany-Lamiales":(102,55),

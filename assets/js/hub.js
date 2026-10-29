@@ -19,8 +19,8 @@ async function getJSON(path){
 }
 function familyRoute(sp){
   const c=state.collections.find(g=>g.families.includes(sp.family));
-  if(c?.status==="LIVE_TEXT_ONLY_PREVIEW" && /^https:\/\/crking92\.github\.io\/Hays-Botany-[A-Za-z-]+\/site\/$/.test(c.live_url||"")){
-    return {href:c.live_url+"?species="+encodeURIComponent(sp.id),label:"Family field-ID text learner · photographs pending",family:true};
+  if(["LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY"].includes(c?.status) && /^https:\/\/crking92\.github\.io\/Hays-Botany-[A-Za-z-]+\/site\/$/.test(c.live_url||"")){
+    return {href:c.live_url+"?species="+encodeURIComponent(sp.id),label:c.status==="LIVE_VERIFIED_CC_GALLERY"?"Family learner · verified source-credited photographs":"Family field-ID text learner · photographs pending",family:true};
   }
   return {href:legacyLink(sp.id),label:"Original grass learner · photo fallback",family:false};
 }
@@ -88,8 +88,8 @@ function renderCollections(){
   const target=$("collectionsGrid");target.replaceChildren();const frag=document.createDocumentFragment();
   for(const group of state.collections){
     const card=el("article","collectioncard");
-    const live=group.status==="LIVE_TEXT_ONLY_PREVIEW";
-    const label=live?"Live field-ID text learner · photo review pending":"Grass learner in preparation · original site available";
+    const live=["LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY"].includes(group.status);
+    const label=group.status==="LIVE_VERIFIED_CC_GALLERY"?"Live field-ID learner · "+group.photos_deployed_in_this_collection+" verified photographs":live?"Live field-ID text learner · photo review pending":"Grass learner in preparation · original site available";
     card.append(el("span","status",label));
     card.append(el("h3","",prettyCollectionName(group.id)));
     card.append(el("p","",group.families.length+" "+(group.families.length===1?"family":"families")+" · "+group.installed_species_baseline+" source species"));

@@ -27,9 +27,13 @@ jobs:
         run: python scripts/validate_hub.py
       - name: Check JavaScript syntax
         run: node --check assets/js/hub.js
-      - name: Ensure no publishing workflow is configured
+      - name: Ensure no other workflow publishes the staging hub
         run: |
-          if grep -REn '(^[[:space:]]*pages:[[:space:]]*write|deploy-pages|peaceiris/actions-gh-pages|actions/upload-pages-artifact)' .github/workflows/; then
-            echo "Unexpected Pages deployment token in staging-only workflows"
-            exit 1
-          fi
+          for file in .github/workflows/*.yml .github/workflows/*.yaml; do
+            [ -f "$file" ] || continue
+            [ "$file" = ".github/workflows/validate-hub.yml" ] && continue
+            if grep -Eq 'pages:[[:space:]]*write|deploy-pages|upload-pages-artifact|actions-gh-pages' "$file"; then
+              echo "Unexpected Pages deployment token in $file"
+              exit 1
+            fi
+          done

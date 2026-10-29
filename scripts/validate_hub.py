@@ -24,22 +24,37 @@ def main():
     insist(index.get("schema_version") == 1, "index schema version")
     insist(hub.get("schema_version") == 1, "hub schema version")
     insist(index.get("status") == "STAGING_READ_ONLY_SOURCE_SNAPSHOT", "index must remain staging only")
-    insist(hub.get("status") == "NINE_VERIFIED_FAMILY_TEXT_SITES_GRASSES_LEGACY_FALLBACK", "expected controlled family text-site routing")
+    insist(hub.get("status") in ("NINE_VERIFIED_FAMILY_TEXT_SITES_GRASSES_LEGACY_FALLBACK","NINE_VERIFIED_FAMILY_PHOTO_GALLERIES_GRASSES_LEGACY_FALLBACK"), "expected controlled family gallery routing")
     insist(index.get("canonical_source_repository") == "Crking92/Hays-County-Botany", "canonical source must stay original")
     insist(index.get("source_manifest_blob_sha") and len(index["source_manifest_blob_sha"]) == 40, "pinned source blob sha required")
     insist(len(species) == index.get("source_count") == 1191, "unexpected source species count")
     insist(len(families) == 146, "unexpected family count")
     insist(len(collections) == 10, "expected ten collections")
+    expected_photos={
+        "Hays-Botany-Asteraceae":(153,112),
+        "Hays-Botany-Fabaceae":(18,11),
+        "Hays-Botany-Monocots-Aquatics":(35,23),
+        "Hays-Botany-Lamiales":(41,16),
+        "Hays-Botany-Asterid-Allies":(64,30),
+        "Hays-Botany-Cacti-Buttercups":(37,25),
+        "Hays-Botany-Spurges-Mallows":(99,48),
+        "Hays-Botany-Trees-Shrubs":(107,51),
+        "Hays-Botany-Mixed-Families":(19,14),
+    }
     live=[c for c in collections if c.get("status") in ("LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY")]
     grass=[c for c in collections if c.get("id")=="Hays-Botany-Poaceae"]
-    insist(len(live)==9, "exactly nine verified existing-data text learners")
-    insist(len(grass)==1 and grass[0].get("live_url") is None and grass[0].get("status")=="STAGING_NOT_LIVE", "grass must retain legacy learner fallback")
+    insist(len(live)==9,"nine verified family learners expected")
+    insist(len(grass)==1 and grass[0].get("live_url") is None and grass[0].get("status")=="STAGING_NOT_LIVE","grass must retain legacy fallback until explicit cutover")
     for c in live:
-        insist(c.get("live_url")=="https://crking92.github.io/"+c["id"]+"/site/", "unsafe or mismatched family URL: "+c["id"])
+        insist(c.get("live_url")=="https://crking92.github.io/"+c["id"]+"/site/","wrong or unverified live family URL: "+c["id"])
         if c.get("status")=="LIVE_VERIFIED_CC_GALLERY":
-            insist(c["id"]=="Hays-Botany-Asteraceae" and c.get("photos_deployed_in_this_collection")==153 and c.get("photographed_species")==112, "Unexpected verified CC photo release")
+            photo_count,photo_species=expected_photos[c["id"]]
+            insist(c.get("photos_deployed_in_this_collection")==photo_count and c.get("photographed_species")==photo_species,"family gallery count drift: "+c["id"])
         else:
-            insist(c.get("photos_deployed_in_this_collection")==0, "text-only photo publication marker must remain zero: "+c["id"])
+            insist(c.get("photos_deployed_in_this_collection")==0,"text-only family cannot claim released photos: "+c["id"])
+    if hub.get("status")=="NINE_VERIFIED_FAMILY_PHOTO_GALLERIES_GRASSES_LEGACY_FALLBACK":
+        insist(all(c.get("status")=="LIVE_VERIFIED_CC_GALLERY" for c in live),"all nine photo galleries must be verified before enabling this hub status")
+        insist(sum(c.get("photos_deployed_in_this_collection",0) for c in live)==573,"expected 573 existing-source cleared photo links")
     insist(sum(c["installed_species_baseline"] for c in live)==1079, "unexpected live family text-index coverage")
     insist(all(c.get("repository", "").startswith("Crking92/Hays-Botany-") for c in collections), "unexpected destination repository")
     byid = Counter(s.get("id") for s in species)
@@ -69,7 +84,7 @@ def main():
         print("\n".join("ERROR: " + s for s in errors))
         return 1
     print(f"PASS: {len(species)} species / {len(families)} families / {len(collections)} assigned collections.")
-    print("PASS: eight verified public text learners plus one 153-photo CC Asteraceae learner; 112 grass fallback records.")
+    print("PASS: live family photo links checked; 112 grass fallback records until Poaceae site QA.")
     print("PASS: original authoritative learner preserved; static hub asset references present.")
     return 0
 

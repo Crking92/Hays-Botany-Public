@@ -58,7 +58,7 @@ def main():
             insist(c.get("photos_deployed_in_this_collection")==0,"text-only family cannot claim released photos: "+c["id"])
     if hub.get("status")=="NINE_VERIFIED_FAMILY_PHOTO_GALLERIES_GRASSES_LEGACY_FALLBACK":
         insist(all(c.get("status")=="LIVE_VERIFIED_CC_GALLERY" for c in live),"all nine photo galleries must be verified before enabling this hub status")
-        insist(sum(c.get("photos_deployed_in_this_collection",0) for c in live)==643,"expected 643 existing-source cleared photo links")
+        insist(sum(c.get("photos_deployed_in_this_collection",0) for c in live)==653,"expected 653 existing-source cleared photo links")
     insist(sum(c["installed_species_baseline"] for c in live)==1079, "unexpected live family text-index coverage")
     insist(all(c.get("repository", "").startswith("Crking92/Hays-Botany-") for c in collections), "unexpected destination repository")
     byid = Counter(s.get("id") for s in species)

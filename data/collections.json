@@ -1,0 +1,1288 @@
+{
+  "schema_version": 1,
+  "status": "PLANNED_ONLY_NO_LIVE_FAMILY_ROUTING",
+  "canonical_site": "https://crking92.github.io/Hays-County-Botany/",
+  "canonical_source_repository": "Crking92/Hays-County-Botany",
+  "collections": [
+    {
+      "id": "Hays-Botany-Poaceae",
+      "title": "Poaceae",
+      "repository": "Crking92/Hays-Botany-Poaceae",
+      "status": "STAGING_NOT_LIVE",
+      "families": [
+        "Poaceae"
+      ],
+      "installed_species_baseline": 112,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Poaceae",
+      "live_url": null
+    },
+    {
+      "id": "Hays-Botany-Asteraceae",
+      "title": "Asteraceae",
+      "repository": "Crking92/Hays-Botany-Asteraceae",
+      "status": "PRIVATE_STAGING_NOT_LIVE",
+      "families": [
+        "Asteraceae"
+      ],
+      "installed_species_baseline": 180,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Asteraceae",
+      "live_url": null
+    },
+    {
+      "id": "Hays-Botany-Fabaceae",
+      "title": "Fabaceae",
+      "repository": "Crking92/Hays-Botany-Fabaceae",
+      "status": "PRIVATE_STAGING_NOT_LIVE",
+      "families": [
+        "Fabaceae"
+      ],
+      "installed_species_baseline": 91,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Fabaceae",
+      "live_url": null
+    },
+    {
+      "id": "Hays-Botany-Monocots-Aquatics",
+      "title": "Monocots & Aquatics",
+      "repository": "Crking92/Hays-Botany-Monocots-Aquatics",
+      "status": "SETUP_ONLY_NOT_LIVE",
+      "families": [
+        "Alismataceae",
+        "Amaryllidaceae",
+        "Araceae",
+        "Arecaceae",
+        "Asparagaceae",
+        "Bromeliaceae",
+        "Cabombaceae",
+        "Cannaceae",
+        "Ceratophyllaceae",
+        "Commelinaceae",
+        "Cyperaceae",
+        "Haloragaceae",
+        "Hydrocharitaceae",
+        "Iridaceae",
+        "Juncaceae",
+        "Marantaceae",
+        "Melanthiaceae",
+        "Nartheciaceae",
+        "Nelumbonaceae",
+        "Nymphaeaceae",
+        "Orchidaceae",
+        "Pontederiaceae",
+        "Potamogetonaceae",
+        "Saururaceae",
+        "Smilacaceae",
+        "Typhaceae"
+      ],
+      "installed_species_baseline": 113,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Monocots-Aquatics",
+      "live_url": null
+    },
+    {
+      "id": "Hays-Botany-Lamiales",
+      "title": "Lamiales",
+      "repository": "Crking92/Hays-Botany-Lamiales",
+      "status": "SETUP_ONLY_NOT_LIVE",
+      "families": [
+        "Acanthaceae",
+        "Bignoniaceae",
+        "Lamiaceae",
+        "Lentibulariaceae",
+        "Martyniaceae",
+        "Oleaceae",
+        "Orobanchaceae",
+        "Paulowniaceae",
+        "Plantaginaceae",
+        "Scrophulariaceae",
+        "Verbenaceae"
+      ],
+      "installed_species_baseline": 102,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Lamiales",
+      "live_url": null
+    },
+    {
+      "id": "Hays-Botany-Asterid-Allies",
+      "title": "Asterid & Allies",
+      "repository": "Crking92/Hays-Botany-Asterid-Allies",
+      "status": "SETUP_ONLY_NOT_LIVE",
+      "families": [
+        "Apocynaceae",
+        "Boraginaceae",
+        "Campanulaceae",
+        "Convolvulaceae",
+        "Gelsemiaceae",
+        "Gentianaceae",
+        "Loganiaceae",
+        "Polemoniaceae",
+        "Rubiaceae",
+        "Solanaceae"
+      ],
+      "installed_species_baseline": 118,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Asterid-Allies",
+      "live_url": null
+    },
+    {
+      "id": "Hays-Botany-Cacti-Buttercups",
+      "title": "Cacti & Buttercups",
+      "repository": "Crking92/Hays-Botany-Cacti-Buttercups",
+      "status": "SETUP_ONLY_NOT_LIVE",
+      "families": [
+        "Amaranthaceae",
+        "Berberidaceae",
+        "Cactaceae",
+        "Caryophyllaceae",
+        "Menispermaceae",
+        "Nyctaginaceae",
+        "Papaveraceae",
+        "Petiveriaceae",
+        "Phytolaccaceae",
+        "Plumbaginaceae",
+        "Polygonaceae",
+        "Portulacaceae",
+        "Ranunculaceae",
+        "Talinaceae"
+      ],
+      "installed_species_baseline": 107,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Cacti-Buttercups",
+      "live_url": null
+    },
+    {
+      "id": "Hays-Botany-Spurges-Mallows",
+      "title": "Spurges & Mallows",
+      "repository": "Crking92/Hays-Botany-Spurges-Mallows",
+      "status": "SETUP_ONLY_NOT_LIVE",
+      "families": [
+        "Balsaminaceae",
+        "Bixaceae",
+        "Euphorbiaceae",
+        "Hypericaceae",
+        "Linaceae",
+        "Lythraceae",
+        "Malvaceae",
+        "Myrtaceae",
+        "Onagraceae",
+        "Passifloraceae",
+        "Phyllanthaceae",
+        "Salicaceae",
+        "Violaceae"
+      ],
+      "installed_species_baseline": 130,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Spurges-Mallows",
+      "live_url": null
+    },
+    {
+      "id": "Hays-Botany-Trees-Shrubs",
+      "title": "Trees & Shrubs",
+      "repository": "Crking92/Hays-Botany-Trees-Shrubs",
+      "status": "SETUP_ONLY_NOT_LIVE",
+      "families": [
+        "Altingiaceae",
+        "Anacardiaceae",
+        "Aquifoliaceae",
+        "Araliaceae",
+        "Cannabaceae",
+        "Caprifoliaceae",
+        "Celastraceae",
+        "Cornaceae",
+        "Ebenaceae",
+        "Elaeagnaceae",
+        "Ericaceae",
+        "Fagaceae",
+        "Garryaceae",
+        "Grossulariaceae",
+        "Hydrangeaceae",
+        "Juglandaceae",
+        "Koeberliniaceae",
+        "Lauraceae",
+        "Magnoliaceae",
+        "Meliaceae",
+        "Moraceae",
+        "Platanaceae",
+        "Rhamnaceae",
+        "Rosaceae",
+        "Rutaceae",
+        "Santalaceae",
+        "Sapindaceae",
+        "Sapotaceae",
+        "Simaroubaceae",
+        "Styracaceae",
+        "Symplocaceae",
+        "Tamaricaceae",
+        "Ulmaceae",
+        "Urticaceae",
+        "Viburnaceae",
+        "Vitaceae"
+      ],
+      "installed_species_baseline": 133,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Trees-Shrubs",
+      "live_url": null
+    },
+    {
+      "id": "Hays-Botany-Mixed-Families",
+      "title": "Mixed & Families",
+      "repository": "Crking92/Hays-Botany-Mixed-Families",
+      "status": "SETUP_ONLY_NOT_LIVE",
+      "families": [
+        "Apiaceae",
+        "Apodanthaceae",
+        "Aristolochiaceae",
+        "Aspleniaceae",
+        "Brassicaceae",
+        "Cleomaceae",
+        "Crassulaceae",
+        "Cucurbitaceae",
+        "Cupressaceae",
+        "Ephedraceae",
+        "Equisetaceae",
+        "Fouquieriaceae",
+        "Geraniaceae",
+        "Ginkgoaceae",
+        "Krameriaceae",
+        "Leucobryaceae",
+        "Leucodontaceae",
+        "Loasaceae",
+        "Malpighiaceae",
+        "Marsileaceae",
+        "Ophioglossaceae",
+        "Oxalidaceae",
+        "Pinaceae",
+        "Polygalaceae",
+        "Polypodiaceae",
+        "Pottiaceae",
+        "Primulaceae",
+        "Pteridaceae",
+        "Salviniaceae",
+        "Schizaeaceae",
+        "Selaginellaceae",
+        "Thelypteridaceae",
+        "Zygophyllaceae"
+      ],
+      "installed_species_baseline": 105,
+      "github_url": "https://github.com/Crking92/Hays-Botany-Mixed-Families",
+      "live_url": null
+    }
+  ],
+  "families": [
+    {
+      "name": "Acanthaceae",
+      "common_name": "Acanthus family",
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 10,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Alismataceae",
+      "common_name": "Water-plantain / arrowhead family",
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 5,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Altingiaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Amaranthaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 17,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Amaryllidaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 5,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Anacardiaceae",
+      "common_name": "Sumac / cashew family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 9,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Apiaceae",
+      "common_name": "Carrot / parsley family",
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 15,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Apocynaceae",
+      "common_name": "Dogbane family · milkweed group emphasized",
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 22,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Apodanthaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Aquifoliaceae",
+      "common_name": "Holly family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Araceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 6,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Araliaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Arecaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Aristolochiaceae",
+      "common_name": "Birthwort / pipevine family",
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Asparagaceae",
+      "common_name": "Asparagus family · local Yucca focus",
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 15,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Aspleniaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Asteraceae",
+      "common_name": "Sunflower / aster family",
+      "collection_id": "Hays-Botany-Asteraceae",
+      "species_count": 180,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Balsaminaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Berberidaceae",
+      "common_name": "Barberry family",
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 4,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Bignoniaceae",
+      "common_name": "Trumpet-creeper family",
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 7,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Bixaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Boraginaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 21,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Brassicaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 18,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Bromeliaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Cabombaceae",
+      "common_name": "Fanwort family",
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Cactaceae",
+      "common_name": "Cactus family",
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 24,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Campanulaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 6,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Cannabaceae",
+      "common_name": "Hemp / hackberry family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 4,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Cannaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Caprifoliaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 7,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Caryophyllaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 7,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Celastraceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Ceratophyllaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Cleomaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Commelinaceae",
+      "common_name": "Spiderwort / dayflower family",
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 8,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Convolvulaceae",
+      "common_name": "Morning-glory / bindweed family",
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 19,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Cornaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Crassulaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Cucurbitaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 6,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Cupressaceae",
+      "common_name": "Cypress family",
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Cyperaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 30,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Ebenaceae",
+      "common_name": "Ebony / persimmon family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Elaeagnaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Ephedraceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Equisetaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Ericaceae",
+      "common_name": "Heath / blueberry family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Euphorbiaceae",
+      "common_name": "Spurge family",
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 43,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Fabaceae",
+      "common_name": "Pea / bean / legume family",
+      "collection_id": "Hays-Botany-Fabaceae",
+      "species_count": 91,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Fagaceae",
+      "common_name": "Oak / beech family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 18,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Fouquieriaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Garryaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Gelsemiaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Gentianaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 7,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Geraniaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 4,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Ginkgoaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Grossulariaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Haloragaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Hydrangeaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Hydrocharitaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Hypericaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Iridaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 5,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Juglandaceae",
+      "common_name": "Walnut family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 5,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Juncaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 4,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Koeberliniaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Krameriaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Lamiaceae",
+      "common_name": "Mint family",
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 34,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Lauraceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Lentibulariaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Leucobryaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Leucodontaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Linaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 5,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Loasaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Loganiaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Lythraceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 5,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Magnoliaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Malpighiaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 4,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Malvaceae",
+      "common_name": "Mallow family",
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 31,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Marantaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Marsileaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Martyniaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Melanthiaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Meliaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Menispermaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Moraceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 4,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Myrtaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Nartheciaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Nelumbonaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Nyctaginaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 10,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Nymphaeaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Oleaceae",
+      "common_name": "Olive / ash family",
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 11,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Onagraceae",
+      "common_name": "Evening-primrose family",
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 27,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Ophioglossaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Orchidaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 5,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Orobanchaceae",
+      "common_name": "Broomrape / paintbrush family",
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 7,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Oxalidaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 5,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Papaveraceae",
+      "common_name": "Poppy family",
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 10,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Passifloraceae",
+      "common_name": "Passionflower family",
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 6,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Paulowniaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Petiveriaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Phyllanthaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Phytolaccaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Pinaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Plantaginaceae",
+      "common_name": "Plantain / penstemon family",
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 14,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Platanaceae",
+      "common_name": "Sycamore family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Plumbaginaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Poaceae",
+      "common_name": "Grass family",
+      "collection_id": "Hays-Botany-Poaceae",
+      "species_count": 112,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Polemoniaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 7,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Polygalaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 4,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Polygonaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 14,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Polypodiaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Pontederiaceae",
+      "common_name": "Pickerelweed / water-hyacinth family",
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Portulacaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Potamogetonaceae",
+      "common_name": "Pondweed family",
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 4,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Pottiaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Primulaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Pteridaceae",
+      "common_name": "Brake / cliffbrake fern family",
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 8,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Ranunculaceae",
+      "common_name": "Buttercup family",
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 13,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Rhamnaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 5,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Rosaceae",
+      "common_name": "Rose family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 14,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Rubiaceae",
+      "common_name": "Coffee / madder family",
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 7,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Rutaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Salicaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Salviniaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Santalaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Sapindaceae",
+      "common_name": "Soapberry / maple family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 10,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Sapotaceae",
+      "common_name": "Sapodilla family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Saururaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Schizaeaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Scrophulariaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Selaginellaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Simaroubaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Smilacaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Solanaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Asterid-Allies",
+      "species_count": 26,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Styracaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Symplocaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Talinaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Cacti-Buttercups",
+      "species_count": 1,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Tamaricaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Thelypteridaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Typhaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Monocots-Aquatics",
+      "species_count": 2,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Ulmaceae",
+      "common_name": "Elm family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 6,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Urticaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Verbenaceae",
+      "common_name": "Verbena family",
+      "collection_id": "Hays-Botany-Lamiales",
+      "species_count": 13,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Viburnaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Violaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Spurges-Mallows",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Vitaceae",
+      "common_name": "Grape family",
+      "collection_id": "Hays-Botany-Trees-Shrubs",
+      "species_count": 9,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    },
+    {
+      "name": "Zygophyllaceae",
+      "common_name": null,
+      "collection_id": "Hays-Botany-Mixed-Families",
+      "species_count": 3,
+      "source_url": "https://crking92.github.io/Hays-County-Botany/"
+    }
+  ]
+}

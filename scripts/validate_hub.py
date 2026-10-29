@@ -48,7 +48,7 @@ def main():
     if len(grass)==1:
         insist(grass[0].get("review_url")=="https://crking92.github.io/Hays-Botany-Poaceae/site/","grass review URL must be the tested dedicated learner")
         insist(grass[0].get("active_species_destination")=="ORIGINAL_LEGACY_LEARNER","grass search default must remain original")
-        insist(grass[0].get("review_published_photo_files")==369 and grass[0].get("review_visible_photo_panels")==465,"grass review gallery inventory drift")
+        insist(grass[0].get("review_published_photo_files")==443 and grass[0].get("review_visible_photo_panels")==558,"grass review gallery inventory drift")
     for c in live:
         insist(c.get("live_url")=="https://crking92.github.io/"+c["id"]+"/site/","wrong or unverified live family URL: "+c["id"])
         if c.get("status")=="LIVE_VERIFIED_CC_GALLERY":

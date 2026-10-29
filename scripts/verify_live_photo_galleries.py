@@ -5,10 +5,10 @@ from concurrent.futures import ThreadPoolExecutor
 from PIL import Image
 
 COLLECTIONS={
- "Hays-Botany-Asteraceae":(180,153,112),
+ "Hays-Botany-Asteraceae":(180,162,116),
  "Hays-Botany-Fabaceae":(91,18,11),
  "Hays-Botany-Monocots-Aquatics":(113,35,23),
- "Hays-Botany-Lamiales":(102,41,16),
+ "Hays-Botany-Lamiales":(102,102,55),
  "Hays-Botany-Asterid-Allies":(118,64,30),
  "Hays-Botany-Cacti-Buttercups":(107,37,25),
  "Hays-Botany-Spurges-Mallows":(130,99,48),
@@ -85,7 +85,7 @@ def main():
     with ThreadPoolExecutor(max_workers=12) as workers:
         rows=list(workers.map(img_check,everything))
     bytes_read=sum(n for _,n in rows)
-    assert len(rows)==571,(len(rows),bytes_read)
+    assert len(rows)==641,(len(rows),bytes_read)
     print("ALL_EXISTING_FAMILY_GALLERIES_LIVE_PASS",json.dumps({
         "family_websites":len(COLLECTIONS),
         "species_indexed":sum(a for a,_,_ in COLLECTIONS.values()),

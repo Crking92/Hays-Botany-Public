@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-closed validation for the un-deployed Hays Botany hub preview."""
+"""Fail-closed validation for nine verified family learner links and safe grass fallback."""
 from collections import Counter
 import json
 from pathlib import Path
@@ -24,14 +24,20 @@ def main():
     insist(index.get("schema_version") == 1, "index schema version")
     insist(hub.get("schema_version") == 1, "hub schema version")
     insist(index.get("status") == "STAGING_READ_ONLY_SOURCE_SNAPSHOT", "index must remain staging only")
-    insist(hub.get("status") == "PLANNED_ONLY_NO_LIVE_FAMILY_ROUTING", "no production routing allowed")
+    insist(hub.get("status") == "NINE_VERIFIED_FAMILY_TEXT_SITES_GRASSES_LEGACY_FALLBACK", "expected controlled family text-site routing")
     insist(index.get("canonical_source_repository") == "Crking92/Hays-County-Botany", "canonical source must stay original")
     insist(index.get("source_manifest_blob_sha") and len(index["source_manifest_blob_sha"]) == 40, "pinned source blob sha required")
     insist(len(species) == index.get("source_count") == 1191, "unexpected source species count")
     insist(len(families) == 146, "unexpected family count")
     insist(len(collections) == 10, "expected ten collections")
-    insist(all(c.get("live_url") is None for c in collections), "do not mark family sites live without verified cutover")
-    insist(all("NOT_LIVE" in c.get("status", "") for c in collections), "every family collection remains unpublished")
+    live=[c for c in collections if c.get("status")=="LIVE_TEXT_ONLY_PREVIEW"]
+    grass=[c for c in collections if c.get("id")=="Hays-Botany-Poaceae"]
+    insist(len(live)==9, "exactly nine verified existing-data text learners")
+    insist(len(grass)==1 and grass[0].get("live_url") is None and grass[0].get("status")=="STAGING_NOT_LIVE", "grass must retain legacy learner fallback")
+    for c in live:
+        insist(c.get("live_url")=="https://crking92.github.io/"+c["id"]+"/site/", "unsafe or mismatched family URL: "+c["id"])
+        insist(c.get("photos_deployed_in_this_collection")==0, "text-only photo publication marker must remain zero: "+c["id"])
+    insist(sum(c["installed_species_baseline"] for c in live)==1079, "unexpected live family text-index coverage")
     insist(all(c.get("repository", "").startswith("Crking92/Hays-Botany-") for c in collections), "unexpected destination repository")
     byid = Counter(s.get("id") for s in species)
     insist(len(byid) == len(species) and all(n == 1 for n in byid.values()), "duplicate species IDs")
@@ -55,12 +61,12 @@ def main():
     insist('id="searchInput"' in page and 'id="familiesGrid"' in page and 'id="collectionsGrid"' in page, "hub UI placeholders missing")
     insist("assets/js/hub.js" in page and "assets/css/hub.css" in page, "hub assets not included")
     script=(ROOT / "assets/js/hub.js").read_text(encoding="utf-8")
-    insist("PLANNED_ONLY_NO_LIVE_FAMILY_ROUTING" in script and "?species=" in script, "hub must keep strict original-site fallback")
+    insist("NINE_VERIFIED_FAMILY_TEXT_SITES_GRASSES_LEGACY_FALLBACK" in script and "familyRoute(sp)" in script and "legacyLink(sp.id)" in script, "hub must link live family text sites with original grass fallback")
     if errors:
         print("\n".join("ERROR: " + s for s in errors))
         return 1
-    print(f"PASS: {len(species)} species / {len(families)} families / {len(collections)} staging collections.")
-    print("PASS: no duplicate IDs or missing family assignments; all family sites remain non-live.")
+    print(f"PASS: {len(species)} species / {len(families)} families / {len(collections)} assigned collections.")
+    print("PASS: nine verified live text-only family learners and 112 grass fallback records; no new image galleries released.")
     print("PASS: original authoritative learner preserved; static hub asset references present.")
     return 0
 

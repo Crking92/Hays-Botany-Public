@@ -1,0 +1,35 @@
+name: Validate staging-only public hub
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out hub source
+        uses: actions/checkout@v4
+      - name: Install Python for validation
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Node for JavaScript syntax checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate catalog, family routing, and no-cutover rules
+        run: python scripts/validate_hub.py
+      - name: Check JavaScript syntax
+        run: node --check assets/js/hub.js
+      - name: Ensure no publishing workflow is configured
+        run: |
+          if grep -REn '(^[[:space:]]*pages:[[:space:]]*write|deploy-pages|peaceiris/actions-gh-pages|actions/upload-pages-artifact)' .github/workflows/; then
+            echo "Unexpected Pages deployment token in staging-only workflows"
+            exit 1
+          fi

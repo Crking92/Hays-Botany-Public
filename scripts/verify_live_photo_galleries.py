@@ -6,7 +6,7 @@ from PIL import Image
 
 COLLECTIONS={
  "Hays-Botany-Asteraceae":(180,153,112),
- "Hays-Botany-Fabaceae":(91,18,12),
+ "Hays-Botany-Fabaceae":(91,18,11),
  "Hays-Botany-Monocots-Aquatics":(113,35,23),
  "Hays-Botany-Lamiales":(102,41,16),
  "Hays-Botany-Asterid-Allies":(118,64,30),

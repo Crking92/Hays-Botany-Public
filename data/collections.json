@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "PLANNED_ONLY_NO_LIVE_FAMILY_ROUTING",
+  "status": "NINE_VERIFIED_FAMILY_TEXT_SITES_GRASSES_LEGACY_FALLBACK",
   "canonical_site": "https://crking92.github.io/Hays-County-Botany/",
   "canonical_source_repository": "Crking92/Hays-County-Botany",
   "collections": [
@@ -14,37 +14,42 @@
       ],
       "installed_species_baseline": 112,
       "github_url": "https://github.com/Crking92/Hays-Botany-Poaceae",
-      "live_url": null
+      "live_url": null,
+      "active_species_destination": "ORIGINAL_LEGACY_LEARNER"
     },
     {
       "id": "Hays-Botany-Asteraceae",
       "title": "Asteraceae",
       "repository": "Crking92/Hays-Botany-Asteraceae",
-      "status": "PRIVATE_STAGING_NOT_LIVE",
+      "status": "LIVE_TEXT_ONLY_PREVIEW",
       "families": [
         "Asteraceae"
       ],
       "installed_species_baseline": 180,
       "github_url": "https://github.com/Crking92/Hays-Botany-Asteraceae",
-      "live_url": null
+      "live_url": "https://crking92.github.io/Hays-Botany-Asteraceae/site/",
+      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
+      "photos_deployed_in_this_collection": 0
     },
     {
       "id": "Hays-Botany-Fabaceae",
       "title": "Fabaceae",
       "repository": "Crking92/Hays-Botany-Fabaceae",
-      "status": "PRIVATE_STAGING_NOT_LIVE",
+      "status": "LIVE_TEXT_ONLY_PREVIEW",
       "families": [
         "Fabaceae"
       ],
       "installed_species_baseline": 91,
       "github_url": "https://github.com/Crking92/Hays-Botany-Fabaceae",
-      "live_url": null
+      "live_url": "https://crking92.github.io/Hays-Botany-Fabaceae/site/",
+      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
+      "photos_deployed_in_this_collection": 0
     },
     {
       "id": "Hays-Botany-Monocots-Aquatics",
       "title": "Monocots & Aquatics",
       "repository": "Crking92/Hays-Botany-Monocots-Aquatics",
-      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
+      "status": "LIVE_TEXT_ONLY_PREVIEW",
       "families": [
         "Alismataceae",
         "Amaryllidaceae",
@@ -75,13 +80,15 @@
       ],
       "installed_species_baseline": 113,
       "github_url": "https://github.com/Crking92/Hays-Botany-Monocots-Aquatics",
-      "live_url": null
+      "live_url": "https://crking92.github.io/Hays-Botany-Monocots-Aquatics/site/",
+      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
+      "photos_deployed_in_this_collection": 0
     },
     {
       "id": "Hays-Botany-Lamiales",
       "title": "Lamiales",
       "repository": "Crking92/Hays-Botany-Lamiales",
-      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
+      "status": "LIVE_TEXT_ONLY_PREVIEW",
       "families": [
         "Acanthaceae",
         "Bignoniaceae",
@@ -97,13 +104,15 @@
       ],
       "installed_species_baseline": 102,
       "github_url": "https://github.com/Crking92/Hays-Botany-Lamiales",
-      "live_url": null
+      "live_url": "https://crking92.github.io/Hays-Botany-Lamiales/site/",
+      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
+      "photos_deployed_in_this_collection": 0
     },
     {
       "id": "Hays-Botany-Asterid-Allies",
       "title": "Asterid & Allies",
       "repository": "Crking92/Hays-Botany-Asterid-Allies",
-      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
+      "status": "LIVE_TEXT_ONLY_PREVIEW",
       "families": [
         "Apocynaceae",
         "Boraginaceae",
@@ -118,13 +127,15 @@
       ],
       "installed_species_baseline": 118,
       "github_url": "https://github.com/Crking92/Hays-Botany-Asterid-Allies",
-      "live_url": null
+      "live_url": "https://crking92.github.io/Hays-Botany-Asterid-Allies/site/",
+      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
+      "photos_deployed_in_this_collection": 0
     },
     {
       "id": "Hays-Botany-Cacti-Buttercups",
       "title": "Cacti & Buttercups",
       "repository": "Crking92/Hays-Botany-Cacti-Buttercups",
-      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
+      "status": "LIVE_TEXT_ONLY_PREVIEW",
       "families": [
         "Amaranthaceae",
         "Berberidaceae",
@@ -143,13 +154,15 @@
       ],
       "installed_species_baseline": 107,
       "github_url": "https://github.com/Crking92/Hays-Botany-Cacti-Buttercups",
-      "live_url": null
+      "live_url": "https://crking92.github.io/Hays-Botany-Cacti-Buttercups/site/",
+      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
+      "photos_deployed_in_this_collection": 0
     },
     {
       "id": "Hays-Botany-Spurges-Mallows",
       "title": "Spurges & Mallows",
       "repository": "Crking92/Hays-Botany-Spurges-Mallows",
-      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
+      "status": "LIVE_TEXT_ONLY_PREVIEW",
       "families": [
         "Balsaminaceae",
         "Bixaceae",
@@ -167,13 +180,15 @@
       ],
       "installed_species_baseline": 130,
       "github_url": "https://github.com/Crking92/Hays-Botany-Spurges-Mallows",
-      "live_url": null
+      "live_url": "https://crking92.github.io/Hays-Botany-Spurges-Mallows/site/",
+      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
+      "photos_deployed_in_this_collection": 0
     },
     {
       "id": "Hays-Botany-Trees-Shrubs",
       "title": "Trees & Shrubs",
       "repository": "Crking92/Hays-Botany-Trees-Shrubs",
-      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
+      "status": "LIVE_TEXT_ONLY_PREVIEW",
       "families": [
         "Altingiaceae",
         "Anacardiaceae",
@@ -214,13 +229,15 @@
       ],
       "installed_species_baseline": 133,
       "github_url": "https://github.com/Crking92/Hays-Botany-Trees-Shrubs",
-      "live_url": null
+      "live_url": "https://crking92.github.io/Hays-Botany-Trees-Shrubs/site/",
+      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
+      "photos_deployed_in_this_collection": 0
     },
     {
       "id": "Hays-Botany-Mixed-Families",
       "title": "Mixed & Families",
       "repository": "Crking92/Hays-Botany-Mixed-Families",
-      "status": "SOURCE_COPIED_PRIVATE_NOT_LIVE",
+      "status": "LIVE_TEXT_ONLY_PREVIEW",
       "families": [
         "Apiaceae",
         "Apodanthaceae",
@@ -258,7 +275,9 @@
       ],
       "installed_species_baseline": 105,
       "github_url": "https://github.com/Crking92/Hays-Botany-Mixed-Families",
-      "live_url": null
+      "live_url": "https://crking92.github.io/Hays-Botany-Mixed-Families/site/",
+      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
+      "photos_deployed_in_this_collection": 0
     }
   ],
   "families": [
@@ -1284,5 +1303,9 @@
       "species_count": 3,
       "source_url": "https://crking92.github.io/Hays-County-Botany/"
     }
-  ]
+  ],
+  "activated_text_site_count": 9,
+  "activated_species_count": 1079,
+  "photo_gallery_release_count": 0,
+  "live_site_verification_run": "https://github.com/Crking92/Hays-Botany-Public/actions/runs/40887189232"
 }

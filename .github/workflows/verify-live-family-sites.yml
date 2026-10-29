@@ -1,0 +1,31 @@
+name: Verify 9 live family Pages sites and real source cards (READ ONLY)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/verify_live_family_pages.py'
+      - '.github/workflows/verify-live-family-sites.yml'
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Fetch real public Pages HTML, CSS, JS, species index and example card for each release
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPYCACHEPREFIX="$RUNNER_TEMP/pycache" python3 -m py_compile scripts/verify_live_family_pages.py
+          python3 scripts/verify_live_family_pages.py
+      - name: Preserve no-photo live site QA metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nine-collection-live-pages-smoke-before-hub-routing
+          path: qa-report/live-family-pages.json
+          retention-days: 30
+          if-no-files-found: warn

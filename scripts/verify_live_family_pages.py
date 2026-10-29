@@ -60,7 +60,7 @@ def test(item):
    if shot["noncommercial_only"] or shot["private_rights_review_only"] or not shot["source_page"].startswith("https://"):
     raise ValueError("Unexpected public gallery rights condition")
    image=get(base+"site/"+shot["src"])
-   if image[:3]!=b"\\xff\\xd8\\xff":
+   if image[:3]!=bytes.fromhex("ffd8ff"):
     raise ValueError("Source-credited photo path not serving JPEG pixels")
   else:
    if doc.get("site_release_stage")!="PUBLIC_TEXT_ONLY_PREVIEW_PHOTOS_HELD":

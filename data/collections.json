@@ -21,15 +21,17 @@
       "id": "Hays-Botany-Asteraceae",
       "title": "Asteraceae",
       "repository": "Crking92/Hays-Botany-Asteraceae",
-      "status": "LIVE_TEXT_ONLY_PREVIEW",
+      "status": "LIVE_VERIFIED_CC_GALLERY",
       "families": [
         "Asteraceae"
       ],
       "installed_species_baseline": 180,
       "github_url": "https://github.com/Crking92/Hays-Botany-Asteraceae",
       "live_url": "https://crking92.github.io/Hays-Botany-Asteraceae/site/",
-      "active_species_destination": "VERIFIED_FAMILY_TEXT_LEARNER",
-      "photos_deployed_in_this_collection": 0
+      "active_species_destination": "VERIFIED_FAMILY_CC_PHOTO_LEARNER",
+      "photos_deployed_in_this_collection": 153,
+      "photographed_species": 112,
+      "verified_live_photo_smoke_run": "https://github.com/Crking92/Hays-Botany-Public/actions/runs/40889445918"
     },
     {
       "id": "Hays-Botany-Fabaceae",
@@ -1306,6 +1308,7 @@
   ],
   "activated_text_site_count": 9,
   "activated_species_count": 1079,
-  "photo_gallery_release_count": 0,
-  "live_site_verification_run": "https://github.com/Crking92/Hays-Botany-Public/actions/runs/40887189232"
+  "photo_gallery_release_count": 1,
+  "live_site_verification_run": "https://github.com/Crking92/Hays-Botany-Public/actions/runs/40887189232",
+  "photo_gallery_photos": 153
 }

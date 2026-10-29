@@ -2,6 +2,26 @@
 
 Status: **READ-ONLY AUDIT**. This checkpoint does not change family routing, publish photos, collect new photos, alter botanical source, enable automations, or authorize a production-site cutover. Recheck live branches and GitHub Actions before any later edit: other chats are actively updating the collections.
 
+## Existing original-file transfer audit — pinned migration reports
+
+The October 28 original-source migration reports on the assigned staging branches were re-read on October 29. Their original-file totals sum to **7,521 files across 1,191 original species**, with **zero source files listed missing** at each recorded, pinned migration checkpoint:
+
+| Collection | Original species | Original source files | Original files accounted for in its collection or designated hold |
+| --- | ---: | ---: | --- |
+| Poaceae | 112 | 1,402 | 1,346 in Poaceae plus 56 held outside public Poaceae (the external preservation ledger says 58 archived there including two duplicates) |
+| Asteraceae | 180 | 1,137 | 1,137 |
+| Fabaceae | 91 | 491 | 491 |
+| Monocots-Aquatics | 113 | 587 | 587 |
+| Lamiales | 102 | 582 | 582 |
+| Asterid-Allies | 118 | 693 | 693 |
+| Cacti-Buttercups | 107 | 543 | 543 |
+| Spurges-Mallows | 130 | 764 | 764 |
+| Trees-Shrubs | 133 | 790 | 790 |
+| Mixed-Families | 105 | 532 | 532 |
+| **TOTAL** | **1,191** | **7,521** | **7,521 across the designated destinations/holds** |
+
+Source reports: seven grouped family repositories' `migration/original-source-transfer-summary.json` at `staging/original-source-transfer`; Asteraceae `migration/asteraceae-original-migration-completion-summary.json` at `staging/asteraceae-metadata`; Fabaceae `migration/fabaceae-original-migration-completion-summary.json` at `staging/fabaceae-metadata`; Poaceae reconciliation in Monocots-Aquatics `migration/poaceae-all-originals-public-private-reconciliation.json`. These are **previously reported, hash-verified, pinned snapshots**, not a fresh full rehash against a changed original source tree. Their reports still contain obsolete words like "private" or "not published" that do not describe the current public repository/Page status. Raw original preservation remains distinct from the public website's released gallery subset.
+
 ## Latest verified public family-photo inventory
 
 Read from `main` site indexes, `site/data/gallery-index.json` or Lamiales' `site/data/reviewed-external-photo-manifest.json`, and repository Git trees.

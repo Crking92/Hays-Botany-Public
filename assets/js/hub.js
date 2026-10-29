@@ -1,6 +1,5 @@
 "use strict";
-/* Staging-only hub. No family page routing is active until approved, verified
-   collection deployment. All species links intentionally use original site. */
+/* User-approved family route preview: nine live-verified text learners.\n   Poaceae routes to the original legacy learner until its site passes QA.\n   This changes visible navigation, NOT original botanical source ownership. */
 const state = {species:[],families:[],collections:[],source:null,shown:24,currentResults:[]};
 const $ = id => document.getElementById(id);
 function el(tag,className,text){
@@ -18,14 +17,22 @@ async function getJSON(path){
   if(!res.ok)throw new Error("Could not load "+path+" ("+res.status+")");
   return res.json();
 }
+function familyRoute(sp){
+  const c=state.collections.find(g=>g.families.includes(sp.family));
+  if(c?.status==="LIVE_TEXT_ONLY_PREVIEW" && /^https:\/\/crking92\.github\.io\/Hays-Botany-[A-Za-z-]+\/site\/$/.test(c.live_url||"")){
+    return {href:c.live_url+"?species="+encodeURIComponent(sp.id),label:"Family field-ID text learner · photographs pending",family:true};
+  }
+  return {href:legacyLink(sp.id),label:"Original grass learner · photo fallback",family:false};
+}
 function addSpeciesLink(sp){
-  const link=el("a","result");link.href=legacyLink(sp.id);
+  const route=familyRoute(sp);
+  const link=el("a","result");link.href=route.href;
   link.target="_blank";link.rel="noopener noreferrer";
-  link.setAttribute("aria-label","Open "+sp.search_label+" in current original learner");
+  link.setAttribute("aria-label","Open "+sp.search_label+" in "+(route.family?"the verified family field-ID learner":"the original grass learner"));
   link.append(el("span","tag",sp.family));
   link.append(el("strong","",sp.search_label || sp.id.replaceAll("-"," ")));
   link.append(el("small","",sp.id+" · "+sp.genus));
-  link.append(el("small","","")); // no inferred common name or unverified status
+  link.append(el("small","",route.label));
   return link;
 }
 function rankedSpecies(query){
@@ -42,7 +49,7 @@ function renderResults(reset=true){
   const query=$("searchInput").value.trim();
   state.currentResults=rankedSpecies(query);
   const count=state.currentResults.length;
-  $("resultSummary").textContent=query?count.toLocaleString()+" matching species — links open the original learner":"Showing a few indexed species. Type to search the full source inventory.";
+  $("resultSummary").textContent=query?count.toLocaleString()+" matching species — available family lessons open directly; grass links use the original learner":"Showing a few indexed species. Type to search the full source inventory.";
   const wrap=$("results");wrap.replaceChildren();
   const frag=document.createDocumentFragment();
   state.currentResults.slice(0,state.shown).forEach(sp=>frag.append(addSpeciesLink(sp)));
@@ -81,16 +88,22 @@ function renderCollections(){
   const target=$("collectionsGrid");target.replaceChildren();const frag=document.createDocumentFragment();
   for(const group of state.collections){
     const card=el("article","collectioncard");
-    const copied=group.status==="SOURCE_COPIED_PRIVATE_NOT_LIVE";
-    const staged=group.status.includes("STAGING");
-    const label=copied?"Source copied privately · not live":(staged?"Staging · not live":"Setup only · not live");
+    const live=group.status==="LIVE_TEXT_ONLY_PREVIEW";
+    const label=live?"Live field-ID text learner · photo review pending":"Grass learner in preparation · original site available";
     card.append(el("span","status",label));
     card.append(el("h3","",prettyCollectionName(group.id)));
     card.append(el("p","",group.families.length+" "+(group.families.length===1?"family":"families")+" · "+group.installed_species_baseline+" source species"));
     const sample=group.families.slice(0,5).join(", ");
     card.append(el("small","",sample+(group.families.length>5?" and "+(group.families.length-5)+" more":"")));
-    const links=el("div","links"),sourceLink=el("a","button secondary","View staging repository ↗");
+    const links=el("div","links"),sourceLink=el("a","button secondary","View source repository");
     sourceLink.href=group.github_url;sourceLink.target="_blank";sourceLink.rel="noopener noreferrer";
+    if(live){
+      const go=el("a","button","Open family learner");
+      go.href=group.live_url;go.target="_blank";go.rel="noopener noreferrer";links.append(go);
+    }else{
+      const old=el("a","button","Open original grass learner");
+      old.href=state.source.canonical_site+"?species=schizachyrium-scoparium";old.target="_blank";old.rel="noopener noreferrer";links.append(old);
+    }
     links.append(sourceLink);card.append(links);frag.append(card);
   }
   target.append(frag);
@@ -104,7 +117,7 @@ function showFailure(e){
 async function start(){
   try {
     const [index,hub]=await Promise.all([getJSON("./data/species-index.json"),getJSON("./data/collections.json")]);
-    if(index.status!=="STAGING_READ_ONLY_SOURCE_SNAPSHOT"||hub.status!=="PLANNED_ONLY_NO_LIVE_FAMILY_ROUTING"||!Array.isArray(index.records)||!Array.isArray(hub.collections)||!Array.isArray(hub.families))throw Error("Hub data schema or staging-only routing status was not recognized.");
+    if(index.status!=="STAGING_READ_ONLY_SOURCE_SNAPSHOT"||hub.status!=="NINE_VERIFIED_FAMILY_TEXT_SITES_GRASSES_LEGACY_FALLBACK"||!Array.isArray(index.records)||!Array.isArray(hub.collections)||!Array.isArray(hub.families))throw Error("Hub data schema or staging-only routing status was not recognized.");
     if(index.records.length!==index.source_count||hub.collections.length!==10)throw Error("Indexed data counts did not match the saved baseline.");
     state.source=hub;
     state.species=index.records.map(x=>({...x,_label:token(x.search_label),_search:token([x.id,x.genus,x.family,x.search_label].join(" "))}));

@@ -81,8 +81,10 @@ function renderCollections(){
   const target=$("collectionsGrid");target.replaceChildren();const frag=document.createDocumentFragment();
   for(const group of state.collections){
     const card=el("article","collectioncard");
+    const copied=group.status==="SOURCE_COPIED_PRIVATE_NOT_LIVE";
     const staged=group.status.includes("STAGING");
-    card.append(el("span","status",staged?"Staging · not live":"Setup only · not live"));
+    const label=copied?"Source copied privately · not live":(staged?"Staging · not live":"Setup only · not live");
+    card.append(el("span","status",label));
     card.append(el("h3","",prettyCollectionName(group.id)));
     card.append(el("p","",group.families.length+" "+(group.families.length===1?"family":"families")+" · "+group.installed_species_baseline+" source species"));
     const sample=group.families.slice(0,5).join(", ");

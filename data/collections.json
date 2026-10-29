@@ -17,12 +17,14 @@
       "live_url": null,
       "active_species_destination": "ORIGINAL_LEGACY_LEARNER",
       "review_url": "https://crking92.github.io/Hays-Botany-Poaceae/site/",
-      "review_published_photo_files": 461,
-      "review_visible_photo_panels": 579,
-      "review_photographed_species": 106,
-      "review_target_species_photographed": 103,
-      "review_photo_scope_report": "https://github.com/Crking92/Hays-Botany-Poaceae/blob/main/migration/EXISTING_SOURCE_PHOTO_RECOVERY_PASS_20261029.md",
-      "review_exact_photo_ccby_manifest": "https://github.com/Crking92/Hays-Botany-Poaceae/blob/main/migration/reviewed-photo-level-ccby-20261029.json"
+      "review_published_photo_files": 486,
+      "review_visible_photo_panels": 604,
+      "review_photographed_species": 112,
+      "review_target_species_photographed": 112,
+      "review_photo_scope_report": "https://github.com/Crking92/Hays-Botany-Poaceae/blob/main/migration/POACEAE_FAMILY_SOURCE_PHOTO_CLOSEOUT_20261029.md",
+      "review_exact_photo_ccby_manifest": "https://github.com/Crking92/Hays-Botany-Poaceae/blob/main/migration/reviewed-photo-level-ccby-20261029.json",
+      "review_education_only_author_grants": 10,
+      "review_archived_usgs_original_images_restored": 3
     },
     {
       "id": "Hays-Botany-Asteraceae",

@@ -57,9 +57,12 @@
       "github_url": "https://github.com/Crking92/Hays-Botany-Fabaceae",
       "live_url": "https://crking92.github.io/Hays-Botany-Fabaceae/site/",
       "active_species_destination": "VERIFIED_FAMILY_CC_PHOTO_LEARNER",
-      "photos_deployed_in_this_collection": 18,
-      "photographed_species": 11,
-      "media_policy": "ONLY_EXISTING_SOURCE_RIGHTS_SCREENED_IMAGES; EXTRA_HELD_PHOTOS_EXCLUDED"
+      "photos_deployed_in_this_collection": 20,
+      "photographed_species": 13,
+      "media_policy": "ONLY_EXISTING_SOURCE_RIGHTS_SCREENED_IMAGES; EXTRA_HELD_PHOTOS_EXCLUDED",
+      "known_no_published_photo_species": 78,
+      "verified_live_photo_smoke_run": "https://github.com/Crking92/Hays-Botany-Fabaceae/actions/runs/40934830556",
+      "source_rights_audit": "https://github.com/Crking92/Hays-Botany-Fabaceae/blob/main/migration/FABACEAE_SOURCE_AND_GALLERY_QA_CHECKPOINT_20261029.md"
     },
     {
       "id": "Hays-Botany-Monocots-Aquatics",

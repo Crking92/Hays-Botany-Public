@@ -5,8 +5,8 @@ from concurrent.futures import ThreadPoolExecutor
 from PIL import Image
 
 COLLECTIONS={
- "Hays-Botany-Asteraceae":(180,162,116),
- "Hays-Botany-Fabaceae":(91,18,11),
+ "Hays-Botany-Asteraceae":(180,172,124),
+ "Hays-Botany-Fabaceae":(91,88,59),
  "Hays-Botany-Monocots-Aquatics":(113,35,23),
  "Hays-Botany-Lamiales":(102,102,55),
  "Hays-Botany-Asterid-Allies":(118,64,30),
@@ -65,7 +65,7 @@ def verify(repo,expected):
                     extra.extend(p["src"] for p in card["verified_photos"])
             paths=extra
         else:
-            # Asteraceae includes all 153 image references; fetch every verified species card.
+            # Asteraceae includes all published image references; fetch every verified species card.
             extra=[]
             for row in index["entries"]:
                 if gallery["entries"][row["id"]]["count"]:
@@ -85,7 +85,7 @@ def main():
     with ThreadPoolExecutor(max_workers=12) as workers:
         rows=list(workers.map(img_check,everything))
     bytes_read=sum(n for _,n in rows)
-    assert len(rows)==641,(len(rows),bytes_read)
+    assert len(rows)==721,(len(rows),bytes_read)
     print("ALL_EXISTING_FAMILY_GALLERIES_LIVE_PASS",json.dumps({
         "family_websites":len(COLLECTIONS),
         "species_indexed":sum(a for a,_,_ in COLLECTIONS.values()),

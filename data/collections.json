@@ -57,12 +57,12 @@
       "github_url": "https://github.com/Crking92/Hays-Botany-Fabaceae",
       "live_url": "https://crking92.github.io/Hays-Botany-Fabaceae/site/",
       "active_species_destination": "VERIFIED_FAMILY_CC_PHOTO_LEARNER",
-      "photos_deployed_in_this_collection": 20,
-      "photographed_species": 13,
+      "photos_deployed_in_this_collection": 88,
+      "photographed_species": 59,
       "media_policy": "ONLY_EXISTING_SOURCE_RIGHTS_SCREENED_IMAGES; EXTRA_HELD_PHOTOS_EXCLUDED",
-      "known_no_published_photo_species": 78,
-      "verified_live_photo_smoke_run": "https://github.com/Crking92/Hays-Botany-Fabaceae/actions/runs/40934830556",
-      "source_rights_audit": "https://github.com/Crking92/Hays-Botany-Fabaceae/blob/main/migration/FABACEAE_SOURCE_AND_GALLERY_QA_CHECKPOINT_20261029.md"
+      "known_no_published_photo_species": 32,
+      "verified_live_photo_smoke_run": "https://github.com/Crking92/Hays-Botany-Fabaceae/actions/runs/41063761970",
+      "source_rights_audit": "https://github.com/Crking92/Hays-Botany-Fabaceae/blob/main/migration/FABACEAE_TRANSFER_COMPLETE_HANDOFF_20261030.md"
     },
     {
       "id": "Hays-Botany-Monocots-Aquatics",
@@ -1341,5 +1341,8 @@
   "activated_species_count": 1079,
   "photo_gallery_release_count": 1,
   "live_site_verification_run": "https://github.com/Crking92/Hays-Botany-Public/actions/runs/40887189232",
-  "photo_gallery_photos": 153
+  "photo_gallery_photos": 153,
+  "current_verified_gallery_references": 723,
+  "current_verified_hosted_photo_files": 721,
+  "current_verified_remote_photo_links": 2
 }

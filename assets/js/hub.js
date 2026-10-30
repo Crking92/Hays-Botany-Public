@@ -144,7 +144,53 @@ async function start(){
     $("collectionCount").textContent=state.collections.length.toLocaleString();
     $("sourceStamp").textContent="Read-only snapshot from "+index.canonical_source_repository+" · source manifest blob "+index.source_manifest_blob_sha.slice(0,12)+" · generated "+index.generated_at+".";
     renderFamilies();renderCollections();restoreSearchFromURL();
+    refreshPublishedFamilyCatalog();
   }catch(e){showFailure(e)}
+}
+async function refreshPublishedFamilyCatalog(){
+  // Public-site indexes, not source staging, are the only approved expansion
+  // authority. The preserved original 1,191-record hub snapshot is the fallback.
+  const collections=state.collections.filter(c=>
+    ["LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY"].includes(c.status) &&
+    /^https:\/\/crking92\.github\.io\/Hays-Botany-[A-Za-z-]+\/site\/$/.test(c.live_url||""));
+  const responses=await Promise.allSettled(collections.map(async c=>{
+    const data=await getJSON(c.live_url+"data/collection-index.json");
+    if(!Array.isArray(data.entries))throw Error("Bad family index");
+    return {collection:c,entries:data.entries};
+  }));
+  const known=new Set(state.species.map(s=>s.id));
+  let discovered=0;
+  for(const result of responses){
+    if(result.status!=="fulfilled")continue;
+    const {collection,entries}=result.value;
+    for(const r of entries){
+      const id=String(r.id||"");
+      const family=String(r.family||"");
+      if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)||
+         !collection.families.includes(family)||known.has(id))continue;
+      const name=String(r.scientific_name||"").trim();
+      if(!name)continue;
+      const genus=String(r.genus||name.split(" ")[0]).trim();
+      const common=String(r.common_name||"").trim();
+      if(!genus)continue;
+      const item={id,family,genus,search_label:name,scientific_name:name,
+        common_name:common,metadata_source:collection.id+":published-site",
+        _label:token(name),_common:token(common),
+        _search:token([id,family,genus,name,common].join(" "))};
+      state.species.push(item);
+      known.add(id);
+      discovered++;
+      const fam=state.families.find(f=>f.name===family);
+      if(fam)fam.species_count++;
+    }
+  }
+  if(discovered){
+    state.species.sort((a,b)=>a.family.localeCompare(b.family)||a.id.localeCompare(b.id));
+    $("speciesCount").textContent=state.species.length.toLocaleString();
+    $("sourceStamp").textContent+=" "+discovered+" additional published family species discovered automatically; the historical source snapshot remains unchanged.";
+    renderResults(true);
+    renderFamilies();
+  }
 }
 function restoreSearchFromURL(){
   const params=new URLSearchParams(location.search);

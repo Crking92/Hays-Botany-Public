@@ -1,0 +1,64 @@
+name: Refresh one-photo and zero-photo collection target exports
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/refresh_one_photo_targets.py'
+      - '.github/workflows/refresh-photo-backfill-targets.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: refresh-published-photo-collecting-targets
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch all ten public indexes and deduplicate grass source photos
+        run: python3 scripts/refresh_one_photo_targets.py --out-dir data/exports
+      - name: Confirm CSVs, collection counts and that Leadplant has two photos
+        run: |
+          python3 - <<'PY'
+          import csv,json,pathlib
+          root=pathlib.Path("data/exports")
+          j=json.loads((root/"photo_count_summary.json").read_text())
+          a=list(csv.DictReader((root/"one_photo_species.csv").open(encoding="utf-8-sig")))
+          z=list(csv.DictReader((root/"zero_photo_species.csv").open(encoding="utf-8-sig")))
+          all_=list(csv.DictReader((root/"all_species_photo_counts.csv").open(encoding="utf-8-sig")))
+          assert len(a)==j["one_photo_species_total"]
+          assert len(z)==j["zero_photo_species_total"]
+          assert len(all_)==j["species_total"]>=1191
+          assert len({(r["family"],r["species_id"]) for r in all_})==len(all_)
+          assert all(r["published_photo_count"]=="1" for r in a)
+          assert all(r["published_photo_count"]=="0" for r in z)
+          lead=[r for r in all_ if r["species_id"]=="amorpha-canescens"]
+          assert len(lead)==1 and int(lead[0]["published_photo_count"])>=2
+          print("PASS: all public species, exactly-one targets, zero targets, live Leadplant photo")
+          PY
+      - name: Publish reusable CSV exports to the public hub repository
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/exports/one_photo_species.csv data/exports/zero_photo_species.csv data/exports/all_species_photo_counts.csv data/exports/photo_count_summary.json
+          if git diff --cached --quiet; then
+            echo 'Export files already current.'
+            exit 0
+          fi
+          git diff --cached --check
+          git commit -m 'Refresh live photo-backfill collecting targets across all ten collections'
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: one-photo-and-zero-photo-csv-exports
+          path: data/exports/
+          if-no-files-found: ignore

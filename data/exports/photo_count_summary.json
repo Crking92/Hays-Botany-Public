@@ -1,0 +1,71 @@
+{
+  "snapshot_utc": "2026-10-30T18:38:22.894525+00:00",
+  "species_total": 1191,
+  "one_photo_species_total": 274,
+  "zero_photo_species_total": 650,
+  "scope": "Published website photo sources only, not historical holds",
+  "grass_counting": "Distinct own-species photo file references, not teaching panels or comparison photos",
+  "native_range_note": "BONAP NAPA Hays County native status not checked; include exotics",
+  "collections": {
+    "Hays-Botany-Fabaceae": {
+      "species": 91,
+      "one_photo": 35,
+      "zero_photo": 32,
+      "two_or_more": 24
+    },
+    "Hays-Botany-Asteraceae": {
+      "species": 180,
+      "one_photo": 89,
+      "zero_photo": 56,
+      "two_or_more": 35
+    },
+    "Hays-Botany-Monocots-Aquatics": {
+      "species": 113,
+      "one_photo": 15,
+      "zero_photo": 90,
+      "two_or_more": 8
+    },
+    "Hays-Botany-Lamiales": {
+      "species": 102,
+      "one_photo": 33,
+      "zero_photo": 47,
+      "two_or_more": 22
+    },
+    "Hays-Botany-Asterid-Allies": {
+      "species": 118,
+      "one_photo": 16,
+      "zero_photo": 88,
+      "two_or_more": 14
+    },
+    "Hays-Botany-Cacti-Buttercups": {
+      "species": 107,
+      "one_photo": 16,
+      "zero_photo": 82,
+      "two_or_more": 9
+    },
+    "Hays-Botany-Spurges-Mallows": {
+      "species": 130,
+      "one_photo": 24,
+      "zero_photo": 82,
+      "two_or_more": 24
+    },
+    "Hays-Botany-Trees-Shrubs": {
+      "species": 133,
+      "one_photo": 23,
+      "zero_photo": 82,
+      "two_or_more": 28
+    },
+    "Hays-Botany-Mixed-Families": {
+      "species": 105,
+      "one_photo": 10,
+      "zero_photo": 91,
+      "two_or_more": 4
+    },
+    "Hays-Botany-Poaceae": {
+      "species": 112,
+      "one_photo": 13,
+      "zero_photo": 0,
+      "two_or_more": 99
+    }
+  }
+}

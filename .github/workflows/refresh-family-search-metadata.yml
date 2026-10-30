@@ -1,0 +1,38 @@
+name: Refresh existing common/scientific search names from family indexes
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/refresh_family_search_metadata.py'
+      - '.github/workflows/refresh-family-search-metadata.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-hub-search-metadata-one-writer
+  cancel-in-progress: false
+jobs:
+  refresh-read-only-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Strictly reconcile existing 1,191 species against 10 family indexes
+        run: python3 scripts/refresh_family_search_metadata.py --apply
+      - name: Validate no changed family destinations or fallback
+        run: python3 scripts/validate_hub.py
+      - name: Commit ONLY derived hub search metadata if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/species-index.json
+          if git diff --cached --quiet; then
+            echo "Search metadata already current."
+            exit 0
+          fi
+          git diff --cached --check
+          git commit -m "Refresh existing common/scientific names in search-only hub index"
+          git push origin HEAD:main

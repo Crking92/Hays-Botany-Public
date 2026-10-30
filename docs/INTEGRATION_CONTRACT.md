@@ -1,28 +1,37 @@
-# Hays Botany Hub — non-destructive integration contract
+# Hays Botany — current family hub integration contract
 
-**Status:** starter preview only. `Hays-Botany-Public` is not the present public learner; the live original site remains `https://crking92.github.io/Hays-County-Botany/`. No GitHub Pages deployment is configured here.
+**Updated October 30, 2026 — existing-data migration complete, public cross-family learner verified, new source-data intake approved only through family repositories.**
 
-## Scope of this initial setup
+This repository is the **separate public cross-family hub** at https://crking92.github.io/Hays-Botany-Public/. The original https://crking92.github.io/Hays-County-Botany/ website remains the public fallback and its historic plant library/manifest remain **READ-ONLY for future botanical edits**. No canonical homepage/site takeover was approved.
 
-- One read-only `data/species-index.json` is derived from the original source `data/manifest.json` and records the pinned source manifest Git blob SHA and each stable ID, path, genus and family.
-- `data/collections.json` records all 146 family assignments into 10 repositories. Every collection is explicitly `NOT_LIVE`; there are no approved family Pages URLs.
-- The hub search is functional for stable IDs, derived scientific search labels, genera and families. **Common names and up-to-date accepted taxonomic presentation still require a verified per-species metadata export.** Do not treat guessed labels or source IDs as an accepted-name taxonomic audit.
-- All search result links intentionally lead to the **original working learner** using `?species=<id>`. Family buttons filter the local index; staging collection cards link only to the corresponding GitHub repository.
-- No third-party photo assets are copied into the public hub. Use audited image-level attribution and publication approval before adding media. The preview currently avoids the need for that entirely.
-- The Visual Learner, Field ID, glossary and quiz buttons open the existing original site. They are not falsely represented as independent finished implementations.
+## Current operational footprint
 
-## Local preview
+- **1,191 existing species, 146 families, 10 destination collections.** The public hub index preserves stable IDs and original source paths.
+- **Nine non-grass photo-backed family sites** serve their own verified lesson pages and 723 photo references (721 GitHub-hosted, two remotely linked licensed Commons originals).
+- **Poaceae** has its own photo-backed review learner but default grass species results still open the historic original learner. This is a deliberate routing hold, not a missing transfer.
+- All eight grouped collections have complete original-source preservation (4,982 files across 899 species), separate from the earlier specialist Poaceae and Asteraceae transfers.
+- Hub search has 1,143 nonempty common names imported from its ten public family indexes. Another 18 records lack scientific display-name metadata; their original searchable slug-based labels remain. No new taxon was invented or installed by this enrichment.
+- Live Chromium interaction QA passed at 320, 390, 768 and 1280px, including common-name search, scientific-name search, family filtering, browser Back, exact species deep links and no horizontal document overflow. [Browser test evidence](https://github.com/Crking92/Hays-Botany-Public/actions/runs/41085939694).
+- The full nine-family hosted-photo load/decode test passed for all 721 images: [existing gallery verification](https://github.com/Crking92/Hays-Botany-Public/actions/runs/41082428815).
+- The family intake preflight checks all 146 assigned families and each of the 10 live destination branch refs without writing any taxon or website bytes: [intake preflight](https://github.com/Crking92/Hays-Botany-Public/actions/runs/41086145695).
 
-From the repository root run `python -m http.server 8000`, then visit `http://127.0.0.1:8000/`. Static browser fetches require HTTP; opening `index.html` using `file://` will not load JSON in most browsers.
+## Species navigation contract
 
-Run `python scripts/validate_hub.py` to check inventory/family mapping, source snapshot and that all family sites stay unpublished. GitHub Actions runs that validation and Node's JavaScript syntax check on every push/PR. The workflow does **not** publish Pages.
+The hub's `data/collections.json` is the explicit **public family-link allowlist**, not scientific source ownership. Search results for nine verified non-grass collections open `https://crking92.github.io/Hays-Botany-<Collection>/site/?species=<stable-id>`; Poaceae results open `https://crking92.github.io/Hays-County-Botany/?species=<stable-id>` until separately approved otherwise. This is tested and reversible. Family buttons narrow the hub search; query strings `?species=<id>`, `?family=<family>` and `?q=<search>` are shareable hub search states. No photo image bytes are copied into the public hub.
 
-## Before the eventual real hub release
+## New-data contract
 
-1. Generate and review accepted scientific names, common names, aliases, genus look-alikes and family metadata from verified canonical source records — not from labels derived from stable IDs alone. Build a repeatable read-only export, preserving original source SHA and checking source freshness.
-2. Confirm family collection Pages URLs from actual successful deployments. A destination repo's existence or passing preview is insufficient. Maintain original fallback for any not-live family.
-3. Test all-family search, direct `?species=` links, browser Back, accessibility, mobile touch scrolling, consistent design, glossary/quiz links, family/genus browsing, and attribution.
-4. Verify public repo entire asset history and individual photograph rights before publishing any images. Never leak NC/permission-limited/private-only original photos merely because a website build filters them.
-5. Explicitly approve and test release, source ownership transfer, reversible hub routing, rollback and safe links; only then update `live_url` fields and turn on production routes. Original website stays available until separately approved replacement.
+The active family edit route is https://github.com/Crking92/Hays-County-Botany/blob/main/workflow/ACTIVE_NEW_PLANT_WRITE_ROUTING_20261028.json. **Future species data, photo records, diagnostic anatomy, genus/family lessons, and local indexes belong only in their assigned Hays-Botany family source branch**; the old hub is not an editor. Validate current target branch and exact blob, claims, licensed media provenance, taxonomic identity and Hays/BONAP context before writing.
 
-Shared coordination: [current multi-repo rules](https://github.com/Crking92/Hays-County-Botany/blob/main/workflow/MULTI_REPO_OPERATING_RULES_20261028.md).
+- Stage **text/scientific edits** to the assigned family source branch; the existing legacy-hub text ZIP importer is a safe route planner and refuses overwriting different cards. New photos require their own creator, exact source, license/permission, hash, crop/annotation and attribution review. This is a public Git history; never add unknown/private-only third-party source media.
+- A family staging commit does **not** update the family learner on main or the central hub automatically. Reviewed publication to `main/site`, visual/mobile verification and the hub catalog refresh are distinct release steps.
+- `scripts/refresh_family_search_metadata.py` reads family **public main** indexes and updates the 1,191 existing IDs without changing source paths or creating new plants; it intentionally refuses silent additions until a separately reviewed new-species search-index expansion is implemented.
+- The original learner fallback remains intact, prior scheduled automations remain paused, and no uncontrolled reverse sync or cutover is enabled.
+
+[New-data intake handoff and family branch examples](NEW_DATA_INTAKE_READY_20261030.md) · [Verified grouped-source status](https://github.com/Crking92/Hays-Botany-Lamiales/blob/main/migration/CROSS_COLLECTION_SOURCE_TRANSFER_STATUS_20261030.md)
+
+## QA / rollback
+
+The public hub's independent `.github/workflows/validate-hub.yml` verifies source counts and URL allowlists; `test-hub-mobile-navigation.yml` tests browser search and layout; `verify-new-data-routes.yml` checks destination branches; `verify-live-photo-galleries.yml` verifies gallery images; the historic original site remains available if any new family website is temporarily unavailable. A successful GitHub commit is never, by itself, proof that source data is released or deployed.
+
+**Historic superseded note:** the October 28 starter description of all collections as NOT_LIVE and public hub Pages as disabled is no longer current. Public visibility of staging/hold photo history remains a rights concern separate from filtered Pages publishing. No visibility changes or history rewrites are authorized by this contract.

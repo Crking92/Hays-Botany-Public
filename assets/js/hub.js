@@ -19,6 +19,11 @@ async function getJSON(path){
 }
 function familyRoute(sp){
   const c=state.collections.find(g=>g.families.includes(sp.family));
+  if(sp.family==="Poaceae" && sp.metadata_source==="Hays-Botany-Poaceae:published-site" &&
+     /^https:\/\/crking92\.github\.io\/Hays-Botany-Poaceae\/site\/$/.test(c?.review_url||"")){
+    return {href:c.review_url+"?species="+encodeURIComponent(sp.id),
+      label:"New species · dedicated grass learner",family:true};
+  }
   if(["LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY"].includes(c?.status) && /^https:\/\/crking92\.github\.io\/Hays-Botany-[A-Za-z-]+\/site\/$/.test(c.live_url||"")){
     return {href:c.live_url+"?species="+encodeURIComponent(sp.id),label:c.status==="LIVE_VERIFIED_CC_GALLERY"?"Family learner · verified source-credited photographs":"Family field-ID text learner · photographs pending",family:true};
   }
@@ -183,6 +188,33 @@ async function refreshPublishedFamilyCatalog(){
       const fam=state.families.find(f=>f.name===family);
       if(fam)fam.species_count++;
     }
+  }
+  // Grass routing is deliberately unchanged for existing 112 species. Newly
+  // published grass records absent from the old fallback use their new site.
+  const grass=state.collections.find(c=>c.id==="Hays-Botany-Poaceae");
+  if(grass && /^https:\/\/crking92\.github\.io\/Hays-Botany-Poaceae\/site\/$/.test(grass.review_url||"")){
+    try{
+      const fresh=await getJSON(grass.review_url+"data/poaceae-index.json");
+      if(Array.isArray(fresh)){
+        for(const r of fresh){
+          const id=String(r.id||"");
+          if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)||known.has(id))continue;
+          const name=String(r.scientific||"").trim();
+          if(!name)continue;
+          const genus=String(r.genus||name.split(" ")[0]).trim();
+          const common=String(r.common||"").trim();
+          if(!genus)continue;
+          state.species.push({id,family:"Poaceae",genus,search_label:name,
+            scientific_name:name,common_name:common,
+            metadata_source:"Hays-Botany-Poaceae:published-site",
+            _label:token(name),_common:token(common),
+            _search:token([id,genus,"Poaceae",name,common].join(" "))});
+          known.add(id);discovered++;
+          const fam=state.families.find(x=>x.name==="Poaceae");
+          if(fam)fam.species_count++;
+        }
+      }
+    }catch(e){console.warn("Optional new grass catalog not available",e)}
   }
   if(discovered){
     state.species.sort((a,b)=>a.family.localeCompare(b.family)||a.id.localeCompare(b.id));

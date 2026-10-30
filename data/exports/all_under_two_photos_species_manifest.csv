@@ -55,7 +55,8 @@ Asteraceae,Thelesperma megapotamicum var. ambiguum
 Asteraceae,Verbesina lindheimeri
 Asteraceae,Viguiera dentata
 Asteraceae,Wedelia acapulcensis var. hispida
-Apocynaceae,
+Apocynaceae,Asclepias texana
+Apocynaceae,Asclepias viridis
 Apocynaceae,Asclepias curassavica
 Apocynaceae,Asclepias incarnata
 Apocynaceae,Chthamalia biflora
@@ -85,7 +86,16 @@ Boraginaceae,Tiquilia hispidissima
 Campanulaceae,Lobelia cardinalis
 Campanulaceae,Triodanis coloradoensis
 Campanulaceae,Triodanis texana
-Convolvulaceae,
+Convolvulaceae,Convolvulus arvensis
+Convolvulaceae,Convolvulus equitans
+Convolvulaceae,Distimake dissectus
+Convolvulaceae,Ipomoea coccinea
+Convolvulaceae,Ipomoea cordatotriloba
+Convolvulaceae,Ipomoea hederacea
+Convolvulaceae,Ipomoea lacunosa
+Convolvulaceae,Ipomoea lindheimeri
+Convolvulaceae,Ipomoea nil
+Convolvulaceae,Ipomoea triloba
 Convolvulaceae,Cuscuta exaltata
 Convolvulaceae,Cuscuta indecora
 Convolvulaceae,Cuscuta obtusiflora
@@ -187,7 +197,8 @@ Nyctaginaceae,Mirabilis albida
 Nyctaginaceae,Mirabilis jalapa
 Nyctaginaceae,Mirabilis linearis
 Nyctaginaceae,Mirabilis nyctaginea
-Papaveraceae,
+Papaveraceae,Argemone albiflora subsp texana
+Papaveraceae,Argemone aurantiaca
 Papaveraceae,Corydalis curvisiliqua
 Papaveraceae,Papaver rhoeas
 Papaveraceae,Papaver somniferum

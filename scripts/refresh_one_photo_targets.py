@@ -64,7 +64,7 @@ def collect(n):
     return [make(n,r,r["photo_count"],"PUBLISHED_SPECIES_PHOTOS") for r in idx]
 def write_csv(path,rows):
     with path.open("w",encoding="utf-8-sig",newline="") as f:
-        w=csv.DictWriter(f,fieldnames=FIELDS)
+        w=csv.DictWriter(f,fieldnames=FIELDS,lineterminator="\n")
         w.writeheader();w.writerows(rows)
 def main():
     ap=argparse.ArgumentParser()

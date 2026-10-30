@@ -24,13 +24,13 @@ def make(repo,r,count,basis):
     common=(r.get("common_name") or r.get("common") or "").strip()
     genus=(r.get("genus") or s.split(" ")[0]).strip()
     family="Poaceae" if repo=="Poaceae" else r["family"]
-    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*",sid) or not s or not genus or not family:
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*",sid) or not genus or not family:
         raise RuntimeError("Invalid scientific identity in "+repo+"/"+sid)
     return dict(collection="Hays-Botany-"+repo,family=family,genus=genus,scientific_name=s,
       common_name=common,species_id=sid,published_photo_count=count,photo_count_basis=basis,
-      collector_query=s,family_learner_url="https://crking92.github.io/Hays-Botany-"+repo+"/site/?species="+sid,
+      collector_query=s or (genus+" "+sid.removeprefix(genus.lower()+"-").replace("-"," ")),family_learner_url="https://crking92.github.io/Hays-Botany-"+repo+"/site/?species="+sid,
       github_repository="https://github.com/Crking92/Hays-Botany-"+repo,
-      bonap_local_native_status="NOT_CHECKED_IN_THIS_EXPORT")
+      bonap_local_native_status=("NOT_CHECKED_IN_THIS_EXPORT" if s else "SCIENTIFIC_NAME_ABSENT_USE_PROVISIONAL_SEARCH_QUERY"))
 def collect(n):
     base=BASE[NAMES.index(n)]
     if n=="Poaceae":

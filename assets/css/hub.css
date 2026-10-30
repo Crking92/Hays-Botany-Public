@@ -11,3 +11,10 @@
 .featuregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px}.feature{padding:23px;display:flex;align-items:flex-start;flex-direction:column}.feature h3{font-family:Georgia,serif;margin:6px 0;font-size:1.5rem}.feature p{color:var(--muted);flex:1}.featureico{font-size:1.4rem;color:var(--green);background:var(--sage);padding:5px 12px;border-radius:10px}.feature a{font-size:.87rem}.footer{border-top:1px solid var(--line);color:var(--muted);margin-top:65px;padding:24px 0 0;font-size:.9rem}
 @media(max-width:710px){.nav{align-items:flex-start;flex-direction:column;padding:12px 16px}.tabs{gap:0}.tabs a{font-size:.83rem;padding:8px 10px}.wrap{padding:19px 14px 55px}.hero{padding:32px 25px}.hero:after{right:-90px;top:-75px}.statgrid{gap:9px}.stat{padding:12px 11px}.stat span{font-size:.74rem}.searchrow{align-items:stretch}.searchrow .button{padding:10px 12px}.content-section{scroll-margin-top:145px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Readable species names and small-screen navigation/collection controls. */
+.result .scientific{display:block;font-size:.9rem;color:var(--green);margin-top:3px;overflow-wrap:anywhere}
+.collectioncard .links{flex-wrap:wrap}
+.collectioncard .links a{flex:1 1 150px;text-align:center;min-width:0;white-space:normal}
+@media(max-width:710px){.tabs{max-width:100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding-bottom:3px}.tabs a{white-space:nowrap;flex:0 0 auto}.nav{min-width:0}.collectiongrid{grid-template-columns:minmax(0,1fr)}.collectioncard .links a{flex:1 1 180px}.statgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:360px){.statgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:last-child{grid-column:span 2}}

@@ -1,5 +1,5 @@
 "use strict";
-/* User-approved family route preview: nine live-verified text learners.\n   Poaceae routes to the original legacy learner until its site passes QA.\n   This changes visible navigation, NOT original botanical source ownership. */
+/* Family links use only explicitly verified destinations; Poaceae keeps the\n   original learner fallback. This does not change botanical source ownership. */
 const state = {species:[],families:[],collections:[],source:null,shown:24,currentResults:[]};
 const $ = id => document.getElementById(id);
 function el(tag,className,text){
@@ -22,7 +22,7 @@ function familyRoute(sp){
   if(["LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY"].includes(c?.status) && /^https:\/\/crking92\.github\.io\/Hays-Botany-[A-Za-z-]+\/site\/$/.test(c.live_url||"")){
     return {href:c.live_url+"?species="+encodeURIComponent(sp.id),label:c.status==="LIVE_VERIFIED_CC_GALLERY"?"Family learner · verified source-credited photographs":"Family field-ID text learner · photographs pending",family:true};
   }
-  return {href:legacyLink(sp.id),label:"Original grass learner · photo fallback",family:false};
+  return {href:legacyLink(sp.id),label:sp.family==="Poaceae"?"Original grass learner · photo fallback":"Original learner · family route unavailable",family:false};
 }
 function addSpeciesLink(sp){
   const route=familyRoute(sp);
@@ -30,7 +30,10 @@ function addSpeciesLink(sp){
   link.target="_blank";link.rel="noopener noreferrer";
   link.setAttribute("aria-label","Open "+sp.search_label+" in "+(route.family?"the verified family field-ID learner":"the original grass learner"));
   link.append(el("span","tag",sp.family));
-  link.append(el("strong","",sp.search_label || sp.id.replaceAll("-"," ")));
+  const science=sp.scientific_name||sp.search_label||sp.id.replaceAll("-"," ");
+  const common=sp.common_name||"";
+  link.append(el("strong","",common||science));
+  if(common)link.append(el("em","scientific",science));
   link.append(el("small","",sp.id+" · "+sp.genus));
   link.append(el("small","",route.label));
   return link;
@@ -39,8 +42,8 @@ function rankedSpecies(query){
   const words=token(query).split(" ").filter(Boolean);
   if(!words.length)return state.species.slice(0,24);
   return state.species.filter(sp=>words.every(w=>sp._search.includes(w))).sort((a,b)=>{
-    const aFirst=a._label.startsWith(words[0])?0:1;
-    const bFirst=b._label.startsWith(words[0])?0:1;
+    const aFirst=a._common.startsWith(words[0])?0:a._label.startsWith(words[0])?1:2;
+    const bFirst=b._common.startsWith(words[0])?0:b._label.startsWith(words[0])?1:2;
     return aFirst-bFirst||a.family.localeCompare(b.family)||a.id.localeCompare(b.id);
   });
 }
@@ -49,7 +52,7 @@ function renderResults(reset=true){
   const query=$("searchInput").value.trim();
   state.currentResults=rankedSpecies(query);
   const count=state.currentResults.length;
-  $("resultSummary").textContent=query?count.toLocaleString()+" matching species — available family lessons open directly; grass links use the original learner":"Showing a few indexed species. Type to search the full source inventory.";
+  $("resultSummary").textContent=query?count.toLocaleString()+" matching species — available family lessons open directly; grass links use the original learner":"Showing a few indexed species. Search by common name, scientific name, genus, family, or ID.";
   const wrap=$("results");wrap.replaceChildren();
   const frag=document.createDocumentFragment();
   state.currentResults.slice(0,state.shown).forEach(sp=>frag.append(addSpeciesLink(sp)));
@@ -70,6 +73,10 @@ function renderFamilies(){
     btn.append(el("em","",""));
     btn.lastChild.textContent="See species ↗";
     btn.addEventListener("click",()=>{
+      const url=new URL(location.href);
+      url.searchParams.delete("species");url.searchParams.delete("q");
+      url.searchParams.set("family",f.name);url.hash="species";
+      history.pushState({family:f.name},"",url);
       $("searchInput").value=f.name;
       renderResults(true);
       document.getElementById("species").scrollIntoView({behavior:"smooth",block:"start"});
@@ -125,18 +132,43 @@ async function start(){
     if(index.status!=="STAGING_READ_ONLY_SOURCE_SNAPSHOT"||!["NINE_VERIFIED_FAMILY_TEXT_SITES_GRASSES_LEGACY_FALLBACK","NINE_VERIFIED_FAMILY_PHOTO_GALLERIES_GRASSES_LEGACY_FALLBACK"].includes(hub.status)||!Array.isArray(index.records)||!Array.isArray(hub.collections)||!Array.isArray(hub.families))throw Error("Hub data schema or staging-only routing status was not recognized.");
     if(index.records.length!==index.source_count||hub.collections.length!==10)throw Error("Indexed data counts did not match the saved baseline.");
     state.source=hub;
-    state.species=index.records.map(x=>({...x,_label:token(x.search_label),_search:token([x.id,x.genus,x.family,x.search_label].join(" "))}));
+    state.species=index.records.map(x=>({...x,
+      _label:token(x.scientific_name||x.search_label),
+      _common:token(x.common_name),
+      _search:token([x.id,x.genus,x.family,x.search_label,x.scientific_name,x.common_name].join(" "))
+    }));
     state.families=hub.families;
     state.collections=hub.collections;
     $("speciesCount").textContent=state.species.length.toLocaleString();
     $("familyCount").textContent=state.families.length.toLocaleString();
     $("collectionCount").textContent=state.collections.length.toLocaleString();
     $("sourceStamp").textContent="Read-only snapshot from "+index.canonical_source_repository+" · source manifest blob "+index.source_manifest_blob_sha.slice(0,12)+" · generated "+index.generated_at+".";
-    renderResults();renderFamilies();renderCollections();
+    renderFamilies();renderCollections();restoreSearchFromURL();
   }catch(e){showFailure(e)}
 }
-$("searchInput").addEventListener("input",()=>renderResults(true));
-$("clearSearch").addEventListener("click",()=>{$("searchInput").value="";renderResults(true);$("searchInput").focus()});
+function restoreSearchFromURL(){
+  const params=new URLSearchParams(location.search);
+  const id=params.get("species");
+  const exact=id&&state.species.find(sp=>sp.id===id);
+  $("searchInput").value=exact?exact.id:(params.get("family")||params.get("q")||"");
+  renderResults(true);
+  if(exact){
+    const target=document.getElementById("species");
+    if(target)target.scrollIntoView({block:"start"});
+  }
+}
+function updateSearchURL(){
+  const url=new URL(location.href);
+  url.searchParams.delete("species");url.searchParams.delete("family");
+  const q=$("searchInput").value.trim();
+  if(q)url.searchParams.set("q",q);else url.searchParams.delete("q");
+  history.replaceState({q},"",url);
+}
+$("searchInput").addEventListener("input",()=>{updateSearchURL();renderResults(true)});
+$("clearSearch").addEventListener("click",()=>{
+  $("searchInput").value="";updateSearchURL();renderResults(true);$("searchInput").focus();
+});
+window.addEventListener("popstate",()=>{if(state.species.length)restoreSearchFromURL()});
 $("moreResults").addEventListener("click",()=>{state.shown+=48;renderResults(false)});
 $("familyFilter").addEventListener("input",renderFamilies);
 start();

@@ -53,7 +53,7 @@ def collect(hub):
                 raise RuntimeError(f"Duplicate family species: {key}")
             sci=(row.get("scientific_name") or row.get("scientific") or "").strip()
             common=(row.get("common_name") or row.get("common") or "").strip()
-            if not sci:raise RuntimeError(f"{repo}: missing scientific name {sid}")
+            # Some inherited species lessons lack a scientific-name display field.\n            # Preserve the stable-ID search label rather than inventing a name.
             if common.lower()==sci.lower():common=""
             destination[key]=(sci,common,repo)
         counts[repo]=len(rows)

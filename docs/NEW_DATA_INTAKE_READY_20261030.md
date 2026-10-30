@@ -1,0 +1,25 @@
+# Hays Botany — Ready for new botanical data (October 30, 2026)
+
+**The existing migration of all 1,191 species is accounted for. Future botanical writes belong to the assigned family source branch, not the historic Hays-County-Botany taxon library.** This is a contribution runbook, **not** automatic publication permission.
+
+## Before the next species or anatomy pass
+
+1. Identify accepted genus, scientific name, stable ID, family and local relevance. For new taxa, research BONAP/NAPA Hays County nativity and the approved western/northern climate-adaptation consideration. Do not quietly add horticultural cultivars or incorrectly claim county nativity.
+2. Read the active [146-family routing registry](https://github.com/Crking92/Hays-County-Botany/blob/main/workflow/ACTIVE_NEW_PLANT_WRITE_ROUTING_20261028.json), relevant family `AGENTS.md`, branch head/target record, taxon claims and source attribution. The [automated intake preflight](https://github.com/Crking92/Hays-Botany-Public/actions/workflows/verify-new-data-routes.yml) checks all ten destination branches without writing data.
+3. For a new species, create `content/taxa/<Family>/<Genus>/<species-id>/species.json`, `SOURCES.txt` and appropriate credited media records **on its assigned source branch**; update that family's staging `data/collection-index.json` only after identity/duplicate checks. Existing species should be edited narrowly at their current SHA, preserving all established lessons, photo metadata and arrows. Never overwrite a different species file blindly.
+4. Photograph separately: verify the exact photographer, URL, license/version or explicit owner grant, original file identity, scope to publish and to annotate/crop, and required attribution. Real diagnostic views and visible arrow correctness remain priorities. Because these family repositories are PUBLIC including historic branch data, do not stage new unknown-rights/private-only photo bytes in them. The existing ZIP importer intentionally blocks photo media until individual curation.
+5. Verify the staged scientific record, related family/genus lesson, local index and photo provenance; record the destination commit, source SHA, what was added, whether public photo reuse is approved, and whether it is actually deployed. **Do not assume staged species data is visible on GitHub Pages.**
+6. Only after a separate review/release should the approved text/photographs be copied or generated into that family's `main/site/data/species`, `site/media` and site indexes and tested live. New records will then need a *reviewed* update of the public hub's species search index. Its current [search metadata refresh](../scripts/refresh_family_search_metadata.py) deliberately updates **existing 1,191 IDs only** and refuses silently adding unreviewed taxa.
+7. Keep the legacy Hays-County-Botany botanical source and manifest read-only. Keep prior scheduled worker automations paused. Do not silently switch grass links away from the original fallback, or change the canonical homepage.
+
+## Existing safe text package path
+
+The original hub's `scripts/family_repo_installer.py` and `IMPORT_TAXA_ZIP.bat` route text-only packages by the active registry. First run the installer **without `--apply`** to inspect its JSON route plan. Applying requires locally cloned, clean family repositories checked out to their exact source branches; it produces local uncommitted changes, not an automatic push, website release or photo import. An existing different species file blocks rather than being overwritten: handle that update manually through a reviewed, targeted family-branch edit.
+
+**Family branch examples:** Poaceae → `Hays-Botany-Poaceae/main`; Asteraceae → `Hays-Botany-Asteraceae/staging/asteraceae-metadata`; Fabaceae → `Hays-Botany-Fabaceae/staging/fabaceae-metadata`; Lamiaceae → `Hays-Botany-Lamiales/staging/original-source-transfer`; Euphorbiaceae → `Hays-Botany-Spurges-Mallows/staging/original-source-transfer`. All others use the registry.
+
+## Current hub/search testing
+
+The hub is a separate optional public site: https://crking92.github.io/Hays-Botany-Public/. Current initial index: 1,191 species, 146 families, 10 assigned collections; family-main metadata yields 1,143 existing common names and 18 missing scientific-name display fields (preserve existing search labels until scientifically reviewed). The nine non-grass websites have verified galleries; the grass learner is an optional linked review page and grass search still uses the old hub. [Live browser mobile/navigation test](https://github.com/Crking92/Hays-Botany-Public/actions/workflows/test-hub-mobile-navigation.yml) must pass before calling the updated visual experience fully tested.
+
+**What "ready" means:** Routing is checked and manual botanical source edits can restart at assigned family branches. It does NOT mean new entries will appear automatically in the public family gallery or public hub, nor that all photo/anatomy completeness gaps are fixed. First new-data batch should be one small family/species lane with a reversible, checked release.

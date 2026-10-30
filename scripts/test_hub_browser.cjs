@@ -3,13 +3,13 @@ const assert=require("node:assert/strict");
 const fs=require("node:fs");
 const {chromium}=require("playwright");
 
-const URL="https://crking92.github.io/Hays-Botany-Public/";
+const BASE_URL="https://crking92.github.io/Hays-Botany-Public/";
 const results=[];
 async function check(name,fn){
   try{await fn();results.push({test:name,result:"PASS"});console.log("PASS",name)}
   catch(error){console.error("FAIL",name,error);throw error}
 }
-async function load(page,url=URL){
+async function load(page,url=BASE_URL){
   await page.goto(url,{waitUntil:"domcontentloaded",timeout:45000});
   await page.waitForFunction(()=>document.querySelector("#speciesCount")?.textContent?.includes("1,191"),null,{timeout:45000});
   await page.locator(".result").first().waitFor();
@@ -60,7 +60,7 @@ async function run(){
           assert.equal(await page.locator("#searchInput").inputValue(),"");
         });
         await check("direct hub species link selects the target species",async()=>{
-          await load(page,URL+"?species=achillea-millefolium");
+          await load(page,BASE_URL+"?species=achillea-millefolium");
           assert.equal(await page.locator("#searchInput").inputValue(),"achillea-millefolium");
           const target=page.locator("#results a.result[href*='achillea-millefolium']").first();
           assert(await target.count()>0);

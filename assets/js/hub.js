@@ -161,13 +161,29 @@ async function refreshPublishedFamilyCatalog(){
   const responses=await Promise.allSettled(collections.map(async c=>{
     const data=await getJSON(c.live_url+"data/collection-index.json");
     if(!Array.isArray(data.entries))throw Error("Bad family index");
-    return {collection:c,entries:data.entries};
+    const gallery=await getJSON(c.live_url+"data/gallery-index.json").catch(()=>null);
+    return {collection:c,entries:data.entries,gallery};
   }));
   const known=new Set(state.species.map(s=>s.id));
   let discovered=0;
+  let galleryCountsChanged=false;
   for(const result of responses){
     if(result.status!=="fulfilled")continue;
-    const {collection,entries}=result.value;
+    const {collection,entries,gallery}=result.value;
+    if(entries.length>collection.installed_species_baseline){
+      collection.installed_species_baseline=entries.length;
+      galleryCountsChanged=true;
+    }
+    if(gallery && gallery.status==="ONLY_EXISTING_PUBLIC_RIGHTS_CLEARED_SITE_IMAGES" &&
+       gallery.species===entries.length && Number.isInteger(gallery.photo_count) &&
+       Number.isInteger(gallery.photo_species)){
+      if(collection.photos_deployed_in_this_collection!==gallery.photo_count ||
+         collection.photographed_species!==gallery.photo_species){
+        collection.photos_deployed_in_this_collection=gallery.photo_count;
+        collection.photographed_species=gallery.photo_species;
+        galleryCountsChanged=true;
+      }
+    }
     for(const r of entries){
       const id=String(r.id||"");
       const family=String(r.family||"");
@@ -223,6 +239,7 @@ async function refreshPublishedFamilyCatalog(){
     renderResults(true);
     renderFamilies();
   }
+  if(galleryCountsChanged)renderCollections();
 }
 function restoreSearchFromURL(){
   const params=new URLSearchParams(location.search);

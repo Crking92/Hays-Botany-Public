@@ -32,7 +32,8 @@ for kind in ("by","by-sa","by-nc","by-nc-sa"):
 KNOWN_LICENSE_URLS["https://creativecommons.org/publicdomain/zero/1.0/"]=PHOTO_CODES["cc0"]
 SOURCE_IMAGE_HOSTS=("inaturalist-open-data.s3.amazonaws.com","static.inaturalist.org","upload.wikimedia.org")
 USER_AGENT="Hays-Botany-Exact-Commons-CC0-Recheck/2026-11-03 (+https://github.com/Crking92/Hays-Botany-Public)"
-# Each exact Commons file page, photographer and CC BY / BY-SA license was independently checked.\nCOMMONS_RIGHTS={
+# Each exact Commons file page, photographer and CC BY / BY-SA license was independently checked.
+COMMONS_RIGHTS={
   "b0708e506a93cf4def56e7ad08bdb8981061122f": {
     "page": "https://commons.wikimedia.org/wiki/File:Eleocharis_palustris_closeup.jpg",
     "creator": "Matt Lavin",

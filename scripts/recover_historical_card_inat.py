@@ -79,6 +79,13 @@ new='''        csvrow=csv_cache[parent].get(fn)
         }
         candidate={'''
 change(old,new)
+change('''    processed_before={r.get("git_blob_sha") for b in previous_batches
+                      for r in b.get("records",[]) if r.get("git_blob_sha")}''',
+'''    processed_before={r.get("git_blob_sha") for b in previous_batches
+                      for r in b.get("records",[])
+                      if r.get("git_blob_sha") and r.get("status")!="HELD"}''')
+change('if len(expected.split())!=2 or not (taxon==expected or taxon.startswith(expected+" ")):',
+       'if len(expected.split())!=2 or not (taxon.casefold()==expected.casefold() or taxon.casefold().startswith(expected.casefold()+" ")):',2)
 change('multi-family-historical-archive-trust-2026-11-03.json','multi-family-historical-card-inat-2026-11-03.json')
 change('"batch_key":"MULTIFAMILY_HISTORICAL_ARCHIVE_TRUST_2026-11-03"',
        '"batch_key":"MULTIFAMILY_HISTORICAL_CARD_INAT_2026-11-03"')

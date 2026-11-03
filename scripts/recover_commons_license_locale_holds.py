@@ -182,7 +182,43 @@ def canonical_commons_cc_url(raw:str)->str:
         return "https://creativecommons.org/publicdomain/zero/1.0/"
     return ""
 
+DIRECT_FILE_RIGHTS={
+    # Individual Commons file source, contributor, CC0 bot review, and original media
+    # independently read on 2026-11-03. This entry is never a blanket taxon license.
+    "7f181fae4d5c533e6dc2010e953239a60e950735":{
+        "page":"https://commons.wikimedia.org/wiki/File:Polytaenia_texana_-_Texas_Prairie_Parsley.jpg",
+        "creator":"Ben Clement",
+        "license":"CC0 1.0",
+        "license_url":"https://creativecommons.org/publicdomain/zero/1.0/",
+        "url":"https://upload.wikimedia.org/wikipedia/commons/c/cc/Polytaenia_texana_-_Texas_Prairie_Parsley.jpg",
+        "taxon":"Polytaenia texana"
+    }
+}
+def independently_verified_commons(c:dict)->dict|None:
+    e=DIRECT_FILE_RIGHTS.get(c.get("git_blob_sha"))
+    if not e:return None
+    if c.get("source_page")!=e["page"]:
+        raise RuntimeError("Archived per-photo Commons page not identical to independently verified file")
+    if not creator_matches(c.get("claimed_creator"),e["creator"]):
+        raise RuntimeError("Photographer inconsistent with original per-photo archive metadata")
+    if c.get("scientific_name")!=e["taxon"]:
+        raise RuntimeError("Original taxon and file's verified species differ")
+    if c.get("claimed_license")!=e["license"]:
+        raise RuntimeError("Archive license statement differs from independently checked file license")
+    if e["license"]!="CC0 1.0" or e["license_url"]!="https://creativecommons.org/publicdomain/zero/1.0/":
+        raise RuntimeError("Direct-file rights entry has an unsupported license")
+    image_url=collect_photo_url(e["url"])
+    dist=(dhash(c["original_bytes"])^dhash(request(image_url))).bit_count()
+    if dist>12:
+        raise RuntimeError("Archived original photo does not match the exact independently licensed file")
+    return {"license":e["license"],"license_url":e["license_url"],"creator":e["creator"],
+            "exact_page":e["page"],"taxon":e["taxon"],"source_type":"commons",
+            "source_id":e["page"],
+            "evidence":"Exact Commons file page, CC0 bot review, credited photographer and direct media independently examined 2026-11-03; original image dHash distance "+str(dist)}
+
 def commons_verify(c:dict)->dict:
+    directly_checked=independently_verified_commons(c)
+    if directly_checked is not None:return directly_checked
     original=c.get("source_page") or ""
     m=re.search(r"commons\.wikimedia\.org/wiki/File:(.+)",original)
     if not m:raise RuntimeError("No exact Wikimedia Commons File: source")

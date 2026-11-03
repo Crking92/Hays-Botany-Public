@@ -219,10 +219,11 @@ def commons_verify(c:dict)->dict:
         raise RuntimeError("Archived Commons source page does not match exact licensed file")
     if not creator_matches(c.get("claimed_creator"),entry["creator"]):
         raise RuntimeError("Archived photographer does not match current Commons individual file")
-    claim=re.sub(r"\\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
+    claim=re.sub(r"\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
     if claim!=entry["license"]:
         raise RuntimeError("Original archive license does not match page-verified photo license")
-    expected="https://creativecommons.org/licenses/"+entry["license"].lower().replace("cc ","").replace(" ","-")+"/"
+    kind,version=entry["license"].removeprefix("CC ").rsplit(" ",1)
+    expected="https://creativecommons.org/licenses/"+kind.lower()+"/"+version+"/"
     if entry["license_url"]!=expected:
         raise RuntimeError("License name and URL inconsistent")
     url=collect_photo_url(entry["url"])

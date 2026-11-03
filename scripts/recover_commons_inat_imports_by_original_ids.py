@@ -37,6 +37,7 @@ USER_AGENT="Hays-Botany-Historical-Photo-Recheck/2026-11-03 (https://github.com/
 FALLBACK_LINKS={
  "38f1af66914bec6c27033166cbc98353e2ff0db4":(15100539,22555923,"https://commons.wikimedia.org/wiki/File:Asclepias_incarnata_ssp._incarnata.jpg","matthias55","Matt Schultz"),
  "37c26972172e07d5bcd764b07c295ff1dcea71fe":(253110293,453142203,"https://commons.wikimedia.org/wiki/File:Diospyros_virginiana_453142203.jpg","vince13","Vince Hale"),
+ "7f181fae4d5c533e6dc2010e953239a60e950735":(25999580,40333604,"https://commons.wikimedia.org/wiki/File:Polytaenia_texana_-_Texas_Prairie_Parsley.jpg","benclement","Ben Clement"),
 }
 
 def blob_sha(data:bytes)->str:

@@ -122,7 +122,16 @@ def inat_verify(c:dict)->dict:
     validate_claim(c.get("claimed_license"),code)
     attribution=p.get("attribution") or ""
     if not creator_matches(c.get("claimed_creator"),attribution):
-        raise RuntimeError("Current photo creator differs from original image CSV: "+str(attribution)[:140])
+        # CC0 is often represented in the API as simply "no rights reserved".
+        # Verify the individual PHOTO web page explicitly names the historical
+        # photographer, instead of treating the generic CC0 string as an author.
+        if c.get("git_blob_sha") not in FALLBACK_LINKS or code!="cc0":
+            raise RuntimeError("Current photo creator differs from original image CSV: "+str(attribution)[:140])
+        person=creator_display(c.get("claimed_creator"))
+        page=stripped(request(f"https://www.inaturalist.org/photos/{photo_id}").decode("utf-8","replace"))
+        if not person or not re.search(r"Attribution\s+By\s+"+re.escape(person)+r"\b",page,re.I):
+            raise RuntimeError("Photo-page creator not independently verified: "+person)
+        attribution=person
     image_urls=[c.get("direct_url"),c.get("direct_image_url"),p.get("large_url"),
         re.sub(r"/(?:square|medium|small|thumb)\.", "/large.",str(p.get("url") or "")),p.get("url")]
     attempts=[]
@@ -257,7 +266,8 @@ def main()->None:
             "records":previous.get("records",[])
         })
     already_rechecked={r.get("git_blob_sha") for batch in previous_batches
-                       for r in batch.get("records",[]) if r.get("git_blob_sha")}
+                       for r in batch.get("records",[]) if r.get("git_blob_sha") and
+                       r.get("status") in ("SOURCE_VERIFIED_READY","DUPLICATE_NO_INSTALL")}
     sha_published=set()
     for q in (site/"media").rglob("*"):
         if q.is_file() and q.suffix.lower() in IMG_EXT:

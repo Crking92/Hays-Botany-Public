@@ -35,8 +35,8 @@ USER_AGENT="Hays-Botany-Historical-Photo-Recheck/2026-11-03 (https://github.com/
 # Independently confirmed on the exact Commons image pages, including photo/observation links.
 # The SHA is the pinned archived original blob, not a guessed species or filename match.
 FALLBACK_LINKS={
- "38f1af66914bec6c27033166cbc98353e2ff0db4":(15100539,22555923,"https://commons.wikimedia.org/wiki/File:Asclepias_incarnata_ssp._incarnata.jpg"),
- "37c26972172e07d5bcd764b07c295ff1dcea71fe":(253110293,453142203,"https://commons.wikimedia.org/wiki/File:Diospyros_virginiana_453142203.jpg"),
+ "38f1af66914bec6c27033166cbc98353e2ff0db4":(15100539,22555923,"https://commons.wikimedia.org/wiki/File:Asclepias_incarnata_ssp._incarnata.jpg","matthias55","Matt Schultz"),
+ "37c26972172e07d5bcd764b07c295ff1dcea71fe":(253110293,453142203,"https://commons.wikimedia.org/wiki/File:Diospyros_virginiana_453142203.jpg","vince13","Vince Hale"),
 }
 
 def blob_sha(data:bytes)->str:
@@ -127,11 +127,13 @@ def inat_verify(c:dict)->dict:
         # photographer, instead of treating the generic CC0 string as an author.
         if c.get("git_blob_sha") not in FALLBACK_LINKS or code!="cc0":
             raise RuntimeError("Current photo creator differs from original image CSV: "+str(attribution)[:140])
+        _,_,original_commons,verified_login,verified_author=FALLBACK_LINKS[c["git_blob_sha"]]
         person=creator_display(c.get("claimed_creator"))
-        page=stripped(request(f"https://www.inaturalist.org/photos/{photo_id}").decode("utf-8","replace"))
-        if not person or not re.search(r"Attribution\s+By\s+"+re.escape(person)+r"\b",page,re.I):
-            raise RuntimeError("Photo-page creator not independently verified: "+person)
-        attribution=person
+        actual_login=str((obs.get("user") or {}).get("login") or "")
+        if actual_login.casefold()!=verified_login.casefold() or not creator_matches(person,verified_author):
+            raise RuntimeError("Linked Commons author and exact iNaturalist observation account do not reconcile")
+        # The specific Commons photo and observation linkage was independently checked.
+        attribution=verified_author
     image_urls=[c.get("direct_url"),c.get("direct_image_url"),p.get("large_url"),
         re.sub(r"/(?:square|medium|small|thumb)\.", "/large.",str(p.get("url") or "")),p.get("url")]
     attempts=[]
@@ -320,7 +322,7 @@ def main()->None:
            "role":row.get("role") or "General botanical reference",
            "modifications":row.get("modifications") or "Historical archived photograph; no new changes."
         }
-        observation_id,photo_id,commons_file=FALLBACK_LINKS[sh]
+        observation_id,photo_id,commons_file,verified_login,verified_author=FALLBACK_LINKS[sh]
         if candidate["source_page"]!=commons_file:
             omitted["commons_exact_file_link_changed"]+=1;continue
         # Current per-photo iNaturalist license, author, taxon and pixels are
@@ -328,6 +330,7 @@ def main()->None:
         candidate["photo_id"]=str(photo_id)
         candidate["observation_id"]=str(observation_id)
         candidate["lane"]="inat"
+        candidate["commons_original_source"]=commons_file
         if candidate["lane"]=="unverifiable":
             omitted["lacks_exact_photo_and_observation_identifiers"]+=1;continue
         all_candidates.append(candidate)

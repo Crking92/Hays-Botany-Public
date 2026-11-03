@@ -15,6 +15,7 @@ REPORTS=[
  "multi-family-historical-archive-trust-2026-11-03.json",
  "multi-family-historical-ported-cc-2026-11-03.json",
  "multi-family-historical-public-domain-2026-11-03.json",
+ "multi-family-historical-kew-synonyms-2026-11-03.json",
  "multi-family-species-card-reconciliation-2026-11-03.json",
  "multi-family-commons-direct-cc-recovery-2026-11-03.json",
 ]

@@ -28,7 +28,7 @@ patch(old,new)
 patch("def classify(c:dict)->str:",'''def gbif_plantnet_verify(c:dict)->dict:
     import urllib.parse
     source_page=str(c.get("source_page") or "")
-    match=re.search(r"^https://www\\.gbif\\.org/occurrence/(\\d+)$",source_page.rstrip("/"))
+    match=re.search(r"^https://www\.gbif\.org/occurrence/(\d+)$",source_page.rstrip("/"))
     if not match:raise RuntimeError("Original archived GBIF occurrence URL missing")
     occurrence=int(match.group(1))
     record=request("https://api.gbif.org/v1/occurrence/"+str(occurrence),json_response=True)
@@ -48,13 +48,13 @@ patch("def classify(c:dict)->str:",'''def gbif_plantnet_verify(c:dict)->dict:
     for m in record.get("media") or []:
         u=str(m.get("identifier") or "")
         parsed=urllib.parse.urlsplit(u)
-        if parsed.scheme=="https" and parsed.netloc.lower()=="bs.plantnet.org" and
-            any(urllib.parse.urlsplit(a).path==parsed.path for a in archived_urls):
+        if (parsed.scheme=="https" and parsed.netloc.lower()=="bs.plantnet.org" and
+            any(urllib.parse.urlsplit(a).path==parsed.path for a in archived_urls)):
             media.append(m)
     if len(media)!=1:raise RuntimeError("Exact archived Pl@ntNet media not unique in GBIF record")
     image=media[0]
     rights=str(image.get("license") or "").strip()
-    rights_m=re.fullmatch(r"(.+?)\\s*\\(cc-by-sa\\)",rights,flags=re.I)
+    rights_m=re.fullmatch(r"(.+?)\s*\(cc-by-sa\)",rights,flags=re.I)
     if not rights_m:raise RuntimeError("Individual image rights do not explicitly confirm CC BY-SA: "+rights[:110])
     author=str(image.get("creator") or image.get("rightsHolder") or rights_m.group(1)).strip()
     if not creator_matches(c.get("claimed_creator"),author) or not creator_matches(rights_m.group(1),author):
@@ -62,7 +62,7 @@ patch("def classify(c:dict)->str:",'''def gbif_plantnet_verify(c:dict)->dict:
     archive_license=" ".join(str(c.get("claimed_license") or "").upper().split())
     if archive_license not in ("CC BY-SA","CC BY-SA 2.0","CC BY-SA 3.0","CC BY-SA 4.0"):
         raise RuntimeError("Original per-image archive does not confirm CC BY-SA attribution")
-    version=archive_license.split()[-1] if re.fullmatch(r"CC BY-SA [234]\\.0",archive_license) else "2.0"
+    version=archive_license.split()[-1] if re.fullmatch(r"CC BY-SA [234]\.0",archive_license) else "2.0"
     licensed="CC BY-SA "+version
     licensing_url="https://creativecommons.org/licenses/by-sa/"+version+"/"
     image_url=str(image["identifier"])

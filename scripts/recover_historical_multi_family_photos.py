@@ -225,6 +225,20 @@ def main()->None:
     index=json.loads((site/"data/collection-index.json").read_text())
     assigned={entry["id"]:entry for entry in index["entries"]}
     assert len(assigned)==len(index["entries"])
+    # Resume across batches without repeating unresolved photo holds or losing their reasons.
+    report_path=site.parent/"workflow"/"multi-family-historical-recovery-2026-11-03.json"
+    previous=json.loads(report_path.read_text()) if report_path.is_file() else {}
+    previous_batches=list(previous.get("previous_batches") or [])
+    if previous.get("records") is not None:
+        previous_batches.append({
+            "checked_at":previous.get("checked_at"),
+            "selected_candidates":previous.get("selected_candidates",0),
+            "new_installed":previous.get("new_installed",0),
+            "held_checked":previous.get("held_checked",0),
+            "records":previous.get("records",[])
+        })
+    previously_held={r.get("git_blob_sha") for batch in previous_batches
+                    for r in batch.get("records",[]) if r.get("status")=="HELD"}
     sha_published=set()
     for q in (site/"media").rglob("*"):
         if q.is_file() and q.suffix.lower() in IMG_EXT:
@@ -248,6 +262,9 @@ def main()->None:
             omitted["historical_original_missing"]+=1;continue
         # Hash comes from migration's original source tree snapshot.
         sh=str(record["git_blob_sha"])
+        if sh in previously_held:
+            omitted["prior_hold_preserved_for_separate_rights_or_identity_review"]+=1
+            continue
         if sh in sha_published:
             omitted["already_public_identical_bytes"]+=1;continue
         parent=Path(original_path).parent.parent
@@ -288,7 +305,9 @@ def main()->None:
        "remaining_candidates_not_yet_checked":max(0,len(all_candidates)-len(selected)),
        "selected_candidates":len(selected),"selected_by_lane":dict(collections.Counter(x["lane"] for x in selected)),
        "skipped_or_previously_published":dict(omitted),"new_installed":0,"held_checked":0,
-       "duplicates_found_during_review":0,"records":[]
+       "duplicates_found_during_review":0,"records":[],
+       "previous_batches":previous_batches,
+       "batch_number":len(previous_batches)+1
     }
     approved_shas=set(sha_published)
     with tempfile.TemporaryDirectory(prefix="hays-historical-multifamily-") as td:
@@ -351,7 +370,8 @@ def main()->None:
             assert report["new_installed"]==to_install,"Actual installed count differs from verified candidates"
         report["verified_but_not_installed"]=to_install-report["new_installed"]
         report["held_by_reason"]=dict(collections.Counter(r.get("reason","") for r in report["records"] if r["status"]=="HELD"))
-        report_path=site.parent/"workflow"/"multi-family-historical-recovery-2026-11-03.json"
+        report["cumulative_installed"]=report["new_installed"]+sum(b.get("new_installed",0) for b in previous_batches)
+        report["cumulative_held_reviewed"]=report["held_checked"]+sum(b.get("held_checked",0) for b in previous_batches)
         report_path.parent.mkdir(parents=True,exist_ok=True)
         report_path.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
     print("MULTIFAMILY_HISTORICAL_RECOVERY",json.dumps({

@@ -79,8 +79,8 @@ end='''    for old_name in ("multi-family-historical-archive-trust-2026-11-03.js
 change(start,end)
 change('           "role":row.get("role") or "General botanical reference",',
        '           "source_context":row.get("source_context") or "",\n           "role":row.get("role") or "General botanical reference",')
-change('multi-family-historical-archive-trust-2026-11-03.json',
-       'multi-family-historical-redirect-fix-2026-11-03.json',2)
+change('    report_path=site.parent/"workflow"/"multi-family-historical-archive-trust-2026-11-03.json"',
+       '    report_path=site.parent/"workflow"/"multi-family-historical-redirect-fix-2026-11-03.json"')
 change('"batch_key":"MULTIFAMILY_HISTORICAL_ARCHIVE_TRUST_2026-11-03"',
        '"batch_key":"MULTIFAMILY_HISTORICAL_REDIRECT_FIX_2026-11-03"')
 change('print("MULTIFAMILY_HISTORICAL_ARCHIVE_TRUST",json.dumps({',

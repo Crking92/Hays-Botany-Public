@@ -52,11 +52,11 @@ APPROVED_SYNONYMS={
  "aristolochia-serpentaria":("Endodeca serpentaria","https://powo.science.kew.org/taxon/93333-1"),
  "hemionitis-alabamensis":("Myriopteris alabamensis","https://powo.science.kew.org/taxon/77182021-1"),
  "hemionitis-artax":("Argyrochosma dealbata","https://powo.science.kew.org/taxon/77182269-1"),
- "hemionitis-aspera":("Myriopteris scabra","https://powo.science.kew.org/taxon/77182309-1"),
+ "hemionitis-aspera":("Myriopteris scabra","https://powo.science.kew.org/taxon/77134865-1"),
  "hemionitis-atropurpurea":("Pellaea atropurpurea","https://powo.science.kew.org/taxon/77181990-1"),
  "hemionitis-wrightiana":("Pellaea wrightiana","https://powo.science.kew.org/taxon/77182620-1"),
  "thelypteris-kunthii":("Pelazoneuron kunthii","https://powo.science.kew.org/taxon/251400-2"),
- "thelypteris-ovata":("Pelazoneuron ovatum","https://powo.science.kew.org/taxon/251525-2"),
+ "thelypteris-ovata":("Pelazoneuron ovatum","https://powo.science.kew.org/taxon/77221196-1"),
 }
 
 def blob_sha(data:bytes)->str:

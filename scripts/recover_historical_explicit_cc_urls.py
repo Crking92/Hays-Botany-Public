@@ -43,8 +43,8 @@ new='''        row=csv_cache[parent].get(fn)
         row["license"]="CC "+match.group(1).upper()+" "+match.group(2)
         card_file=src/parent/"species.json"'''
 sub(old,new)
-sub('multi-family-historical-archive-trust-2026-11-03.json',
-    'multi-family-historical-cc-url-resolved-2026-11-03.json')
+sub('    report_path=site.parent/"workflow"/"multi-family-historical-archive-trust-2026-11-03.json"',
+    '    report_path=site.parent/"workflow"/"multi-family-historical-cc-url-resolved-2026-11-03.json"')
 sub('"batch_key":"MULTIFAMILY_HISTORICAL_ARCHIVE_TRUST_2026-11-03"',
     '"batch_key":"MULTIFAMILY_HISTORICAL_CC_URL_RESOLVED_2026-11-03"')
 sub('print("MULTIFAMILY_HISTORICAL_ARCHIVE_TRUST",json.dumps({',

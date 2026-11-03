@@ -72,7 +72,7 @@ def main():
     if not selected:return
     pending=dict(selected)
     verified={}
-    for attempt in range(16):
+    for attempt in range(78):
         for src,r in list(pending.items()):
             try:
                 published=fetch(base+src)

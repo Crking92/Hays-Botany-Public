@@ -290,7 +290,7 @@ def commons_verify(c:dict)->dict:
       "license_url":ARCHIVE_REUSE_LICENSES[archived_license],
       "creator":creator,"exact_page":original,
       "taxon":c["scientific_name"],"source_type":"commons","source_id":original,
-      "evidence":"Existing historical image-sources.csv entry for exact Commons photo "
+      "evidence":"Existing original species.json per-image record for exact Commons photo "
         +filename+"; original individual photographer "+creator
         +"; archived specific reuse license "+archived_license
         +"; preserved photo byte SHA checked against original transfer manifest "

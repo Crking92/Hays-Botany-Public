@@ -15,7 +15,12 @@ a='''    eligible_held={r.get("git_blob_sha") for r in all_prior
        if r.get("status")=="HELD" and r.get("lane")=="commons" and
        ("429" in str(r.get("reason","")) or
         "Wikimedia current image license URL unsupported" in str(r.get("reason","")))}'''
-b='''    eligible_held={r.get("git_blob_sha") for r in all_prior
+b='''    trust_path=site.parent/"workflow"/"multi-family-historical-archive-trust-2026-11-03.json"
+    if trust_path.is_file():
+        trust_report=json.loads(trust_path.read_text())
+        for batch in (trust_report.get("previous_batches") or [])+[trust_report]:
+            all_prior.extend(batch.get("records") or [])
+    eligible_held={r.get("git_blob_sha") for r in all_prior
        if r.get("status")=="HELD" and r.get("lane")=="commons" and
        str(r.get("reason","")).startswith("Archived per-photo rights unverified or unsupported: CC BY")}'''
 sub(a,b)

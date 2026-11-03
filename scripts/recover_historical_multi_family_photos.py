@@ -334,7 +334,8 @@ def main()->None:
                 dest.with_name(dest.name+".json").write_text(json.dumps(metadata,indent=2,ensure_ascii=False)+"\n")
                 approved_shas.add(c["git_blob_sha"])
                 r.update(status="SOURCE_VERIFIED_READY",creator=checked["creator"],license=checked["license"],
-                    source_page=checked["exact_page"],taxon=checked["taxon"])
+                    source_page=checked["exact_page"],taxon=checked["taxon"],
+                    src="media/"+c["species_id"]+"/"+dest_name, sha256=hashlib.sha256(raw).hexdigest())
             except Exception as exc:
                 r.update(status="HELD",reason=str(exc)[:350])
                 report["held_checked"]+=1

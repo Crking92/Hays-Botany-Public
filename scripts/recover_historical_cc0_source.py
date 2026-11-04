@@ -40,7 +40,7 @@ change('''        card_file=src/parent/"species.json"''',
         creator=creator_display(str(row.get("attribution") or row.get("creator") or ""))
         vague=("unknown","unverified","photographer","rights reserved",
                "iNaturalist contributor","user unknown","source account")
-        if code!="cc0" or str(row.get("license") or "").strip().upper() not in ("CC0","CC0 1.0"):
+        if code!="cc0" or not (str(row.get("license") or "").strip().upper() in ("CC0","CC0 1.0") or str(row.get("license_code") or "").strip().lower()=="cc0"):
             omitted["not_explicit_archived_individual_cc0"]+=1;continue
         if not creator or any(term in creator.casefold() for term in vague):
             # CC0 does not require attribution. Do not invent a photographer

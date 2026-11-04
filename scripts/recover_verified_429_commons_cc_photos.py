@@ -96,6 +96,15 @@ COMMONS_RIGHTS={
     "license": "PUBLIC DOMAIN (U.S. FEDERAL WORK)",
     "license_url": "https://www.copyright.gov/title17/92chap1.html#105"
   },
+  # Wikimedia Commons file and FlickreviewR certify individual CC BY-SA 2.0;
+  # archive recorded uploader Declangi, original Flickr author is bastus917.
+  "172f28f578b28fa9b42b29f30c9bdadd0433a87e": {
+    "page": "https://commons.wikimedia.org/wiki/File:Spirodela_polyrrhiza.jpg",
+    "creator": "bastus917 (영철 이)",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Spirodela_polyrrhiza.jpg",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
   "e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952": {
     "page": "https://commons.wikimedia.org/wiki/File:Ulmus_rubra_flower_buds.jpg",
     "creator": "Phyzome",
@@ -311,6 +320,8 @@ def commons_verify(c:dict)->dict:
             # photo names its staff photographer, Clarence A. Rechenthin.
             "a116d752445fd93164120ad7b5e2e58cdcaa7783":
                 ("USDA NRCS Texas State Office","Clarence A. Rechenthin"),
+            "172f28f578b28fa9b42b29f30c9bdadd0433a87e":
+                ("Declangi","bastus917 (영철 이)"),
             "858031ecb313b428abbc470d8ff344ecd84374fa":
                 ("Krzysztof Ziarnek (Kenraiz)","Krzysztof Ziarnek, Kenraiz"),
             "3fd1c28c02482d2b77094904a81d71ed9ee6dbd3":
@@ -407,7 +418,8 @@ def main()->None:
                     (r.get("git_blob_sha") in {
                         "e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952",
                         "858031ecb313b428abbc470d8ff344ecd84374fa",
-                        "3fd1c28c02482d2b77094904a81d71ed9ee6dbd3"
+                        "3fd1c28c02482d2b77094904a81d71ed9ee6dbd3",
+                        "172f28f578b28fa9b42b29f30c9bdadd0433a87e"
                     } and "Wikimedia original author not individually confirmed" in str(r.get("reason",""))))
                and r.get("git_blob_sha") in COMMONS_RIGHTS}
     report_path=site.parent/"workflow"/"multi-family-commons-direct-cc-recovery-2026-11-03.json"

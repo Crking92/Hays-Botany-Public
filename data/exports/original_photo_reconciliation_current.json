@@ -1,17 +1,16 @@
 {
   "schema_version": 1,
   "description": "Metadata-only cross-family original-photo inventory. Not a license approval, taxon verification or live Pages test.",
-  "checked_at_utc": "2026-11-04T14:46:28.244989+00:00",
+  "checked_at_utc": "2026-11-04T14:49:04.016538+00:00",
   "family_count": 7,
   "original_archive_photos": 1782,
   "counts": {
-    "EXACT_IN_SPECIES_MEDIA": 1556,
+    "EXACT_IN_SPECIES_MEDIA": 1560,
     "NOT_EXACTLY_PUBLISHED": 219,
     "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 210,
     "UNMATCHED_HELD": 9,
     "OWNER_CLOSED_EXCLUDED_UNMATCHED": 9,
-    "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3,
-    "EXACT_OTHER_SITE_MEDIA_REVIEW": 4
+    "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3
   },
   "family_audits": [
     {
@@ -1037,12 +1036,11 @@
       "original_archive_photos": 347,
       "site_media_files": 642,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 300,
+        "EXACT_IN_SPECIES_MEDIA": 304,
         "NOT_EXACTLY_PUBLISHED": 43,
         "UNMATCHED_HELD": 2,
         "OWNER_CLOSED_EXCLUDED_UNMATCHED": 2,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 41,
-        "EXACT_OTHER_SITE_MEDIA_REVIEW": 4
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 41
       },
       "unmatched_photos": [
         {

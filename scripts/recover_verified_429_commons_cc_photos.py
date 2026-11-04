@@ -34,6 +34,45 @@ SOURCE_IMAGE_HOSTS=("inaturalist-open-data.s3.amazonaws.com","static.inaturalist
 USER_AGENT="Hays-Botany-Exact-Commons-CC0-Recheck/2026-11-03 (+https://github.com/Crking92/Hays-Botany-Public)"
 # Each exact Commons file page, photographer and CC BY / BY-SA license was independently checked.
 COMMONS_RIGHTS={
+# These five individual iNaturalist2Commons photos were reviewed under CC BY 4.0
+# by Wikimedia iNaturalistReviewBot (2025-12-16); archive preserves exact
+# photo IDs, individual credits, original photo bytes and original URLs.
+# The image fingerprint and archived metadata must still match to publish.
+  "d87f7f60922a052103f44faeb7891f2eb4dd03a7": {
+    "page": "https://commons.wikimedia.org/wiki/File:Dichondra_carolinensis_258349465.jpg",
+    "creator": "Alex Abair",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/258349465/original.jpg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "bf4319406d2b1a9202d779f617ba1e086f7a664d": {
+    "page": "https://commons.wikimedia.org/wiki/File:Dichondra_carolinensis_363579431.jpg",
+    "creator": "Alex Abair",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/363579431/original.jpg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "b5e87d8f310fdcd2d258c50c000485d1b7f4bd18": {
+    "page": "https://commons.wikimedia.org/wiki/File:Dichondra_carolinensis_363579498.jpg",
+    "creator": "Alex Abair",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/363579498/original.jpg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "9c7efa04390b14f0e13c899aa329b805a736a7c0": {
+    "page": "https://commons.wikimedia.org/wiki/File:Dichondra_carolinensis_363579587.jpg",
+    "creator": "Alex Abair",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/363579587/original.jpg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "666f969144399876e01b877382e7a2c485ee7c25": {
+    "page": "https://commons.wikimedia.org/wiki/File:Dichondra_carolinensis_363579722.jpg",
+    "creator": "Alex Abair",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/363579722/original.jpg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+  },
   "b0708e506a93cf4def56e7ad08bdb8981061122f": {
     "page": "https://commons.wikimedia.org/wiki/File:Eleocharis_palustris_closeup.jpg",
     "creator": "Matt Lavin",

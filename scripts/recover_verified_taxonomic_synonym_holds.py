@@ -57,7 +57,16 @@ APPROVED_SYNONYMS={
  "hemionitis-wrightiana":("Pellaea wrightiana","https://powo.science.kew.org/taxon/77182620-1"),
  "thelypteris-kunthii":("Pelazoneuron kunthii","https://powo.science.kew.org/taxon/251400-2"),
  "thelypteris-ovata":("Pelazoneuron ovatum","https://powo.science.kew.org/taxon/77221196-1"),
+ # Five exact candidate source aliases; do not infer license or identification from a name alone.
+ "hedeoma-serpyllifolia":("Hedeoma reverchonii serpyllifolia","https://powo.science.kew.org/taxon/447686-1"),
+ "botrychium-biternatum":("Sceptridium biternatum","https://namethatplant.net/plantdetail.shtml?plant=217"),
+ "cleome-trachysperma":("Polanisia dodecandra trachysperma","https://powo.science.kew.org/taxon/60602-2"),
+ "pleurochaete-squarrosa":("Tortella squarrosa","https://www.britishbryologicalsociety.org.uk/learning/species-finder/tortella-squarrosa/"),
+ "lappula-texana":("Lappula occidentalis cupulata","https://powo.science.kew.org/taxon/874884-1"),
 }
+
+# Never match another taxon merely because its first two words match.
+TRINOMIAL_SOURCE_REQUIRED={"hedeoma-serpyllifolia","cleome-trachysperma","lappula-texana"}
 
 def blob_sha(data:bytes)->str:
     return hashlib.sha1(b"blob "+str(len(data)).encode()+b"\0"+data).hexdigest()
@@ -132,8 +141,9 @@ def inat_verify(c:dict)->dict:
     if len(matches)!=1 or matches[0].get("id")!=observation:raise RuntimeError("Original observation ID not found")
     obs=matches[0]
     taxon=(obs.get("taxon") or {}).get("name") or ""
-    expected=" ".join(c["scientific_name"].split()[:2])
-    if len(expected.split())!=2 or not (taxon==expected or taxon.startswith(expected+" ")):
+    expected=(c["scientific_name"] if c["species_id"] in TRINOMIAL_SOURCE_REQUIRED
+              else " ".join(c["scientific_name"].split()[:2]))
+    if len(expected.split())<2 or not (taxon==expected or taxon.startswith(expected+" ")):
         raise RuntimeError("Taxon mismatch: "+taxon+" vs "+expected)
     photos=[p for p in (obs.get("photos") or []) if p.get("id")==photo_id]
     if len(photos)!=1:raise RuntimeError("Exact photo absent from original observation")

@@ -23,7 +23,7 @@ patch('           "claimed_license":row.get("license") or "", "photo_id":row.get
       '           "claimed_license":row.get("license") or "", "archived_license_url":row.get("license_url") or "", "photo_id":row.get("photo_id") or "",')
 patch('def classify(c:dict)->str:', '''def checked_institutional_gbif(c:dict)->dict:
     import urllib.parse
-    match=re.search(r"/occurrence/(\\d+)",str(c.get("source_page") or ""))
+    match=re.search(r"/occurrence/(\d+)",str(c.get("source_page") or ""))
     if not match:raise RuntimeError("Exact original GBIF occurrence ID missing")
     oid=int(match.group(1))
     o=request("https://api.gbif.org/v1/occurrence/"+str(oid),json_response=True)

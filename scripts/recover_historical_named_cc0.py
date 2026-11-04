@@ -45,7 +45,7 @@ change('def inat_verify(c:dict)->dict:', '''def inat_verify(c:dict)->dict:
     if current.casefold()!="no rights reserved":
         raise RuntimeError("Current CC0 attribution is not the known historical generic string")
     urls=[c.get("direct_url"),c.get("direct_image_url"),p.get("large_url"),
-          re.sub(r"/(?:square|medium|small|thumb)\\.", "/large.",str(p.get("url") or "")),
+          re.sub(r"/(?:square|medium|small|thumb)\.", "/large.",str(p.get("url") or "")),
           p.get("url")]
     distances=[]
     for u in dict.fromkeys(str(x) for x in urls if x):

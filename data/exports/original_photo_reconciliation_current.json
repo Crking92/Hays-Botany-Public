@@ -1,25 +1,26 @@
 {
   "schema_version": 1,
   "description": "Metadata-only cross-family original-photo inventory. Not a license approval, taxon verification or live Pages test.",
-  "checked_at_utc": "2026-11-04T03:29:53.657468+00:00",
+  "checked_at_utc": "2026-11-04T14:46:28.244989+00:00",
   "family_count": 7,
   "original_archive_photos": 1782,
   "counts": {
     "EXACT_IN_SPECIES_MEDIA": 1556,
-    "NOT_EXACTLY_PUBLISHED": 223,
-    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 214,
+    "NOT_EXACTLY_PUBLISHED": 219,
+    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 210,
     "UNMATCHED_HELD": 9,
     "OWNER_CLOSED_EXCLUDED_UNMATCHED": 9,
-    "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3
+    "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3,
+    "EXACT_OTHER_SITE_MEDIA_REVIEW": 4
   },
   "family_audits": [
     {
       "repository": "Crking92/Hays-Botany-Trees-Shrubs",
-      "main_tree_sha": "8f970ef294a10b36174aa7be2838383cb5ada616",
+      "main_tree_sha": "71f30c1658fbcca01941ace3d1c851bc32a09622",
       "source_manifest_blob_sha": "27ca39dab7cd744deb73e4ea7f5268f21b71c1c0",
       "historical_review_blob_sha": "7da7f7f3c71f7e70a795b19f6ee7409c95b712a7",
       "original_archive_photos": 320,
-      "site_media_files": 723,
+      "site_media_files": 758,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 298,
         "NOT_EXACTLY_PUBLISHED": 22,
@@ -252,11 +253,11 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Lamiales",
-      "main_tree_sha": "e2cc791d3517a6a73b6580e61fb4036bd0029387",
+      "main_tree_sha": "177228ec83451291914f5f5bd6838d1f7d34a187",
       "source_manifest_blob_sha": "89e1c426a4f8bec9fae9c7bd886b9d697bc22b04",
       "historical_review_blob_sha": "8710f3d7a126144e1316b41152d6ae84fb935030",
       "original_archive_photos": 240,
-      "site_media_files": 576,
+      "site_media_files": 625,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 210,
         "NOT_EXACTLY_PUBLISHED": 27,
@@ -538,11 +539,11 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Monocots-Aquatics",
-      "main_tree_sha": "34934c71c56eeabb5393b22f52a9988ade0be2f1",
+      "main_tree_sha": "9357e6be3be666bea6578776517156b99b4738ed",
       "source_manifest_blob_sha": "8b2196c0a87ea32adb1bad64d6d04ec170e639f5",
       "historical_review_blob_sha": "eb53a612c217b0c688be0f689cbb8cd3086e5487",
       "original_archive_photos": 205,
-      "site_media_files": 421,
+      "site_media_files": 466,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 178,
         "NOT_EXACTLY_PUBLISHED": 27,
@@ -823,11 +824,11 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Mixed-Families",
-      "main_tree_sha": "bd80d118ea63a636d7c7063e6df5119462418085",
+      "main_tree_sha": "32a2bcff92a50e2628295379488b426440b954cd",
       "source_manifest_blob_sha": "82ccc6e5d1a56b1391e3f7f8d7f9215621a1431e",
       "historical_review_blob_sha": "c2dbd1f4b74086848de4401966c571fe162f3256",
       "original_archive_photos": 170,
-      "site_media_files": 520,
+      "site_media_files": 525,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 151,
         "NOT_EXACTLY_PUBLISHED": 19,
@@ -1030,17 +1031,18 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Spurges-Mallows",
-      "main_tree_sha": "b7ba96a6dedf54b7b4b3cbf55ad092b3c4a55f6a",
+      "main_tree_sha": "83c263d5eaf7364454e61c261315fbf57dc9de76",
       "source_manifest_blob_sha": "0a88e782dfda8d85b6cf24812bc77bfd8cb8e6d9",
       "historical_review_blob_sha": "050c45a48f2c2ea886fae62062e9915f8ad41e5f",
       "original_archive_photos": 347,
-      "site_media_files": 638,
+      "site_media_files": 642,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 300,
-        "NOT_EXACTLY_PUBLISHED": 47,
+        "NOT_EXACTLY_PUBLISHED": 43,
         "UNMATCHED_HELD": 2,
         "OWNER_CLOSED_EXCLUDED_UNMATCHED": 2,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 45
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 41,
+        "EXACT_OTHER_SITE_MEDIA_REVIEW": 4
       },
       "unmatched_photos": [
         {
@@ -1415,26 +1417,6 @@
         },
         {
           "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Onagraceae/Ludwigia/ludwigia-decurrens/images/images/01-ludwigia-decurrens-licensed-source.jpg",
-          "archive_path": "migration/private-original-photo-holds/Onagraceae/Ludwigia/ludwigia-decurrens/images/images/01-ludwigia-decurrens-licensed-source.jpg",
-          "source_blob_sha": "ed5e4b24e303a46a6493fd30d013c47a3f4b2d52",
-          "bytes": 29852,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Onagraceae/Ludwigia/ludwigia-leptocarpa/images/images/01-ludwigia-leptocarpa-licensed-source.jpg",
-          "archive_path": "migration/private-original-photo-holds/Onagraceae/Ludwigia/ludwigia-leptocarpa/images/images/01-ludwigia-leptocarpa-licensed-source.jpg",
-          "source_blob_sha": "52b04d4236ca28b9f55a9c2f88b8b6fc4ad8b3b4",
-          "bytes": 156342,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
           "source_path": "content/taxa/Onagraceae/Ludwigia/ludwigia-octovalvis/images/ludwigia-octovalvis_flower-source-label_00-36-29.0.jpg",
           "archive_path": "migration/private-original-photo-holds/Onagraceae/Ludwigia/ludwigia-octovalvis/images/ludwigia-octovalvis_flower-source-label_00-36-29.0.jpg",
           "source_blob_sha": "793978976df7c504f41b3bd87cc66cdf1d804876",
@@ -1449,26 +1431,6 @@
           "archive_path": "migration/private-original-photo-holds/Onagraceae/Ludwigia/ludwigia-octovalvis/images/ludwigia-octovalvis_inferior-ovary_00-37-29.0.jpg",
           "source_blob_sha": "9cfd766f8c076c1f26655aa445b677ce1b25705e",
           "bytes": 476694,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Onagraceae/Ludwigia/ludwigia-palustris/images/images/01-ludwigia-palustris-licensed-source.jpg",
-          "archive_path": "migration/private-original-photo-holds/Onagraceae/Ludwigia/ludwigia-palustris/images/images/01-ludwigia-palustris-licensed-source.jpg",
-          "source_blob_sha": "17fd7b586fcd7cd545e22dd7bfdeedf87e82c5ac",
-          "bytes": 266077,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Onagraceae/Ludwigia/ludwigia-peploides/images/images/01-ludwigia-peploides-licensed-source.jpg",
-          "archive_path": "migration/private-original-photo-holds/Onagraceae/Ludwigia/ludwigia-peploides/images/images/01-ludwigia-peploides-licensed-source.jpg",
-          "source_blob_sha": "bf9598563890431530e38098261950865901886a",
-          "bytes": 366272,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -1517,11 +1479,11 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Asterid-Allies",
-      "main_tree_sha": "5beaf5b1b5d7e199f53c3c818c6d0a5104d84a0f",
+      "main_tree_sha": "1fe832ae4f46d161b37de83d803fb57da3d07260",
       "source_manifest_blob_sha": "5dcf9a67554178fa2cc4736c29dbb8387792f016",
       "historical_review_blob_sha": "a1ad4a299f149d25a8aaae8f26ede6d84080d387",
       "original_archive_photos": 306,
-      "site_media_files": 526,
+      "site_media_files": 630,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 239,
         "NOT_EXACTLY_PUBLISHED": 67,

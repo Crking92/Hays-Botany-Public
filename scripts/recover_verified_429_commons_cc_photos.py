@@ -34,6 +34,16 @@ SOURCE_IMAGE_HOSTS=("inaturalist-open-data.s3.amazonaws.com","static.inaturalist
 USER_AGENT="Hays-Botany-Exact-Commons-CC0-Recheck/2026-11-03 (+https://github.com/Crking92/Hays-Botany-Public)"
 # Each exact Commons file page, photographer and CC BY / BY-SA license was independently checked.
 COMMONS_RIGHTS={
+  # Archived whitetop original: Wikimedia Commons identifies Robert H. Mohlenbrock
+  # in the USDA-SCS Southern Wetland Flora (1991); work by federal employee.
+  # Exact individual public-domain file: https://commons.wikimedia.org/wiki/File:Rhynchospora_colorata_NRCS-002.jpg
+  "c729fc394a6bab029f61c8055e6962a44275ed81": {
+    "page": "https://commons.wikimedia.org/wiki/File:Rhynchospora_colorata_NRCS-002.jpg",
+    "creator": "Robert H. Mohlenbrock",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Rhynchospora_colorata_NRCS-002.jpg",
+    "license": "PUBLIC DOMAIN (U.S. FEDERAL WORK)",
+    "license_url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
   # Exact NPS accession 690f9968-2897-4893-9a2c-c56b240218dc:
   # Commons confirms NPS employee photo, federal-work public domain.
   # BLM Arizona Flickr photo 54821170528; Commons FlickreviewR confirms
@@ -399,6 +409,8 @@ def commons_verify(c:dict)->dict:
         # Two archive-specific Flickr alias pairs confirmed on their individual
         # Commons source pages. Do not permit generic partial-name exceptions.
         aliases={
+            "c729fc394a6bab029f61c8055e6962a44275ed81":
+                ("Robert H. Mohlenbrock / USDA NRCS","Robert H. Mohlenbrock"),
             "5f64ef8bc1d0a138f92e7caf72036156f2b408f4":
                 ("Ivengo (Russian Wikipedia)","Ivengo(RUS)"),
             # The archived source names USDA's Texas office; the exact Commons
@@ -431,6 +443,8 @@ def commons_verify(c:dict)->dict:
             raise RuntimeError("Archived photographer does not match current Commons individual file")
     claim=re.sub(r"\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
     if claim in {"PUBLIC DOMAIN (US FEDERAL GOVERNMENT)","PUBLIC DOMAIN (U.S. FEDERAL GOVERNMENT)"} and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
+        claim=entry["license"]
+    if c["git_blob_sha"]=="c729fc394a6bab029f61c8055e6962a44275ed81" and claim=="PUBLIC DOMAIN (US FEDERAL GOVERNMENT)" and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
         claim=entry["license"]
     if (c["git_blob_sha"] in {
         "3726e714cadf623a75a6db53bcf1264ea6e26691",
@@ -521,7 +535,8 @@ def main()->None:
                         "47f91e7579276758d2abb3d3329ff8112052a999",
                         "2acd0cdf675e7fb2696018185f3acb33e8a6d4fd",
                         "a116d752445fd93164120ad7b5e2e58cdcaa7783",
-                         "3726e714cadf623a75a6db53bcf1264ea6e26691"
+                         "3726e714cadf623a75a6db53bcf1264ea6e26691",
+                         "c729fc394a6bab029f61c8055e6962a44275ed81"
                     } and "Wikimedia current image license URL unsupported" in str(r.get("reason",""))) or
                     (r.get("git_blob_sha") in {
                         "e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952",

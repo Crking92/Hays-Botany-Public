@@ -1,98 +1,259 @@
 #!/usr/bin/env python3
-"""Read-only HTTP and pixel-decode test of existing family galleries on public Pages."""
-import io,json,random,time,urllib.request
-from concurrent.futures import ThreadPoolExecutor
+"""Read-only audit of ALL current family Pages galleries.
+
+Compare immutable main-branch snapshots to live Pages JSON and species cards,
+then HEAD every locally hosted image referenced by the live cards. This does
+not approve, publish, delete, redownload, or modify botanical source records.
+"""
+from __future__ import annotations
+
+import concurrent.futures
+import hashlib
+import io
+import json
+import os
+import time
+import urllib.parse
+import urllib.request
+from pathlib import Path
+
 from PIL import Image
 
-COLLECTIONS={
- "Hays-Botany-Asteraceae":(180,172,124),
- "Hays-Botany-Fabaceae":(91,88,59),
- "Hays-Botany-Monocots-Aquatics":(113,35,23),
- "Hays-Botany-Lamiales":(102,102,55),
- "Hays-Botany-Asterid-Allies":(118,64,30),
- "Hays-Botany-Cacti-Buttercups":(107,37,25),
- "Hays-Botany-Spurges-Mallows":(130,99,48),
- "Hays-Botany-Trees-Shrubs":(133,107,51),
- "Hays-Botany-Mixed-Families":(105,19,14),
-}
+REPOSITORIES = (
+    "Hays-Botany-Asteraceae",
+    "Hays-Botany-Fabaceae",
+    "Hays-Botany-Poaceae",
+    "Hays-Botany-Monocots-Aquatics",
+    "Hays-Botany-Lamiales",
+    "Hays-Botany-Asterid-Allies",
+    "Hays-Botany-Cacti-Buttercups",
+    "Hays-Botany-Spurges-Mallows",
+    "Hays-Botany-Trees-Shrubs",
+    "Hays-Botany-Mixed-Families",
+)
+USER_AGENT = "HaysBotanyCurrentLiveGalleryAudit/2026-11-04"
+TOKEN = os.environ.get("GH_TOKEN", "")
+LIMIT = 12 * 1024 * 1024
 
-def read(url,attempts=3):
-    for try_no in range(attempts):
+
+def fetch(url: str, method: str = "GET", attempts: int = 2):
+    last = None
+    for attempt in range(attempts):
         try:
-            req=urllib.request.Request(url,headers={"User-Agent":"HaysBotanyPublicGallerySmoke/20261029"})
-            with urllib.request.urlopen(req,timeout=30) as response:
-                if response.status!=200:raise ValueError("Non-200 response")
-                return response.read(),response.headers.get("Content-Type","")
-        except Exception:
-            if try_no+1==attempts:raise
-            time.sleep(2*(try_no+1))
-def img_check(item):
-    repo,root,path=item
-    url=root+path
-    content,mime=read(url)
-    if not mime.lower().startswith("image/"):raise AssertionError((repo,path,mime))
-    with Image.open(io.BytesIO(content)) as im:
-        im.verify()
-    with Image.open(io.BytesIO(content)) as im:
-        w,h=im.size
-        if min(w,h)<80:raise AssertionError((repo,path,w,h))
-    return (repo,len(content))
-def verify(repo,expected):
-    species,photos,with_photos=expected
-    root="https://crking92.github.io/"+repo+"/site/"
-    index=json.loads(read(root+"data/collection-index.json")[0])
-    assert len(index["entries"])==species,(repo,"species mismatch")
-    js=read(root+"app.js")[0].decode("utf-8")
-    css=read(root+"styles.css")[0].decode("utf-8")
-    assert "gallery" in js.lower() and "gallery-strip" in css,(repo,"visual gallery assets not deployed")
-    if repo=="Hays-Botany-Lamiales":
-        manifest=json.loads(read(root+"data/reviewed-external-photo-manifest.json")[0])
-        entries=manifest["species"]
-        found=sum(map(len,entries.values()))
-        count_species=len(entries)
-        paths=[p["src"] for group in entries.values() for p in group if p["src"].startswith("media/")]
-    else:
-        gallery=json.loads(read(root+"data/gallery-index.json")[0])
-        found=gallery["photo_count"]
-        count_species=gallery["photo_species"]
-        paths=[p["first_src"] for p in gallery["entries"].values() if p["count"] and p["first_src"]]
-        if repo!="Hays-Botany-Asteraceae":
-            # Test every locally hosted image, not just thumbnails.
-            extra=[]
-            for row in index["entries"]:
-                if row.get("photo_count",0):
-                    card=json.loads(read(root+"data/species/"+row["id"]+".json")[0])
-                    extra.extend(p["src"] for p in card["verified_photos"])
-            paths=extra
-        else:
-            # Asteraceae includes all published image references; fetch every verified species card.
-            extra=[]
-            for row in index["entries"]:
-                if gallery["entries"][row["id"]]["count"]:
-                    card=json.loads(read(root+"data/species/"+row["id"]+".json")[0])
-                    extra.extend(p["src"] for p in card["verified_photos"])
-            paths=extra
-    assert found==photos and count_species==with_photos,(repo,found,count_species,expected)
-    assert len(paths)==(photos-2 if repo=="Hays-Botany-Lamiales" else photos),(repo,len(paths),photos)
-    print("SITE_GALLERY_METADATA_PASS",repo,species,photos,with_photos,len(paths),flush=True)
-    return root,paths
+            headers = {"User-Agent": USER_AGENT, "Cache-Control": "no-cache"}
+            if TOKEN and urllib.parse.urlsplit(url).hostname == "api.github.com":
+                headers["Authorization"] = "Bearer " + TOKEN
+            req = urllib.request.Request(url, method=method, headers=headers)
+            with urllib.request.urlopen(req, timeout=22) as response:
+                if response.status != 200:
+                    raise ValueError("HTTP " + str(response.status))
+                if method == "HEAD":
+                    return dict(response.headers)
+                payload = response.read(LIMIT + 1)
+                if len(payload) > LIMIT:
+                    raise ValueError("Metadata exceeds safe size")
+                return payload
+        except Exception as exc:
+            last = str(exc)
+            if attempt + 1 < attempts:
+                time.sleep(attempt + 1)
+    raise RuntimeError(last)
+
+
+def head_source(repo):
+    info = json.loads(fetch("https://api.github.com/repos/Crking92/" + repo + "/branches/main"))
+    return info["commit"]["sha"]
+
+
+def source_url(repo, sha, path):
+    return "https://raw.githubusercontent.com/Crking92/" + repo + "/" + sha + "/" + path
+
+
+def site_url(repo):
+    return "https://crking92.github.io/" + repo + "/site/"
+
+
+def metadata(repo):
+    item = {"repository": repo, "status": "CHECKING", "species": 0,
+            "gallery_placements": 0, "photo_species": 0, "photos_checked": 0,
+            "errors": []}
+    try:
+        sha = head_source(repo)
+        item["main_sha"] = sha
+        root = site_url(repo)
+        grass = repo == "Hays-Botany-Poaceae"
+        index_path = "site/data/poaceae-index.json" if grass else "site/data/collection-index.json"
+        for path in ("site/data/gallery-index.json", index_path):
+            expected = fetch(source_url(repo, sha, path))
+            live = fetch(root + path.removeprefix("site/") + "?sha=" + sha[:12])
+            if hashlib.sha256(expected).digest() != hashlib.sha256(live).digest():
+                item["status"] = "DEPLOYMENT_BEHIND_MAIN"
+                item["errors"].append("Live Pages bytes differ from main: " + path)
+                return item, []
+            if path.endswith("gallery-index.json"):
+                gallery = json.loads(live)
+            else:
+                rows = json.loads(live)
+        if not grass:
+            rows = rows["entries"]
+        expected_species = gallery["species"]
+        expected_photo_count = gallery["photo_panels"] if grass else gallery["photo_count"]
+        expected_with_photos = gallery["photo_species"]
+        if len(rows) != expected_species or len(gallery["entries"]) != expected_species:
+            raise ValueError("Species index/gallery species totals differ")
+        if len({row["id"] for row in rows}) != len(rows):
+            raise ValueError("Duplicate species IDs in live collection index")
+        counts = [row["local_panel_count"] if grass else row["photo_count"] for row in rows]
+        if sum(counts) != expected_photo_count:
+            raise ValueError("Gallery photo count differs from species index sum")
+        if sum(n > 0 for n in counts) != expected_with_photos:
+            raise ValueError("Photo species count differs from gallery index")
+        for row, n in zip(rows, counts):
+            if gallery["entries"][row["id"]]["count"] != n:
+                raise ValueError("Gallery count differs on species " + row["id"])
+        item.update(species=expected_species, gallery_placements=expected_photo_count,
+                    photo_species=expected_with_photos, status="INDEX_CURRENT")
+        return item, [(repo, sha, row["id"], n, grass) for row, n in zip(rows, counts)]
+    except Exception as exc:
+        item["status"] = "ERROR"
+        item["errors"].append(str(exc)[:260])
+        return item, []
+
+
+def inspect_card(task):
+    repo, sha, sid, expected_count, grass = task
+    path = "site/data/species/" + sid + ".json"
+    root = site_url(repo)
+    try:
+        upstream = fetch(source_url(repo, sha, path))
+        live = fetch(root + path.removeprefix("site/") + "?sha=" + sha[:12])
+        if upstream != live:
+            raise ValueError("Published card differs from current main")
+        card = json.loads(live)
+        if card["id"] != sid:
+            raise ValueError("Card ID mismatch")
+        photographs = card.get("panels") if grass else card.get("verified_photos")
+        if not isinstance(photographs, list) or len(photographs) != expected_count:
+            raise ValueError("Card count differs from current gallery")
+        image_urls = []
+        for photo in photographs:
+            for key in ("src", "creator", "license", "source_page"):
+                if not isinstance(photo.get(key), str) or not photo[key].strip():
+                    raise ValueError("Photo missing " + key)
+            image_url = urllib.parse.urljoin(root, photo["src"])
+            if not image_url.startswith("https://crking92.github.io/" + repo + "/"):
+                raise ValueError("Photo not hosted within its family Pages site: " + photo["src"])
+            if photo.get("private_rights_review_only") is True:
+                raise ValueError("Rights-held photo appears in public gallery")
+            image_urls.append(image_url)
+        return repo, sid, image_urls, None
+    except Exception as exc:
+        return repo, sid, [], str(exc)[:250]
+
+
+def check_live_image(url):
+    try:
+        headers = fetch(url, "HEAD")
+        mime = headers.get("Content-Type", "").lower()
+        if not (mime.startswith("image/") or mime.startswith("application/octet-stream")):
+            raise ValueError("Not an image media type: " + mime)
+        if headers.get("Content-Length") and int(headers["Content-Length"]) < 100:
+            raise ValueError("Image response is unexpectedly small")
+        return url, None
+    except Exception as exc:
+        return url, str(exc)[:230]
+
+
+def check_one_pixel_image(url):
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=25) as response:
+            img = response.read(25 * 1024 * 1024 + 1)
+        if len(img) > 25 * 1024 * 1024:
+            raise ValueError("Sample photo exceeds 25 MB")
+        with Image.open(io.BytesIO(img)) as picture:
+            picture.verify()
+        return url, None
+    except Exception as exc:
+        return url, str(exc)[:200]
+
 
 def main():
-    everything=[]
-    for repo,expected in COLLECTIONS.items():
-        root,paths=verify(repo,expected)
-        everything.extend((repo,root,p) for p in paths)
-    with ThreadPoolExecutor(max_workers=12) as workers:
-        rows=list(workers.map(img_check,everything))
-    bytes_read=sum(n for _,n in rows)
-    assert len(rows)==721,(len(rows),bytes_read)
-    print("ALL_EXISTING_FAMILY_GALLERIES_LIVE_PASS",json.dumps({
-        "family_websites":len(COLLECTIONS),
-        "species_indexed":sum(a for a,_,_ in COLLECTIONS.values()),
-        "approved_photos":sum(b for _,b,_ in COLLECTIONS.values()),
-        "public_images_loaded_and_decoded":len(rows),
-        "commons_remote_links_excluded_from_byte_check":2,
-        "bytes_decoded":bytes_read,
-        "original_learner_modified":False,"new_photos_collected":0
-    },sort_keys=True),flush=True)
-if __name__=="__main__":main()
+    results = []
+    tasks = []
+    for repo in REPOSITORIES:
+        record, card_tasks = metadata(repo)
+        results.append(record)
+        tasks.extend(card_tasks)
+        print("FAMILY_LIVE_METADATA", json.dumps({k: v for k, v in record.items()
+              if k != "errors"}), flush=True)
+
+    by_name = {x["repository"]: x for x in results}
+    photo_urls = {}
+    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as workers:
+        for repo, sid, urls, error in workers.map(inspect_card, tasks):
+            record = by_name[repo]
+            if error:
+                record["errors"].append(sid + ": " + error)
+            else:
+                for url in urls:
+                    photo_urls.setdefault(url, set()).add(repo)
+    for record in results:
+        if record["status"] == "INDEX_CURRENT":
+            if record["errors"]:
+                record["status"] = "CARD_MISMATCH"
+            else:
+                record["status"] = "CARDS_CURRENT"
+
+    # HEAD every DISTINCT photo, including grass comparison panels. This
+    # checks all browser-visible URLs without redownloading thousands of MB.
+    urls = sorted(photo_urls)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=24) as workers:
+        for url, error in workers.map(check_live_image, urls):
+            for repo in photo_urls[url]:
+                record = by_name[repo]
+                record["photos_checked"] += 1
+                if error and len(record["errors"]) < 35:
+                    record["errors"].append(url + ": " + error)
+
+    # Decode one real image per family; URL existence alone cannot test pixels.
+    samples = []
+    for repo in REPOSITORIES:
+        choices = [url for url in urls if repo in photo_urls[url]]
+        if choices:
+            samples.append((repo, choices[0]))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as workers:
+        sample_results = list(workers.map(check_one_pixel_image, [url for _, url in samples]))
+    for (repo, _), (_, error) in zip(samples, sample_results):
+        if error:
+            by_name[repo]["errors"].append("Sample pixel decode: " + error)
+        else:
+            by_name[repo]["sample_image_decoded"] = True
+
+    for record in results:
+        if record["status"] == "CARDS_CURRENT":
+            if record["errors"]:
+                record["status"] = "IMAGE_OR_CARD_ERROR"
+            else:
+                record["status"] = "LIVE_VERIFIED"
+        print("FAMILY_LIVE_PHOTOS", json.dumps(record, sort_keys=True), flush=True)
+
+    summary = {
+        "audit": "HAYS_BOTANY_CURRENT_LIVE_PHOTO_GALLERIES",
+        "families_tested": len(results),
+        "families_verified": sum(x["status"] == "LIVE_VERIFIED" for x in results),
+        "published_gallery_placements": sum(x["gallery_placements"] for x in results),
+        "distinct_image_urls_tested": len(urls),
+        "status": "PASS" if all(x["status"] == "LIVE_VERIFIED" for x in results) else "NEEDS_ATTENTION",
+        "results": results,
+        "writes_to_family_repositories": 0,
+    }
+    Path("qa-report").mkdir(exist_ok=True)
+    Path("qa-report/live-photo-galleries.json").write_text(json.dumps(summary, indent=2) + "\n")
+    print("HAYS_BOTANY_CURRENT_LIVE_AUDIT", json.dumps({k: v for k, v in summary.items() if k != "results"}), flush=True)
+    if summary["status"] != "PASS":
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

@@ -64,6 +64,11 @@ def match_status(manifest_row, media_by_sha):
         return "NOT_EXACTLY_PUBLISHED"
     parts = Path(manifest_row["source_path"]).parts
     species = parts[-3] if len(parts) >= 7 else ""
+    if species == "genus-images":
+        stem = Path(manifest_row["source_path"]).stem
+        if any(Path(path).parent.name in stem for path in paths):
+            return "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA"
+        return "EXACT_OTHER_SITE_MEDIA_REVIEW"
     if species and any(path.startswith("site/media/" + species + "/") for path in paths):
         return "EXACT_IN_SPECIES_MEDIA"
     return "EXACT_OTHER_SITE_MEDIA_REVIEW"
@@ -162,6 +167,7 @@ def main():
     }
     assert report["original_archive_photos"] == (
         combined["EXACT_IN_SPECIES_MEDIA"] +
+        combined["EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA"] +
         combined["EXACT_OTHER_SITE_MEDIA_REVIEW"] +
         combined["NOT_EXACTLY_PUBLISHED"]
     )

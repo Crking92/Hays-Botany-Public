@@ -49,8 +49,16 @@ def grant(row,noncommercial):
  url=url.rstrip("/")+"/" if url else ""
  # Photographic source CSVs frequently store cc-by as license_code. But
  # without the particular versioned license URL this is NOT sufficient.
- if not url and license.lower()=="cc0":
+ if not url and license.lower() in ("cc0","cc0 1.0","cc-zero"):
   url=CC["cc0"][1]
+ if not url:
+  # Exact VERSIONED per-image license declaration is itself a valid grant.
+  # Never infer a version from bare CC BY / CC BY-NC / guide shorthand.
+  normalized=" ".join(license.upper().replace("-"," ").replace("_"," ").split())
+  for label,canonical in CC.values():
+   if normalized==" ".join(label.upper().replace("-"," ").split()):
+    url=canonical
+    break
  if not url or url not in LICENSE:raise ValueError("NO_EXACT_CC_LICENSE_URL")
  code,canon=LICENSE[url]
  if "NC" in code and not noncommercial:raise ValueError("NC_ON_UNVERIFIED_COMMERCIAL_SITE")
@@ -105,6 +113,8 @@ def main():
  cards={};sources={};hashes={};hash_images={};added=Counter();status=Counter();notes=[]
  def classify(r,reason):
   status[reason]+=1;notes.append({"record":r["source_path"],"status":reason})
+  if reason!="INSTALLED_PENDING_PUBLIC_VERIFICATION":
+   print("HAYS_RECORD_HOLD",r["source_path"],reason,flush=True)
  for r in fam["unmatched_photos"]:
   if r.get("owner_closed_excluded"):
    classify(r,"PERMANENT_EXCLUSION");continue

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "description": "Metadata-only cross-family original-photo inventory. Not a license approval, taxon verification or live Pages test.",
-  "checked_at_utc": "2026-11-04T02:19:49.984124+00:00",
+  "checked_at_utc": "2026-11-04T02:30:18.699756+00:00",
   "family_count": 7,
   "original_archive_photos": 1782,
   "counts": {
-    "EXACT_IN_SPECIES_MEDIA": 1409,
-    "NOT_EXACTLY_PUBLISHED": 370,
-    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 361,
+    "EXACT_IN_SPECIES_MEDIA": 1508,
+    "NOT_EXACTLY_PUBLISHED": 271,
+    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 262,
     "UNMATCHED_HELD": 9,
     "OWNER_CLOSED_EXCLUDED_UNMATCHED": 9,
     "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3
@@ -15,39 +15,19 @@
   "family_audits": [
     {
       "repository": "Crking92/Hays-Botany-Trees-Shrubs",
-      "main_tree_sha": "081a2e3caa713754b62befd36e27b5df54dec27f",
+      "main_tree_sha": "ce5d7e2b00248aafbb2ae141041f784ddce61af6",
       "source_manifest_blob_sha": "27ca39dab7cd744deb73e4ea7f5268f21b71c1c0",
       "historical_review_blob_sha": "7da7f7f3c71f7e70a795b19f6ee7409c95b712a7",
       "original_archive_photos": 320,
-      "site_media_files": 683,
+      "site_media_files": 705,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 258,
-        "NOT_EXACTLY_PUBLISHED": 62,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 61,
+        "EXACT_IN_SPECIES_MEDIA": 280,
+        "NOT_EXACTLY_PUBLISHED": 40,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 39,
         "UNMATCHED_HELD": 1,
         "OWNER_CLOSED_EXCLUDED_UNMATCHED": 1
       },
       "unmatched_photos": [
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Anacardiaceae/Schinus/schinus-terebinthifolia/images/joey-626401530.jpg",
-          "archive_path": "migration/private-original-photo-holds/Anacardiaceae/Schinus/schinus-terebinthifolia/images/joey-626401530.jpg",
-          "source_blob_sha": "fdd08be4e424942d4cf42bab74d9280a7ff483ad",
-          "bytes": 139933,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Anacardiaceae/Schinus/schinus-terebinthifolia/images/joey-626401570.jpg",
-          "archive_path": "migration/private-original-photo-holds/Anacardiaceae/Schinus/schinus-terebinthifolia/images/joey-626401570.jpg",
-          "source_blob_sha": "bcdc273c8d5de2e11d143af28cf80540a52ce4ca",
-          "bytes": 241573,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
         {
           "repository": "Hays-Botany-Trees-Shrubs",
           "source_path": "content/taxa/Anacardiaceae/Toxicodendron/toxicodendron-radicans/images/inat-561454067.jpg",
@@ -310,150 +290,10 @@
         },
         {
           "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Juglandaceae/Carya/carya-illinoinensis/images/joey-201569747.jpg",
-          "archive_path": "migration/private-original-photo-holds/Juglandaceae/Carya/carya-illinoinensis/images/joey-201569747.jpg",
-          "source_blob_sha": "bbefaf2c5adf93ab14b9e776c096e56f7419f55a",
-          "bytes": 153513,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Juglandaceae/Carya/carya-illinoinensis/images/joey-201569780.jpg",
-          "archive_path": "migration/private-original-photo-holds/Juglandaceae/Carya/carya-illinoinensis/images/joey-201569780.jpg",
-          "source_blob_sha": "e91196e38b15bbafab8712a5b266f3a3a14677de",
-          "bytes": 111197,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Juglandaceae/Carya/carya-illinoinensis/images/joey-201569819.jpg",
-          "archive_path": "migration/private-original-photo-holds/Juglandaceae/Carya/carya-illinoinensis/images/joey-201569819.jpg",
-          "source_blob_sha": "9426c09cf5479b35f11eef70ec406153ad20b72e",
-          "bytes": 208590,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Lauraceae/Lindera/lindera-benzoin/images/joey-377489439.jpg",
-          "archive_path": "migration/private-original-photo-holds/Lauraceae/Lindera/lindera-benzoin/images/joey-377489439.jpg",
-          "source_blob_sha": "2b6e12c3a2628a2ed01725bd8aa032220d2e8c61",
-          "bytes": 100480,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Lauraceae/Lindera/lindera-benzoin/images/joey-377489474.jpg",
-          "archive_path": "migration/private-original-photo-holds/Lauraceae/Lindera/lindera-benzoin/images/joey-377489474.jpg",
-          "source_blob_sha": "493aeddf4be68ae413b5fae39a2ef6e043cb7d5a",
-          "bytes": 116797,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Lauraceae/Lindera/lindera-benzoin/images/joey-377489505.jpg",
-          "archive_path": "migration/private-original-photo-holds/Lauraceae/Lindera/lindera-benzoin/images/joey-377489505.jpg",
-          "source_blob_sha": "658137420d4794ccf061118321ae2d5b5a8f67a9",
-          "bytes": 159669,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Meliaceae/Melia/melia-azedarach/images/joey-364804436.jpg",
-          "archive_path": "migration/private-original-photo-holds/Meliaceae/Melia/melia-azedarach/images/joey-364804436.jpg",
-          "source_blob_sha": "50c8d4adf43d24c458e944247ee6c9932ab716ef",
-          "bytes": 90492,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Meliaceae/Melia/melia-azedarach/images/joey-364804504.jpg",
-          "archive_path": "migration/private-original-photo-holds/Meliaceae/Melia/melia-azedarach/images/joey-364804504.jpg",
-          "source_blob_sha": "d599595daad9b13fc1451274f015fb0db8c14ae5",
-          "bytes": 82692,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Moraceae/Morus/morus-microphylla/images/joey-202575987.jpg",
-          "archive_path": "migration/private-original-photo-holds/Moraceae/Morus/morus-microphylla/images/joey-202575987.jpg",
-          "source_blob_sha": "41f91543b2cc016d9311ab34443baee49cd824ea",
-          "bytes": 76129,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Moraceae/Morus/morus-microphylla/images/joey-202576006.jpg",
-          "archive_path": "migration/private-original-photo-holds/Moraceae/Morus/morus-microphylla/images/joey-202576006.jpg",
-          "source_blob_sha": "52e15e41eae919206bd4d7a1bcaa643906d65e28",
-          "bytes": 82337,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Moraceae/Morus/morus-microphylla/images/joey-202576021.jpg",
-          "archive_path": "migration/private-original-photo-holds/Moraceae/Morus/morus-microphylla/images/joey-202576021.jpg",
-          "source_blob_sha": "ef8dcccdae334de47990a95b33eacae8aaf5b044",
-          "bytes": 104279,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
           "source_path": "content/taxa/Rhamnaceae/Condalia/condalia-hookeri/images/inat-466434648.jpg",
           "archive_path": "migration/private-original-photo-holds/Rhamnaceae/Condalia/condalia-hookeri/images/inat-466434648.jpg",
           "source_blob_sha": "1df1248deec6ab1b60e524f63bd0c4519c6f35dc",
           "bytes": 404156,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Rhamnaceae/Frangula/frangula-caroliniana/images/joey-332919957.jpg",
-          "archive_path": "migration/private-original-photo-holds/Rhamnaceae/Frangula/frangula-caroliniana/images/joey-332919957.jpg",
-          "source_blob_sha": "6bdb9c1c6c4af8dee569f16f547f527b3a15309b",
-          "bytes": 122769,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Rhamnaceae/Frangula/frangula-caroliniana/images/joey-332919973.jpg",
-          "archive_path": "migration/private-original-photo-holds/Rhamnaceae/Frangula/frangula-caroliniana/images/joey-332919973.jpg",
-          "source_blob_sha": "97c2407db14d96a022ef2d94d93c6b3170eb943c",
-          "bytes": 117236,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Rhamnaceae/Frangula/frangula-caroliniana/images/joey-332919991.jpg",
-          "archive_path": "migration/private-original-photo-holds/Rhamnaceae/Frangula/frangula-caroliniana/images/joey-332919991.jpg",
-          "source_blob_sha": "3ec28566fef9be459342e6efc5e6db6ce166accf",
-          "bytes": 103994,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -530,36 +370,6 @@
         },
         {
           "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Santalaceae/Phoradendron/phoradendron-leucarpum/images/joey-357290356.jpg",
-          "archive_path": "migration/private-original-photo-holds/Santalaceae/Phoradendron/phoradendron-leucarpum/images/joey-357290356.jpg",
-          "source_blob_sha": "b562a54d27c098bb771b1702d7d172baaa6bb105",
-          "bytes": 77819,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Santalaceae/Phoradendron/phoradendron-leucarpum/images/joey-357290384.jpg",
-          "archive_path": "migration/private-original-photo-holds/Santalaceae/Phoradendron/phoradendron-leucarpum/images/joey-357290384.jpg",
-          "source_blob_sha": "56be1cb3370d9289b5ed591f00fa53e7d2cae6e4",
-          "bytes": 72785,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Santalaceae/Phoradendron/phoradendron-leucarpum/images/joey-357290425.jpg",
-          "archive_path": "migration/private-original-photo-holds/Santalaceae/Phoradendron/phoradendron-leucarpum/images/joey-357290425.jpg",
-          "source_blob_sha": "e4a5858b74a957347cac2beafbfb4599a7104cf8",
-          "bytes": 79738,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
           "source_path": "content/taxa/Sapindaceae/Acer/acer-negundo/images/02-compound-leaves-samaras.jpg",
           "archive_path": "migration/private-original-photo-holds/Sapindaceae/Acer/acer-negundo/images/02-compound-leaves-samaras.jpg",
           "source_blob_sha": "0a1f15e7e927796317f143f29b12b90d2871e743",
@@ -617,50 +427,20 @@
           "historical_review_status": "HELD",
           "historical_review_reason": "Wikimedia current image license URL unsupported /",
           "owner_closed_excluded": true
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Viburnaceae/Viburnum/viburnum-rufidulum/images/joey-730245602.jpg",
-          "archive_path": "migration/private-original-photo-holds/Viburnaceae/Viburnum/viburnum-rufidulum/images/joey-730245602.jpg",
-          "source_blob_sha": "b9e26949c7286b993fa60a8a36752503ea107731",
-          "bytes": 110145,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Viburnaceae/Viburnum/viburnum-rufidulum/images/joey-730245660.jpg",
-          "archive_path": "migration/private-original-photo-holds/Viburnaceae/Viburnum/viburnum-rufidulum/images/joey-730245660.jpg",
-          "source_blob_sha": "83208c88a41d0bb92482249f0fbc77b3714712ad",
-          "bytes": 150545,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Viburnaceae/Viburnum/viburnum-rufidulum/images/joey-730245709.jpg",
-          "archive_path": "migration/private-original-photo-holds/Viburnaceae/Viburnum/viburnum-rufidulum/images/joey-730245709.jpg",
-          "source_blob_sha": "6c00cc4b7dd7fca70a998aee45814f201a85e9bb",
-          "bytes": 106634,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
         }
       ]
     },
     {
       "repository": "Crking92/Hays-Botany-Lamiales",
-      "main_tree_sha": "50c06c4e9b67c1a6e30f6585259dd357a32ff984",
+      "main_tree_sha": "037ce11ccee2d367b989efd005523071956e3c34",
       "source_manifest_blob_sha": "89e1c426a4f8bec9fae9c7bd886b9d697bc22b04",
       "historical_review_blob_sha": "8710f3d7a126144e1316b41152d6ae84fb935030",
       "original_archive_photos": 240,
-      "site_media_files": 544,
+      "site_media_files": 552,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 201,
-        "NOT_EXACTLY_PUBLISHED": 36,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 36,
+        "EXACT_IN_SPECIES_MEDIA": 209,
+        "NOT_EXACTLY_PUBLISHED": 28,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 28,
         "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3
       },
       "unmatched_photos": [
@@ -700,26 +480,6 @@
           "archive_path": "migration/private-original-photo-holds/Lamiaceae/Callicarpa/callicarpa-americana/images/03-purple-fruit-opposite-leaves.jpg",
           "source_blob_sha": "79e73b8c4aaa886917a5acfc1c898c6536148e61",
           "bytes": 208148,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Lamiales",
-          "source_path": "content/taxa/Lamiaceae/Marrubium/marrubium-vulgare/images/joey-211367551.jpg",
-          "archive_path": "migration/private-original-photo-holds/Lamiaceae/Marrubium/marrubium-vulgare/images/joey-211367551.jpg",
-          "source_blob_sha": "f2c9f716ccf4c71b9606606a043ea904edae2f94",
-          "bytes": 87727,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Lamiales",
-          "source_path": "content/taxa/Lamiaceae/Marrubium/marrubium-vulgare/images/joey-211367563.jpg",
-          "archive_path": "migration/private-original-photo-holds/Lamiaceae/Marrubium/marrubium-vulgare/images/joey-211367563.jpg",
-          "source_blob_sha": "109b71ea811b094710c96f1d73ce508fe588adf5",
-          "bytes": 52171,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -906,36 +666,6 @@
         },
         {
           "repository": "Hays-Botany-Lamiales",
-          "source_path": "content/taxa/Plantaginaceae/Linaria/linaria-texana/images/joey-357336521.jpg",
-          "archive_path": "migration/private-original-photo-holds/Plantaginaceae/Linaria/linaria-texana/images/joey-357336521.jpg",
-          "source_blob_sha": "758a705ac160f1ff66cd7e8acd684a4aabef2144",
-          "bytes": 58031,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Lamiales",
-          "source_path": "content/taxa/Plantaginaceae/Linaria/linaria-texana/images/joey-357336539.jpg",
-          "archive_path": "migration/private-original-photo-holds/Plantaginaceae/Linaria/linaria-texana/images/joey-357336539.jpg",
-          "source_blob_sha": "d334c2994483425de072b214ad4824ae36a5f661",
-          "bytes": 45253,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Lamiales",
-          "source_path": "content/taxa/Plantaginaceae/Linaria/linaria-texana/images/joey-357336563.jpg",
-          "archive_path": "migration/private-original-photo-holds/Plantaginaceae/Linaria/linaria-texana/images/joey-357336563.jpg",
-          "source_blob_sha": "ae5ed9d942f5f30c4fcd89777a38add4b0167fc8",
-          "bytes": 63987,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Lamiales",
           "source_path": "content/taxa/Plantaginaceae/Maurandella/maurandella-antirrhiniflora/images/inat-560925211.jpg",
           "archive_path": "migration/private-original-photo-holds/Plantaginaceae/Maurandella/maurandella-antirrhiniflora/images/inat-560925211.jpg",
           "source_blob_sha": "65685ed46bb91aa4e90838159fc48399ec7639f8",
@@ -960,36 +690,6 @@
           "archive_path": "migration/private-original-photo-holds/Plantaginaceae/Penstemon/penstemon-cobaea/images/penstemon-cobaea_seed-capsules-source-label_08-56.jpg",
           "source_blob_sha": "fe79870bef435eb58a61c263ad7b70b1f81b7d04",
           "bytes": 184116,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Lamiales",
-          "source_path": "content/taxa/Scrophulariaceae/Buddleja/buddleja-racemosa/images/joey-373982289.jpg",
-          "archive_path": "migration/private-original-photo-holds/Scrophulariaceae/Buddleja/buddleja-racemosa/images/joey-373982289.jpg",
-          "source_blob_sha": "790015ad3ac74428008640487881eeb1e6878d7c",
-          "bytes": 48783,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Lamiales",
-          "source_path": "content/taxa/Scrophulariaceae/Buddleja/buddleja-racemosa/images/joey-373982378.jpg",
-          "archive_path": "migration/private-original-photo-holds/Scrophulariaceae/Buddleja/buddleja-racemosa/images/joey-373982378.jpg",
-          "source_blob_sha": "1a785d96571eb629591de770d813a57928496f68",
-          "bytes": 91863,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Lamiales",
-          "source_path": "content/taxa/Scrophulariaceae/Buddleja/buddleja-racemosa/images/joey-373982455.jpg",
-          "archive_path": "migration/private-original-photo-holds/Scrophulariaceae/Buddleja/buddleja-racemosa/images/joey-373982455.jpg",
-          "source_blob_sha": "13b800c32e44b3faf75e207840eef4f1626c8300",
-          "bytes": 141253,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -1028,15 +728,15 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Monocots-Aquatics",
-      "main_tree_sha": "c5d0d09993d6b175d1535e545d21a11efbff4ffd",
+      "main_tree_sha": "659922ceee98563747370d712f5cb48b5c85207f",
       "source_manifest_blob_sha": "8b2196c0a87ea32adb1bad64d6d04ec170e639f5",
       "historical_review_blob_sha": "eb53a612c217b0c688be0f689cbb8cd3086e5487",
       "original_archive_photos": 205,
-      "site_media_files": 332,
+      "site_media_files": 346,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 163,
-        "NOT_EXACTLY_PUBLISHED": 42,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 42
+        "EXACT_IN_SPECIES_MEDIA": 177,
+        "NOT_EXACTLY_PUBLISHED": 28,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 28
       },
       "unmatched_photos": [
         {
@@ -1085,86 +785,6 @@
           "archive_path": "migration/private-original-photo-holds/Amaryllidaceae/Zephyranthes/zephyranthes-chlorosolen/images/inat-530810554.jpg",
           "source_blob_sha": "501e4a651a8c59d0d4b8953905e5e73471dded14",
           "bytes": 196993,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Amaryllidaceae/Zephyranthes/zephyranthes-drummondii/images/joey-201102983.jpg",
-          "archive_path": "migration/private-original-photo-holds/Amaryllidaceae/Zephyranthes/zephyranthes-drummondii/images/joey-201102983.jpg",
-          "source_blob_sha": "b039840ce06938ca9d7e6f84bfc93f9a63d36a6c",
-          "bytes": 132109,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Amaryllidaceae/Zephyranthes/zephyranthes-drummondii/images/joey-201103006.jpg",
-          "archive_path": "migration/private-original-photo-holds/Amaryllidaceae/Zephyranthes/zephyranthes-drummondii/images/joey-201103006.jpg",
-          "source_blob_sha": "235a0e0a6d0dc491a6c10ee65496d8d38dfff0a7",
-          "bytes": 49510,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Amaryllidaceae/Zephyranthes/zephyranthes-drummondii/images/joey-201103027.jpg",
-          "archive_path": "migration/private-original-photo-holds/Amaryllidaceae/Zephyranthes/zephyranthes-drummondii/images/joey-201103027.jpg",
-          "source_blob_sha": "d8554d70799ba9cff93e02ac07812f1077f4549e",
-          "bytes": 88696,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Arecaceae/Sabal/sabal-mexicana/images/joey-254471398.jpg",
-          "archive_path": "migration/private-original-photo-holds/Arecaceae/Sabal/sabal-mexicana/images/joey-254471398.jpg",
-          "source_blob_sha": "f598bf99e1d1b637db44a2a6fb82dd9679e78da6",
-          "bytes": 309014,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Arecaceae/Sabal/sabal-mexicana/images/joey-254471435.jpg",
-          "archive_path": "migration/private-original-photo-holds/Arecaceae/Sabal/sabal-mexicana/images/joey-254471435.jpg",
-          "source_blob_sha": "267db2ac9b909f0679f90db6e271dc72764d0630",
-          "bytes": 304896,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Asparagaceae/Nolina/nolina-lindheimeriana/images/joey-375934773.jpg",
-          "archive_path": "migration/private-original-photo-holds/Asparagaceae/Nolina/nolina-lindheimeriana/images/joey-375934773.jpg",
-          "source_blob_sha": "ccc2e8a21169e580b98d45a872d9320c3df8d48c",
-          "bytes": 347197,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Asparagaceae/Nolina/nolina-lindheimeriana/images/joey-375934832.jpg",
-          "archive_path": "migration/private-original-photo-holds/Asparagaceae/Nolina/nolina-lindheimeriana/images/joey-375934832.jpg",
-          "source_blob_sha": "6ca02ba636f543456dc89bcbd8a561f267395dc4",
-          "bytes": 75248,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Asparagaceae/Nolina/nolina-lindheimeriana/images/joey-524128353.jpg",
-          "archive_path": "migration/private-original-photo-holds/Asparagaceae/Nolina/nolina-lindheimeriana/images/joey-524128353.jpg",
-          "source_blob_sha": "038adcc2777233739c1f0f689af2b1dac12ac8a8",
-          "bytes": 85089,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -1361,66 +981,6 @@
         },
         {
           "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Melanthiaceae/Schoenocaulon/schoenocaulon-texanum/images/joey-260230513.jpg",
-          "archive_path": "migration/private-original-photo-holds/Melanthiaceae/Schoenocaulon/schoenocaulon-texanum/images/joey-260230513.jpg",
-          "source_blob_sha": "1b8b41425c789e30d6a65149b0b8d54d160a0821",
-          "bytes": 79784,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Melanthiaceae/Schoenocaulon/schoenocaulon-texanum/images/joey-260230536.jpg",
-          "archive_path": "migration/private-original-photo-holds/Melanthiaceae/Schoenocaulon/schoenocaulon-texanum/images/joey-260230536.jpg",
-          "source_blob_sha": "351e85fc87bc6a2b9c4cc20a8128e1740f74c916",
-          "bytes": 307906,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Melanthiaceae/Schoenocaulon/schoenocaulon-texanum/images/joey-260230550.jpg",
-          "archive_path": "migration/private-original-photo-holds/Melanthiaceae/Schoenocaulon/schoenocaulon-texanum/images/joey-260230550.jpg",
-          "source_blob_sha": "cb88625ad7b22c493c69acdddc2c69472ffa394a",
-          "bytes": 146979,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Orchidaceae/Epipactis/epipactis-gigantea/images/joey-370145480.jpg",
-          "archive_path": "migration/private-original-photo-holds/Orchidaceae/Epipactis/epipactis-gigantea/images/joey-370145480.jpg",
-          "source_blob_sha": "198d5102f1baa097699befe59c71847718877ae7",
-          "bytes": 104740,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Orchidaceae/Epipactis/epipactis-gigantea/images/joey-370145511.jpg",
-          "archive_path": "migration/private-original-photo-holds/Orchidaceae/Epipactis/epipactis-gigantea/images/joey-370145511.jpg",
-          "source_blob_sha": "36a00e1ff1fde6065501229d205a61720cfffa34",
-          "bytes": 116741,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
-          "source_path": "content/taxa/Orchidaceae/Epipactis/epipactis-gigantea/images/joey-370145540.jpg",
-          "archive_path": "migration/private-original-photo-holds/Orchidaceae/Epipactis/epipactis-gigantea/images/joey-370145540.jpg",
-          "source_blob_sha": "ab188fb437cff03b458a0daddb3935a41d554f45",
-          "bytes": 99909,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Monocots-Aquatics",
           "source_path": "content/taxa/Pontederiaceae/Heteranthera/heteranthera-dubia/images/heteranthera-dubia_flower-closeup_00-26-22.0.jpg",
           "archive_path": "migration/private-original-photo-holds/Pontederiaceae/Heteranthera/heteranthera-dubia/images/heteranthera-dubia_flower-closeup_00-26-22.0.jpg",
           "source_blob_sha": "25ce266812ee41b5cf6fa1d8721883b615d4caac",
@@ -1463,15 +1023,15 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Mixed-Families",
-      "main_tree_sha": "f250bb1c6fe41043de9ebc2d4ab0d45e25b51fda",
+      "main_tree_sha": "3da2109242a15ac3fc9eda4b1e016751d287112a",
       "source_manifest_blob_sha": "82ccc6e5d1a56b1391e3f7f8d7f9215621a1431e",
       "historical_review_blob_sha": "c2dbd1f4b74086848de4401966c571fe162f3256",
       "original_archive_photos": 170,
-      "site_media_files": 493,
+      "site_media_files": 505,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 139,
-        "NOT_EXACTLY_PUBLISHED": 31,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 30,
+        "EXACT_IN_SPECIES_MEDIA": 151,
+        "NOT_EXACTLY_PUBLISHED": 19,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 18,
         "UNMATCHED_HELD": 1,
         "OWNER_CLOSED_EXCLUDED_UNMATCHED": 1
       },
@@ -1502,36 +1062,6 @@
           "archive_path": "migration/private-original-photo-holds/Apiaceae/Torilis/torilis-arvensis/images/inat-644564637.jpg",
           "source_blob_sha": "ff8b4fed4374e4cdcbfb6e5706bcb6de1b75774d",
           "bytes": 272011,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Apodanthaceae/Pilostyles/pilostyles-thurberi/images/joey-201291379.jpg",
-          "archive_path": "migration/private-original-photo-holds/Apodanthaceae/Pilostyles/pilostyles-thurberi/images/joey-201291379.jpg",
-          "source_blob_sha": "2632cbf0eab67047b76ca13e9f6c23dfae8ba537",
-          "bytes": 144548,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Apodanthaceae/Pilostyles/pilostyles-thurberi/images/joey-201291412.jpg",
-          "archive_path": "migration/private-original-photo-holds/Apodanthaceae/Pilostyles/pilostyles-thurberi/images/joey-201291412.jpg",
-          "source_blob_sha": "4f73c9a970a81248742f4dc7b4df5b20075ad537",
-          "bytes": 95560,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Apodanthaceae/Pilostyles/pilostyles-thurberi/images/joey-201291443.jpg",
-          "archive_path": "migration/private-original-photo-holds/Apodanthaceae/Pilostyles/pilostyles-thurberi/images/joey-201291443.jpg",
-          "source_blob_sha": "fbf0979bcae8572463b080f25f6be6c9faf9eb1d",
-          "bytes": 144960,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -1668,36 +1198,6 @@
         },
         {
           "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Malpighiaceae/Galphimia/galphimia-angustifolia/images/joey-332716807.jpg",
-          "archive_path": "migration/private-original-photo-holds/Malpighiaceae/Galphimia/galphimia-angustifolia/images/joey-332716807.jpg",
-          "source_blob_sha": "cb882b17a2e03ec0d694a346673c3c050c39efe5",
-          "bytes": 114244,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Malpighiaceae/Galphimia/galphimia-angustifolia/images/joey-332716829.jpg",
-          "archive_path": "migration/private-original-photo-holds/Malpighiaceae/Galphimia/galphimia-angustifolia/images/joey-332716829.jpg",
-          "source_blob_sha": "5558e6f5cc89c1ad9c28cc366724521674cf61fd",
-          "bytes": 120624,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Malpighiaceae/Galphimia/galphimia-angustifolia/images/joey-332716855.jpg",
-          "archive_path": "migration/private-original-photo-holds/Malpighiaceae/Galphimia/galphimia-angustifolia/images/joey-332716855.jpg",
-          "source_blob_sha": "e81f10aa3b68cf8f4472e7e4c985695180e047d3",
-          "bytes": 144385,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
           "source_path": "content/taxa/Oxalidaceae/Oxalis/oxalis-drummondii/images/oxalis-drummondii-conrad-uvalde-flower-leaves.jpg",
           "archive_path": "migration/private-original-photo-holds/Oxalidaceae/Oxalis/oxalis-drummondii/images/oxalis-drummondii-conrad-uvalde-flower-leaves.jpg",
           "source_blob_sha": "88ee3545e9f4f67124fcf81e66d08df52219e7ef",
@@ -1718,66 +1218,6 @@
         },
         {
           "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Polygalaceae/Senega/senega-alba/images/joey-260388773.jpg",
-          "archive_path": "migration/private-original-photo-holds/Polygalaceae/Senega/senega-alba/images/joey-260388773.jpg",
-          "source_blob_sha": "1954c8c802d9a85e67b99766e7735790bf8f641a",
-          "bytes": 53818,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Polygalaceae/Senega/senega-alba/images/joey-260388784.jpg",
-          "archive_path": "migration/private-original-photo-holds/Polygalaceae/Senega/senega-alba/images/joey-260388784.jpg",
-          "source_blob_sha": "68731572ddd7d42891ac6fda0d25aa996a37adea",
-          "bytes": 87961,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Polygalaceae/Senega/senega-alba/images/joey-260388800.jpg",
-          "archive_path": "migration/private-original-photo-holds/Polygalaceae/Senega/senega-alba/images/joey-260388800.jpg",
-          "source_blob_sha": "f27c6cc20c0a35e6a96c069b53b4202e4b53f077",
-          "bytes": 103211,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Primulaceae/Samolus/samolus-ebracteatus/images/joey-99688428.jpg",
-          "archive_path": "migration/private-original-photo-holds/Primulaceae/Samolus/samolus-ebracteatus/images/joey-99688428.jpg",
-          "source_blob_sha": "15b67809ac6d7ec30b6ae666da6243dfd571f339",
-          "bytes": 212137,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Primulaceae/Samolus/samolus-ebracteatus/images/joey-99688455.jpg",
-          "archive_path": "migration/private-original-photo-holds/Primulaceae/Samolus/samolus-ebracteatus/images/joey-99688455.jpg",
-          "source_blob_sha": "085c704a1d7f9d3fe6d628372d503ce404fa0d68",
-          "bytes": 56339,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Primulaceae/Samolus/samolus-ebracteatus/images/joey-99688483.jpg",
-          "archive_path": "migration/private-original-photo-holds/Primulaceae/Samolus/samolus-ebracteatus/images/joey-99688483.jpg",
-          "source_blob_sha": "7d58fd7568445ed2d1d3e4f1b9a32990653d653e",
-          "bytes": 39796,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
           "source_path": "content/taxa/Pteridaceae/Adiantum/adiantum-capillus-veneris/images/adiantum-capillus-veneris_fertile-frond-pseudoindusium_15-55.0.jpg",
           "archive_path": "migration/private-original-photo-holds/Pteridaceae/Adiantum/adiantum-capillus-veneris/images/adiantum-capillus-veneris_fertile-frond-pseudoindusium_15-55.0.jpg",
           "source_blob_sha": "582f2a8d56ad080f1bde8ebde34e8f12f1abb404",
@@ -1790,17 +1230,17 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Spurges-Mallows",
-      "main_tree_sha": "9664a25832d6ab3bbb90be7734053da7e4549741",
+      "main_tree_sha": "3f0a2e45b636e4ca43edf4a0666ccdacf7a1bb87",
       "source_manifest_blob_sha": "0a88e782dfda8d85b6cf24812bc77bfd8cb8e6d9",
       "historical_review_blob_sha": "050c45a48f2c2ea886fae62062e9915f8ad41e5f",
       "original_archive_photos": 347,
-      "site_media_files": 612,
+      "site_media_files": 626,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 284,
-        "NOT_EXACTLY_PUBLISHED": 63,
+        "EXACT_IN_SPECIES_MEDIA": 298,
+        "NOT_EXACTLY_PUBLISHED": 49,
         "UNMATCHED_HELD": 2,
         "OWNER_CLOSED_EXCLUDED_UNMATCHED": 2,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 61
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 47
       },
       "unmatched_photos": [
         {
@@ -1829,36 +1269,6 @@
           "archive_path": "migration/private-original-photo-holds/Euphorbiaceae/Bernardia/bernardia-myricifolia/images/bernardia-myricifolia-provisional-face.jpg",
           "source_blob_sha": "f7c3c8beec4f61f7ebff0750c6bbe6fcf5381913",
           "bytes": 131264,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Euphorbiaceae/Cnidoscolus/cnidoscolus-texanus/images/joey-97833582.jpg",
-          "archive_path": "migration/private-original-photo-holds/Euphorbiaceae/Cnidoscolus/cnidoscolus-texanus/images/joey-97833582.jpg",
-          "source_blob_sha": "5e6019107b1f828ece70d86953655fa31be37791",
-          "bytes": 149099,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Euphorbiaceae/Cnidoscolus/cnidoscolus-texanus/images/joey-97833631.jpg",
-          "archive_path": "migration/private-original-photo-holds/Euphorbiaceae/Cnidoscolus/cnidoscolus-texanus/images/joey-97833631.jpg",
-          "source_blob_sha": "52de5b6266e844795cd5f00c2ed312e0855ab5ae",
-          "bytes": 104740,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Euphorbiaceae/Cnidoscolus/cnidoscolus-texanus/images/joey-97833706.jpg",
-          "archive_path": "migration/private-original-photo-holds/Euphorbiaceae/Cnidoscolus/cnidoscolus-texanus/images/joey-97833706.jpg",
-          "source_blob_sha": "caaadd3c09ced197d01881bbbff01e9633fcf4c1",
-          "bytes": 118180,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -2205,90 +1615,10 @@
         },
         {
           "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Linaceae/Linum/linum-rupestre/images/joey-48575191.jpg",
-          "archive_path": "migration/private-original-photo-holds/Linaceae/Linum/linum-rupestre/images/joey-48575191.jpg",
-          "source_blob_sha": "cc80ea7488c0f456cc0d1aac87aac222ac40d27b",
-          "bytes": 89451,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Linaceae/Linum/linum-rupestre/images/joey-48575206.jpg",
-          "archive_path": "migration/private-original-photo-holds/Linaceae/Linum/linum-rupestre/images/joey-48575206.jpg",
-          "source_blob_sha": "65f2eb616c63fc8740265f218dc9fe7fb31e5d44",
-          "bytes": 74275,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Linaceae/Linum/linum-rupestre/images/joey-48575225.jpg",
-          "archive_path": "migration/private-original-photo-holds/Linaceae/Linum/linum-rupestre/images/joey-48575225.jpg",
-          "source_blob_sha": "8a2b9a7218ce7a7bd8af4eb1098be1dcf418288d",
-          "bytes": 75410,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
           "source_path": "content/taxa/Lythraceae/Lythrum/lythrum-californicum/images/lythrum-californicum-alex-abair-11028679.jpg",
           "archive_path": "migration/private-original-photo-holds/Lythraceae/Lythrum/lythrum-californicum/images/lythrum-californicum-alex-abair-11028679.jpg",
           "source_blob_sha": "f4167e9d5bd731ccf2bb2d9a5db90bdf86ff0ae3",
           "bytes": 239039,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Malvaceae/Melochia/melochia-pyramidata/images/joey-729727077.jpg",
-          "archive_path": "migration/private-original-photo-holds/Malvaceae/Melochia/melochia-pyramidata/images/joey-729727077.jpg",
-          "source_blob_sha": "a0e40630b06b9ebba7db2c0471d633a27801f81f",
-          "bytes": 69189,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Malvaceae/Melochia/melochia-pyramidata/images/joey-729727141.jpg",
-          "archive_path": "migration/private-original-photo-holds/Malvaceae/Melochia/melochia-pyramidata/images/joey-729727141.jpg",
-          "source_blob_sha": "64f3e27745e1261bb771d623405539ef2280e34d",
-          "bytes": 128193,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Malvaceae/Melochia/melochia-pyramidata/images/joey-729727206.jpg",
-          "archive_path": "migration/private-original-photo-holds/Malvaceae/Melochia/melochia-pyramidata/images/joey-729727206.jpg",
-          "source_blob_sha": "3a946fc98a836f557e7a1915bb3540ccabffc3ae",
-          "bytes": 152268,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Malvaceae/Rhynchosida/rhynchosida-physocalyx/images/joey-498675715.jpg",
-          "archive_path": "migration/private-original-photo-holds/Malvaceae/Rhynchosida/rhynchosida-physocalyx/images/joey-498675715.jpg",
-          "source_blob_sha": "de8f9ae3bdca0ae84245c5aa1e4add31e5b8f2d0",
-          "bytes": 235675,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Malvaceae/Rhynchosida/rhynchosida-physocalyx/images/joey-498675761.jpg",
-          "archive_path": "migration/private-original-photo-holds/Malvaceae/Rhynchosida/rhynchosida-physocalyx/images/joey-498675761.jpg",
-          "source_blob_sha": "b141164a9e3df31e90445c9fcd894305a8c25fa3",
-          "bytes": 256077,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -2385,36 +1715,6 @@
         },
         {
           "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Onagraceae/Oenothera/oenothera-macrocarpa/images/joey-369796316.jpg",
-          "archive_path": "migration/private-original-photo-holds/Onagraceae/Oenothera/oenothera-macrocarpa/images/joey-369796316.jpg",
-          "source_blob_sha": "3e8b26ea4c1f6767931df9bd7d544aad92ea2fe0",
-          "bytes": 230422,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Onagraceae/Oenothera/oenothera-macrocarpa/images/joey-369796344.jpg",
-          "archive_path": "migration/private-original-photo-holds/Onagraceae/Oenothera/oenothera-macrocarpa/images/joey-369796344.jpg",
-          "source_blob_sha": "d68df5f290ed73176104640f3f699d2a438703ec",
-          "bytes": 188503,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
-          "source_path": "content/taxa/Onagraceae/Oenothera/oenothera-macrocarpa/images/joey-369796373.jpg",
-          "archive_path": "migration/private-original-photo-holds/Onagraceae/Oenothera/oenothera-macrocarpa/images/joey-369796373.jpg",
-          "source_blob_sha": "19e1f74d6c8357790a90cadd7a16845d4017842f",
-          "bytes": 118912,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Spurges-Mallows",
           "source_path": "content/taxa/Onagraceae/Oenothera/oenothera-triloba/images/01-botanical-illustration.svg",
           "archive_path": "migration/private-original-photo-holds/Onagraceae/Oenothera/oenothera-triloba/images/01-botanical-illustration.svg",
           "source_blob_sha": "07669959f1577d91138d2f93753421370802366b",
@@ -2437,15 +1737,15 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Asterid-Allies",
-      "main_tree_sha": "89920b097f8b2fde064bff045866baed406f929e",
+      "main_tree_sha": "0a1fa0f5842654d473b337d19abda0ceb1dd29ad",
       "source_manifest_blob_sha": "5dcf9a67554178fa2cc4736c29dbb8387792f016",
       "historical_review_blob_sha": "a1ad4a299f149d25a8aaae8f26ede6d84080d387",
       "original_archive_photos": 306,
-      "site_media_files": 404,
+      "site_media_files": 461,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 202,
-        "NOT_EXACTLY_PUBLISHED": 104,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 104
+        "EXACT_IN_SPECIES_MEDIA": 216,
+        "NOT_EXACTLY_PUBLISHED": 90,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 90
       },
       "unmatched_photos": [
         {
@@ -2840,36 +2140,6 @@
         },
         {
           "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Convolvulaceae/Evolvulus/evolvulus-sericeus/images/joey-515220574.jpg",
-          "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Evolvulus/evolvulus-sericeus/images/joey-515220574.jpg",
-          "source_blob_sha": "8c82be7f242790550f8b531371ff7e9bd32d0753",
-          "bytes": 115041,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Convolvulaceae/Evolvulus/evolvulus-sericeus/images/joey-515220629.jpg",
-          "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Evolvulus/evolvulus-sericeus/images/joey-515220629.jpg",
-          "source_blob_sha": "e310be83880c559c15d5f3361fcbc8cd9402bc56",
-          "bytes": 137382,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Convolvulaceae/Evolvulus/evolvulus-sericeus/images/joey-515220667.jpg",
-          "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Evolvulus/evolvulus-sericeus/images/joey-515220667.jpg",
-          "source_blob_sha": "001ff1b26b2fa708b400de7cb15c61c0da8d08ce",
-          "bytes": 170237,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
           "source_path": "content/taxa/Convolvulaceae/Ipomoea/images/ipomoea-calyx-corolla-comparison.webp",
           "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Ipomoea/images/ipomoea-calyx-corolla-comparison.webp",
           "source_blob_sha": "260c53f51a5ff3c71964887ae429366b4a7ffa6c",
@@ -3250,120 +2520,10 @@
         },
         {
           "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Gentianaceae/Sabatia/sabatia-campestris/images/joey-186051619.jpg",
-          "archive_path": "migration/private-original-photo-holds/Gentianaceae/Sabatia/sabatia-campestris/images/joey-186051619.jpg",
-          "source_blob_sha": "22a720d00aacb5d1d5ac22a9ce96e5531b06bbdc",
-          "bytes": 105204,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Gentianaceae/Sabatia/sabatia-campestris/images/joey-186051647.jpg",
-          "archive_path": "migration/private-original-photo-holds/Gentianaceae/Sabatia/sabatia-campestris/images/joey-186051647.jpg",
-          "source_blob_sha": "14a438b8fd53252e8c2de9f51596e3e0b62b1ab5",
-          "bytes": 111875,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Polemoniaceae/Ipomopsis/ipomopsis-rubra/images/joey-515260361.jpg",
-          "archive_path": "migration/private-original-photo-holds/Polemoniaceae/Ipomopsis/ipomopsis-rubra/images/joey-515260361.jpg",
-          "source_blob_sha": "76f81a95fcf85ab67363bb2f3bfc0621bdbe10c0",
-          "bytes": 86763,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Polemoniaceae/Ipomopsis/ipomopsis-rubra/images/joey-515260398.jpg",
-          "archive_path": "migration/private-original-photo-holds/Polemoniaceae/Ipomopsis/ipomopsis-rubra/images/joey-515260398.jpg",
-          "source_blob_sha": "bb03155cb78a75168b3e66f1ec2f024c252a9430",
-          "bytes": 85193,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Polemoniaceae/Ipomopsis/ipomopsis-rubra/images/joey-515260426.jpg",
-          "archive_path": "migration/private-original-photo-holds/Polemoniaceae/Ipomopsis/ipomopsis-rubra/images/joey-515260426.jpg",
-          "source_blob_sha": "be86cec229027f2637ae905bb70593ea9b610857",
-          "bytes": 241197,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Polemoniaceae/Phlox/phlox-drummondii/images/joey-357407267.jpg",
-          "archive_path": "migration/private-original-photo-holds/Polemoniaceae/Phlox/phlox-drummondii/images/joey-357407267.jpg",
-          "source_blob_sha": "76321c1f5c02b7a715e73cc8668779a6662f5bd6",
-          "bytes": 89826,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Polemoniaceae/Phlox/phlox-drummondii/images/joey-357407297.jpg",
-          "archive_path": "migration/private-original-photo-holds/Polemoniaceae/Phlox/phlox-drummondii/images/joey-357407297.jpg",
-          "source_blob_sha": "e483b3703e9da4d9c1b0257dca0d20230d7c6450",
-          "bytes": 105707,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Polemoniaceae/Phlox/phlox-drummondii/images/joey-357407311.jpg",
-          "archive_path": "migration/private-original-photo-holds/Polemoniaceae/Phlox/phlox-drummondii/images/joey-357407311.jpg",
-          "source_blob_sha": "7b0ddd23f6778f2b10b21c4683e9094ee7f651a0",
-          "bytes": 112702,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
           "source_path": "content/taxa/Rubiaceae/Stenaria/stenaria-nigricans/images/inat-492892433.jpg",
           "archive_path": "migration/private-original-photo-holds/Rubiaceae/Stenaria/stenaria-nigricans/images/inat-492892433.jpg",
           "source_blob_sha": "f05d199156d1e9ff3cf5e6bd7f1c0149d99adc40",
           "bytes": 222831,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Nicotiana/nicotiana-obtusifolia/images/joey-99685646.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Nicotiana/nicotiana-obtusifolia/images/joey-99685646.jpg",
-          "source_blob_sha": "14cd243aa59488f72e80868b562ec994ef6d2447",
-          "bytes": 84528,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Nicotiana/nicotiana-obtusifolia/images/joey-99685703.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Nicotiana/nicotiana-obtusifolia/images/joey-99685703.jpg",
-          "source_blob_sha": "b1227c64615bc5d259fc7b9c33a915fde48748e4",
-          "bytes": 115553,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Nicotiana/nicotiana-obtusifolia/images/joey-99685732.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Nicotiana/nicotiana-obtusifolia/images/joey-99685732.jpg",
-          "source_blob_sha": "c66b50163714b30bd1be8dcf78695af478f48c32",
-          "bytes": 96798,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -3492,15 +2652,15 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Cacti-Buttercups",
-      "main_tree_sha": "2c46e439bc8b227bcdc13e90ae3ccf2f375a8f6d",
+      "main_tree_sha": "e09db3d32e18e812b91e793bd0d488762732ebff",
       "source_manifest_blob_sha": "048d6bb3ce68cbc7247d396c96719dc498476592",
       "historical_review_blob_sha": "16a5cf8687fd10eeb0bb756c0e3e2957d0d6b0a6",
       "original_archive_photos": 194,
-      "site_media_files": 532,
+      "site_media_files": 547,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 162,
-        "NOT_EXACTLY_PUBLISHED": 32,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 27,
+        "EXACT_IN_SPECIES_MEDIA": 177,
+        "NOT_EXACTLY_PUBLISHED": 17,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 12,
         "UNMATCHED_HELD": 5,
         "OWNER_CLOSED_EXCLUDED_UNMATCHED": 5
       },
@@ -3597,76 +2757,6 @@
         },
         {
           "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Cactaceae/Coryphantha/coryphantha-echinus/images/joey-241108446.jpg",
-          "archive_path": "migration/private-original-photo-holds/Cactaceae/Coryphantha/coryphantha-echinus/images/joey-241108446.jpg",
-          "source_blob_sha": "e5e0c90281e5485e6dc8df3c64b7c901d840990d",
-          "bytes": 227287,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Cactaceae/Coryphantha/coryphantha-echinus/images/joey-241108473.jpg",
-          "archive_path": "migration/private-original-photo-holds/Cactaceae/Coryphantha/coryphantha-echinus/images/joey-241108473.jpg",
-          "source_blob_sha": "918ce30e5f7caa94d39cb22ae6bfe05f7b0dc68c",
-          "bytes": 229502,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Cactaceae/Coryphantha/coryphantha-sulcata/images/joey-202575423.jpg",
-          "archive_path": "migration/private-original-photo-holds/Cactaceae/Coryphantha/coryphantha-sulcata/images/joey-202575423.jpg",
-          "source_blob_sha": "46afe131bf78442791dd6154329b9275838106a6",
-          "bytes": 203079,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Cactaceae/Coryphantha/coryphantha-sulcata/images/joey-202575442.jpg",
-          "archive_path": "migration/private-original-photo-holds/Cactaceae/Coryphantha/coryphantha-sulcata/images/joey-202575442.jpg",
-          "source_blob_sha": "9b9e7d16c6f37a637416708e93af9a5f53d23910",
-          "bytes": 201488,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Cactaceae/Coryphantha/coryphantha-sulcata/images/joey-202575456.jpg",
-          "archive_path": "migration/private-original-photo-holds/Cactaceae/Coryphantha/coryphantha-sulcata/images/joey-202575456.jpg",
-          "source_blob_sha": "50b0e279938081aa0799d9b6805f1b8dd44bca03",
-          "bytes": 142177,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Cactaceae/Cylindropuntia/cylindropuntia-imbricata/images/joey-375383652.jpg",
-          "archive_path": "migration/private-original-photo-holds/Cactaceae/Cylindropuntia/cylindropuntia-imbricata/images/joey-375383652.jpg",
-          "source_blob_sha": "6eb6094090049d313d17ee7a3f9ce902a172ed39",
-          "bytes": 147300,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Cactaceae/Cylindropuntia/cylindropuntia-imbricata/images/joey-375383692.jpg",
-          "archive_path": "migration/private-original-photo-holds/Cactaceae/Cylindropuntia/cylindropuntia-imbricata/images/joey-375383692.jpg",
-          "source_blob_sha": "f9c622bc04806554be8ea14e3462cef90531d3f4",
-          "bytes": 105014,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
           "source_path": "content/taxa/Cactaceae/Opuntia/opuntia-azurea/images/gbif-manual-6130207737-000b4ff04.jpg",
           "archive_path": "migration/private-original-photo-holds/Cactaceae/Opuntia/opuntia-azurea/images/gbif-manual-6130207737-000b4ff04.jpg",
           "source_blob_sha": "ac353ea441aad37716ff63158893c86ad6ff6247",
@@ -3694,26 +2784,6 @@
           "historical_review_status": "HELD",
           "historical_review_reason": "Current photo creator differs from original image CSV: no rights reserved",
           "owner_closed_excluded": true
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Nyctaginaceae/Mirabilis/mirabilis-linearis/images/joey-210992272.jpg",
-          "archive_path": "migration/private-original-photo-holds/Nyctaginaceae/Mirabilis/mirabilis-linearis/images/joey-210992272.jpg",
-          "source_blob_sha": "aba092b814103ae5688a03db216e50c101280a36",
-          "bytes": 104281,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Nyctaginaceae/Mirabilis/mirabilis-linearis/images/joey-210992330.jpg",
-          "archive_path": "migration/private-original-photo-holds/Nyctaginaceae/Mirabilis/mirabilis-linearis/images/joey-210992330.jpg",
-          "source_blob_sha": "40b9a49d63ef850abd83d21be5e874f13485d38d",
-          "bytes": 78042,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
         },
         {
           "repository": "Hays-Botany-Cacti-Buttercups",
@@ -3761,66 +2831,6 @@
           "archive_path": "migration/private-original-photo-holds/Ranunculaceae/Clematis/clematis-pitcheri/images/clematis-pitcheri-provisional-face.jpg",
           "source_blob_sha": "a1b2c9856da8177fb98bdddfcd521f2a65526c59",
           "bytes": 52576,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Ranunculaceae/Delphinium/delphinium-carolinianum/images/joey-370255289.jpg",
-          "archive_path": "migration/private-original-photo-holds/Ranunculaceae/Delphinium/delphinium-carolinianum/images/joey-370255289.jpg",
-          "source_blob_sha": "bd8a704149a1de6df10e842b78d5c4ee0bde8a44",
-          "bytes": 78166,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Ranunculaceae/Delphinium/delphinium-carolinianum/images/joey-370255311.jpg",
-          "archive_path": "migration/private-original-photo-holds/Ranunculaceae/Delphinium/delphinium-carolinianum/images/joey-370255311.jpg",
-          "source_blob_sha": "a85f0a700a852e57eeef7212cd314a4c18cfdd61",
-          "bytes": 270447,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Ranunculaceae/Delphinium/delphinium-carolinianum/images/joey-370255326.jpg",
-          "archive_path": "migration/private-original-photo-holds/Ranunculaceae/Delphinium/delphinium-carolinianum/images/joey-370255326.jpg",
-          "source_blob_sha": "277a348c95a7fc65f7396967fc91edfb3b9026ed",
-          "bytes": 83874,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Talinaceae/Talinum/talinum-aurantiacum/images/joey-162352666.jpg",
-          "archive_path": "migration/private-original-photo-holds/Talinaceae/Talinum/talinum-aurantiacum/images/joey-162352666.jpg",
-          "source_blob_sha": "5a4394818caf1afc526c1fdb8a110f31a10177db",
-          "bytes": 86366,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Talinaceae/Talinum/talinum-aurantiacum/images/joey-162352679.jpg",
-          "archive_path": "migration/private-original-photo-holds/Talinaceae/Talinum/talinum-aurantiacum/images/joey-162352679.jpg",
-          "source_blob_sha": "ca1b21ac6f568bf7ad5901020a33aed1de35e40f",
-          "bytes": 87801,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Talinaceae/Talinum/talinum-aurantiacum/images/joey-162352690.jpg",
-          "archive_path": "migration/private-original-photo-holds/Talinaceae/Talinum/talinum-aurantiacum/images/joey-162352690.jpg",
-          "source_blob_sha": "2b01c1e7be7fbaf366a5c98b3a49fb2b7ec691bd",
-          "bytes": 93475,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false

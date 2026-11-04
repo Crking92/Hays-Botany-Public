@@ -30,6 +30,11 @@ for kind in ("by","by-sa","by-nc","by-nc-sa"):
     for ver in ("2.0","3.0","4.0"):
         KNOWN_LICENSE_URLS[f"https://creativecommons.org/licenses/{kind}/{ver}/"]=(f"CC {kind.upper().replace('-','-')} {ver}",f"https://creativecommons.org/licenses/{kind}/{ver}/")
 KNOWN_LICENSE_URLS["https://creativecommons.org/publicdomain/zero/1.0/"]=PHOTO_CODES["cc0"]
+# Exact Kew homotypic synonym only, never a fuzzy taxon-name override.
+# https://powo.science.kew.org/taxon/110644-2
+GBIF_HOMOTYPIC_SYNONYMS = {
+    ("Glandularia pumila", "Verbena pumila"): "https://powo.science.kew.org/taxon/110644-2",
+}
 SOURCE_IMAGE_HOSTS=("inaturalist-open-data.s3.amazonaws.com","static.inaturalist.org","upload.wikimedia.org")
 USER_AGENT="Hays-Botany-Historical-CrossFamily/2026-11-03 (+educational photo-license auditing)"
 
@@ -141,7 +146,8 @@ def gbif_verify(c:dict)->dict:
     o=request("https://api.gbif.org/v1/occurrence/"+str(oid),json_response=True)
     taxon=o.get("species") or o.get("scientificName") or ""
     expected=" ".join(c["scientific_name"].split()[:2])
-    if len(expected.split())!=2 or not (taxon==expected or taxon.startswith(expected+" ")):
+    synonym_citation=GBIF_HOMOTYPIC_SYNONYMS.get((expected,taxon))
+    if len(expected.split())!=2 or not (taxon==expected or taxon.startswith(expected+" ") or synonym_citation):
         raise RuntimeError("GBIF source species differs: "+taxon+" vs "+expected)
     target_urls=[str(c.get("direct_image_url") or ""),str(c.get("direct_url") or "")]
     pid=re.search(r"/photos/(\d+)/", " ".join(target_urls))
@@ -167,7 +173,8 @@ def gbif_verify(c:dict)->dict:
     return {"license":license_name,"license_url":license_url,"creator":creator_display(source_person),
             "exact_page":page,"taxon":taxon,"source_type":"gbif","source_id":str(oid),
             "evidence":"GBIF occurrence "+str(oid)+" exact image "+url+"; image-level license "+
-             license_url+"; creator "+source_person+"; dHash distance "+str(dist)}
+             license_url+"; creator "+source_person+"; dHash distance "+str(dist)+
+             ("; homotypic synonym confirmed by Kew POWO "+synonym_citation if synonym_citation else "")}
 def commons_verify(c:dict)->dict:
     original=c.get("source_page") or ""
     m=re.search(r"commons\.wikimedia\.org/wiki/File:(.+)",original)
@@ -239,6 +246,14 @@ def main()->None:
         })
     previously_held={r.get("git_blob_sha") for batch in previous_batches
                     for r in batch.get("records",[]) if r.get("status")=="HELD"}
+    # Reopen only two specifically documented homotypic synonym holds;
+    # every photo must still pass individual rights, photographer, and pixel checks.
+    retry_kew_pumila={r.get("git_blob_sha") for batch in previous_batches
+        for r in batch.get("records",[])
+        if r.get("species_id")=="glandularia-pumila" and r.get("filename") in (
+            "library-review027-41e7786ee2f9601.jpg",
+            "library-review027-f82f42405a94014.jpg")
+        and r.get("reason")=="GBIF source species differs: Verbena pumila vs Glandularia pumila"}
     sha_published=set()
     for q in (site/"media").rglob("*"):
         if q.is_file() and q.suffix.lower() in IMG_EXT:
@@ -262,7 +277,7 @@ def main()->None:
             omitted["historical_original_missing"]+=1;continue
         # Hash comes from migration's original source tree snapshot.
         sh=str(record["git_blob_sha"])
-        if sh in previously_held:
+        if sh in previously_held and sh not in retry_kew_pumila:
             omitted["prior_hold_preserved_for_separate_rights_or_identity_review"]+=1
             continue
         if sh in sha_published:

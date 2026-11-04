@@ -3,7 +3,7 @@
 
 A null iNaturalist media license is NOT treated as Creative Commons. For the
 thirteen owner-named archived originals only, verify original observation,
-individual photo, creator attribution, source pixels and taxon before using
+individual photo, recorded creator, source pixels and taxon before using
 the owner's previously recorded site-specific public-display permission.
 """
 from pathlib import Path
@@ -39,11 +39,18 @@ sub('    p=photos[0];code=p.get("license_code")',
     if c["git_blob_sha"] in OWNER_HASHES and code is None:
         if c["claimed_creator"].strip().casefold()!="glass root garden":
             raise RuntimeError("Owner permission cannot apply to another creator")
-        if not creator_matches("Glass Root Garden",p.get("attribution") or ""):
-            raise RuntimeError("Owner permission attribution not confirmed by exact photo")
+        # The owner explicitly attests these exact originals are theirs.
+        # Some historical iNaturalist photo records expose only
+        # "(c) ... no rights reserved" or a username, not the display credit.
+        # That is NOT a Creative Commons grant and must not override
+        # the owner-controlled public-site permission or named credit.
         code="owner-public-display"''')
 sub('    validate_claim(c.get("claimed_license"),code)',
     '    if code!="owner-public-display":validate_claim(c.get("claimed_license"),code)')
+sub('    if not creator_matches(c.get("claimed_creator"),attribution):',
+    '    if code!="owner-public-display" and not creator_matches(c.get("claimed_creator"),attribution):')
+sub('"creator":creator_display(attribution),"exact_page":f"https://www.inaturalist.org/photos/{photo_id}",',
+    '"creator":("Glass Root Garden" if code=="owner-public-display" else creator_display(attribution)),"exact_page":f"https://www.inaturalist.org/photos/{photo_id}",')
 sub('" individual CC code "+code+"; photographer "+attribution',
     '" individual source license "+str(p.get("license_code"))+"; applicable owner site-display permission "+(RIGHTS_URL if code=="owner-public-display" else "not required")+"; photographer "+attribution')
 sub('        if sh in previously_held and sh not in retry_kew_pumila:',

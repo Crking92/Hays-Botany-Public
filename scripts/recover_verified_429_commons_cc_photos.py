@@ -34,6 +34,15 @@ SOURCE_IMAGE_HOSTS=("inaturalist-open-data.s3.amazonaws.com","static.inaturalist
 USER_AGENT="Hays-Botany-Exact-Commons-CC0-Recheck/2026-11-03 (+https://github.com/Crking92/Hays-Botany-Public)"
 # Each exact Commons file page, photographer and CC BY / BY-SA license was independently checked.
 COMMONS_RIGHTS={
+  # Exact NPS accession 690f9968-2897-4893-9a2c-c56b240218dc:
+  # Commons confirms NPS employee photo, federal-work public domain.
+  "3726e714cadf623a75a6db53bcf1264ea6e26691": {
+    "page": "https://commons.wikimedia.org/wiki/File:Chisos_Hedgehog_Cactus_(690f9968-2897-4893-9a2c-c56b240218dc).JPG",
+    "creator": "NPS Photo",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Chisos_Hedgehog_Cactus_%28690f9968-2897-4893-9a2c-c56b240218dc%29.JPG",
+    "license": "PUBLIC DOMAIN (U.S. FEDERAL WORK)",
+    "license_url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
 # These five individual iNaturalist2Commons photos were reviewed under CC BY 4.0
 # by Wikimedia iNaturalistReviewBot (2025-12-16); archive preserves exact
 # photo IDs, individual credits, original photo bytes and original URLs.
@@ -387,6 +396,8 @@ def commons_verify(c:dict)->dict:
             # photo names its staff photographer, Clarence A. Rechenthin.
             "a116d752445fd93164120ad7b5e2e58cdcaa7783":
                 ("USDA NRCS Texas State Office","Clarence A. Rechenthin"),
+            "3726e714cadf623a75a6db53bcf1264ea6e26691":
+                ("National Park Service (NPS)","NPS Photo"),
             "2dcff4c4de863215ffc26bcecfb509e23e57b1be":
                 ("iNaturalist photographer, exact Commons page awaiting verification","Michelle W. （鍾偉瑋）"),
             "392296e89c0cc955770ac01f691582ff4c79060a":
@@ -409,6 +420,9 @@ def commons_verify(c:dict)->dict:
             raise RuntimeError("Archived photographer does not match current Commons individual file")
     claim=re.sub(r"\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
     if claim in {"PUBLIC DOMAIN (US FEDERAL GOVERNMENT)","PUBLIC DOMAIN (U.S. FEDERAL GOVERNMENT)"} and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
+        claim=entry["license"]
+    if (c["git_blob_sha"]=="3726e714cadf623a75a6db53bcf1264ea6e26691"
+            and claim=="PUBLIC DOMAIN" and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)"):
         claim=entry["license"]
     if c["git_blob_sha"]=="e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952" and claim=="CC BY-SA 3.0 / GFDL" and entry["license"]=="CC BY-SA 3.0":
         claim=entry["license"]
@@ -493,7 +507,8 @@ def main()->None:
                         "a1b0b915fc9053d8965fcb9b4796b30cec8e9dda",
                         "47f91e7579276758d2abb3d3329ff8112052a999",
                         "2acd0cdf675e7fb2696018185f3acb33e8a6d4fd",
-                        "a116d752445fd93164120ad7b5e2e58cdcaa7783"
+                        "a116d752445fd93164120ad7b5e2e58cdcaa7783",
+                         "3726e714cadf623a75a6db53bcf1264ea6e26691"
                     } and "Wikimedia current image license URL unsupported" in str(r.get("reason",""))) or
                     (r.get("git_blob_sha") in {
                         "e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952",

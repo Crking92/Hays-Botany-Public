@@ -44,14 +44,14 @@ COMMONS_RIGHTS={
   "2dcff4c4de863215ffc26bcecfb509e23e57b1be": {
     "page": "https://commons.wikimedia.org/wiki/File:Salvia_ballotiflora_343007199.jpg",
     "creator": "Michelle W. （鍾偉瑋）",
-    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/343007199/original.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Salvia_ballotiflora_343007199.jpg",
     "license": "CC BY 4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "392296e89c0cc955770ac01f691582ff4c79060a": {
     "page": "https://commons.wikimedia.org/wiki/File:Salvia_ballotiflora_589592598.jpg",
     "creator": "Michelle W. （鍾偉瑋）",
-    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/589592598/original.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Salvia_ballotiflora_589592598.jpg",
     "license": "CC BY 4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/"
   },

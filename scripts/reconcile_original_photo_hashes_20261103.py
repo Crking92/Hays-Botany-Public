@@ -19,7 +19,7 @@ EXTS={".jpg",".jpeg",".png",".webp"}
 def cmd(*args):
  return subprocess.check_output(args,stderr=subprocess.STDOUT,text=True).strip()
 def git_sha(raw):
- return hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\\0"+raw).hexdigest()
+ return hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()
 def img_features(path):
  try:
   with Image.open(path) as im:
@@ -44,11 +44,11 @@ def source_index(folder):
 def ref_token(page):
  import re
  u=str(page or "").lower()
- m=re.search(r"i?n?aturalist.org/photos/(\\d+)",u)
+ m=re.search(r"i?n?aturalist.org/photos/(\d+)",u)
  if m:return "inat-photo:"+m.group(1)
  m=re.search(r"commons.wikimedia.org/wiki/file:(.+)$",u)
  if m:return "commons:"+m.group(1).replace("_"," ").strip()
- m=re.search(r"gbif.org/occurrence/(\\d+)",u)
+ m=re.search(r"gbif.org/occurrence/(\d+)",u)
  if m:return "gbif:"+m.group(1)
  return ""
 def main():

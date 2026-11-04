@@ -598,7 +598,7 @@ def main()->None:
                   "creator":checked["creator"],"source_page":checked["exact_page"],"source_page_is_exact":True,
                   "license":checked["license"],"license_url":checked["license_url"],
                   "noncommercial_site_use_confirmed":is_nc,"role":c["role"],
-                  "modifications":c["modifications"],
+                  "modifications": ("Archived annotation arrows added before this recovery; original credited image retained." if "-arrows." in c["filename"] else c["modifications"]),
                   "sha256":hashlib.sha256(raw).hexdigest()
                 }
                 dest.with_name(dest.name+".json").write_text(json.dumps(metadata,indent=2,ensure_ascii=False)+"\n")

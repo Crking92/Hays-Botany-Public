@@ -1,5 +1,5 @@
 name: Fast bulk reconciliation of original family photos
-# Refresh 2026-11-03 after later source-card and named-CC releases; metadata-only all-family reconciliation.
+# Refresh after live-verified source-card and archived CC0 publication batches; metadata-only all-family check.
 on:
   push:
     branches: [main]

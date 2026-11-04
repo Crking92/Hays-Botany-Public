@@ -23,6 +23,7 @@ REPORTS=[
  "multi-family-historical-card-commons-2026-11-03.json",
  "multi-family-historical-cc-url-resolved-2026-11-03.json",
  "multi-family-historical-kew-followup-2026-11-03.json",
+ "multi-family-historical-kew-followup-b-2026-11-03.json",
  "multi-family-historical-named-cc0-2026-11-03.json",
  "multi-family-historical-plantnet-licensed-2026-11-03.json",
  "multi-family-species-card-reconciliation-2026-11-03.json",

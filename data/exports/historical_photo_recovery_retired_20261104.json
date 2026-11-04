@@ -1,0 +1,80 @@
+{
+  "policy_id": "hays-historical-photo-recovery-retired-2026-11-04",
+  "effective_date": "2026-11-04",
+  "active_recovery": false,
+  "owner_direction": "Stop historical photo recovery and prioritize refining photographs already on the public family websites.",
+  "source_reconciliation_file": "data/exports/original_photo_reconciliation_current.json",
+  "snapshot_checked_at_utc": "2026-11-04T17:05:43.552744+00:00",
+  "snapshot_counts": {
+    "EXACT_IN_SPECIES_MEDIA": 1573,
+    "NOT_EXACTLY_PUBLISHED": 206,
+    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 197,
+    "UNMATCHED_HELD": 9,
+    "OWNER_CLOSED_EXCLUDED_UNMATCHED": 9,
+    "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3
+  },
+  "archived_originals_still_unmatched": 206,
+  "preexisting_permanently_excluded": 9,
+  "other_unmatched_no_longer_worked": 197,
+  "lanes": [
+    {
+      "repository": "Crking92/Hays-Botany-Trees-Shrubs",
+      "unmatched": 22,
+      "preexisting_permanent_exclusions": 1,
+      "archived_unpursued": 21
+    },
+    {
+      "repository": "Crking92/Hays-Botany-Lamiales",
+      "unmatched": 27,
+      "preexisting_permanent_exclusions": 0,
+      "archived_unpursued": 27
+    },
+    {
+      "repository": "Crking92/Hays-Botany-Monocots-Aquatics",
+      "unmatched": 27,
+      "preexisting_permanent_exclusions": 0,
+      "archived_unpursued": 27
+    },
+    {
+      "repository": "Crking92/Hays-Botany-Mixed-Families",
+      "unmatched": 17,
+      "preexisting_permanent_exclusions": 1,
+      "archived_unpursued": 16
+    },
+    {
+      "repository": "Crking92/Hays-Botany-Spurges-Mallows",
+      "unmatched": 43,
+      "preexisting_permanent_exclusions": 2,
+      "archived_unpursued": 41
+    },
+    {
+      "repository": "Crking92/Hays-Botany-Asterid-Allies",
+      "unmatched": 56,
+      "preexisting_permanent_exclusions": 0,
+      "archived_unpursued": 56
+    },
+    {
+      "repository": "Crking92/Hays-Botany-Cacti-Buttercups",
+      "unmatched": 14,
+      "preexisting_permanent_exclusions": 5,
+      "archived_unpursued": 9
+    }
+  ],
+  "meaning": "Workflow closed and originals preserved, NOT proof that the unmatched photographs were published, licensed, duplicated, individually adjudicated or deleted.",
+  "preserve": [
+    "Original source images and SHA hashes",
+    "source-photo links and licenses",
+    "historical archive branches",
+    "original reconciliation JSON and status reasons"
+  ],
+  "policy_rules": [
+    "Do not retry closed records without new explicit owner instruction",
+    "Do not alter underlying historical original SHA reconciliation results to make backlog look zero",
+    "Do not publish private-study/all-rights-reserved/unknown license originals",
+    "Do not delete source archives or published images",
+    "Prioritize existing published-gallery species ID, credits, useful view order and missing field-identification coverage",
+    "Use existing master Photo Needs Queue rather than new per-family spreadsheets"
+  ],
+  "next_phase": "Gallery quality and visual coverage improvements",
+  "previous_jobs": "Existing running jobs may finish independently; avoid duplicate restarts."
+}

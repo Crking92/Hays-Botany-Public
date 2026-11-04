@@ -1,5 +1,5 @@
 name: Fast bulk reconciliation of original family photos
-# Chat-safe remote reconciliation rerun requested 2026-11-03; reusable JSON report is saved to data/exports.
+# Reconcile again after the exact-photo Joey Santore source-verified 2026-11-03 recovery batch; no image downloads.
 on:
   push:
     branches: [main]

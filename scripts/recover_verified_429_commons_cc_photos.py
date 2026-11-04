@@ -71,6 +71,21 @@ COMMONS_RIGHTS={
   },
   # Individually verified Commons page 2026-11-03, original file author Bidgee, jurisdictional license.
   # The original archive independently records the same creator, file page and CC BY-SA 2.5 Australia.
+  # Commons and Flickr reviewed originals: author aliases are pinned per original Git SHA.
+  "83fee84b339ba84b9dc9a4b4cd5b98eea561b0bc": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pinus_echinata_conelet_and_leaves.jpg",
+    "creator": "John B. from Highland Park, NJ, United States",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Pinus_echinata_conelet_and_leaves.jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/"
+  },
+  "7f49d09b21ccefb0c6f7c8d0800ddfd1426f839a": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pinus_taeda_Bastrop2.jpg",
+    "creator": "rutlo on Flickr",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Pinus_taeda_Bastrop2.jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/"
+  },
   "094a195584d135a226667f7dba5a8f34313d8610": {
     "page": "https://commons.wikimedia.org/wiki/File:Ligustrum_sinense_leaves_and_flowers.jpg",
     "creator": "Bidgee",
@@ -228,7 +243,17 @@ def commons_verify(c:dict)->dict:
     if c.get("source_page")!=entry["page"]:
         raise RuntimeError("Archived Commons source page does not match exact licensed file")
     if not creator_matches(c.get("claimed_creator"),entry["creator"]):
-        raise RuntimeError("Archived photographer does not match current Commons individual file")
+        # Two archive-specific Flickr alias pairs confirmed on their individual
+        # Commons source pages. Do not permit generic partial-name exceptions.
+        aliases={
+            "83fee84b339ba84b9dc9a4b4cd5b98eea561b0bc":
+                ("John B. / Dendroica cerulea (Flickr)","John B. from Highland Park, NJ, United States"),
+            "7f49d09b21ccefb0c6f7c8d0800ddfd1426f839a":
+                ("rutlo (Flickr)","rutlo on Flickr"),
+        }
+        pair=aliases.get(c["git_blob_sha"])
+        if not pair or (c.get("claimed_creator"),entry["creator"])!=pair:
+            raise RuntimeError("Archived photographer does not match current Commons individual file")
     claim=re.sub(r"\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
     if claim!=entry["license"] and not (
         entry["license"]=="CC BY-SA 2.5 AU" and claim=="CC BY-SA 2.5 AUSTRALIA"):
@@ -290,7 +315,11 @@ def main()->None:
                if r.get("status")=="HELD" and (
                     "429" in str(r.get("reason","")) or
                     (r.get("git_blob_sha")=="094a195584d135a226667f7dba5a8f34313d8610" and
-                    "Wikimedia current image license URL unsupported" in str(r.get("reason",""))))
+                    "Wikimedia current image license URL unsupported" in str(r.get("reason",""))) or
+                    (r.get("git_blob_sha") in {
+                        "83fee84b339ba84b9dc9a4b4cd5b98eea561b0bc",
+                        "7f49d09b21ccefb0c6f7c8d0800ddfd1426f839a"
+                    } and "Wikimedia original author not individually confirmed" in str(r.get("reason",""))))
                and r.get("git_blob_sha") in COMMONS_RIGHTS}
     report_path=site.parent/"workflow"/"multi-family-commons-direct-cc-recovery-2026-11-03.json"
     previous=json.loads(report_path.read_text()) if report_path.is_file() else {}

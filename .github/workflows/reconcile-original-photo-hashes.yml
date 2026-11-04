@@ -1,0 +1,28 @@
+name: Read-only one-pass reconciliation of all archived family photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/reconcile-original-photo-hashes.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reconcile-originals:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout pinned shared photo reconciliation code
+        uses: actions/checkout@v4
+        with:
+          ref: d51a2927037a2974275062eaeb58e7ba8dd3db59
+      - name: Install local image comparison only
+        run: python3 -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Compare seven archived source manifests against current family media and original pixels
+        run: |
+          set -o pipefail
+          python3 scripts/reconcile_original_photo_hashes_20261103.py | tee "$RUNNER_TEMP/hays-original-source-comparison.log"
+      - name: Require a seven-family audit checkpoint in the log
+        run: |
+          test "$(grep -c '^ARCHIVE_FAMILY_RECONCILED' "$RUNNER_TEMP/hays-original-source-comparison.log")" -eq 7
+          grep '^ARCHIVE_BULK_RECONCILIATION_SUMMARY' "$RUNNER_TEMP/hays-original-source-comparison.log"

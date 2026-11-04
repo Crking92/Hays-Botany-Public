@@ -25,6 +25,7 @@ REPORTS=[
  "multi-family-historical-kew-followup-2026-11-03.json",
  "multi-family-historical-kew-followup-b-2026-11-03.json",
  "multi-family-verified-synonym-recovery-2026-11-03.json",
+ "multi-family-metadata-recovery-phase2-2026-11-03.json",
  "multi-family-historical-institutional-gbif-2026-11-03.json",
  "multi-family-historical-named-cc0-2026-11-03.json",
  "multi-family-historical-plantnet-licensed-2026-11-03.json",

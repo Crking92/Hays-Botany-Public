@@ -98,6 +98,17 @@ COMMONS_RIGHTS={
   },
   # Wikimedia Commons file and FlickreviewR certify individual CC BY-SA 2.0;
   # archive recorded uploader Declangi, original Flickr author is bastus917.
+  # Original Modiola card misattributed this exact Commons File: to another
+  # photographer; independently confirmed Franz Xaver as copyright holder.
+  # Source mismatch is NOT treated as a generic alias: matching source-image
+  # fingerprints and page-specific rights are still mandatory.
+  "55c26649d0c89b43fbec91e0898afdb06d1d73f4": {
+    "page": "https://commons.wikimedia.org/wiki/File:Modiola_caroliniana_1.jpg",
+    "creator": "Franz Xaver",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Modiola_caroliniana_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
   "172f28f578b28fa9b42b29f30c9bdadd0433a87e": {
     "page": "https://commons.wikimedia.org/wiki/File:Spirodela_polyrrhiza.jpg",
     "creator": "bastus917 (영철 이)",
@@ -320,6 +331,8 @@ def commons_verify(c:dict)->dict:
             # photo names its staff photographer, Clarence A. Rechenthin.
             "a116d752445fd93164120ad7b5e2e58cdcaa7783":
                 ("USDA NRCS Texas State Office","Clarence A. Rechenthin"),
+            "55c26649d0c89b43fbec91e0898afdb06d1d73f4":
+                ("Krzysztof Ziarnek (Kenraiz)","Franz Xaver"),
             "172f28f578b28fa9b42b29f30c9bdadd0433a87e":
                 ("Declangi","bastus917 (영철 이)"),
             "858031ecb313b428abbc470d8ff344ecd84374fa":
@@ -419,7 +432,8 @@ def main()->None:
                         "e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952",
                         "858031ecb313b428abbc470d8ff344ecd84374fa",
                         "3fd1c28c02482d2b77094904a81d71ed9ee6dbd3",
-                        "172f28f578b28fa9b42b29f30c9bdadd0433a87e"
+                        "172f28f578b28fa9b42b29f30c9bdadd0433a87e",
+                        "55c26649d0c89b43fbec91e0898afdb06d1d73f4"
                     } and "Wikimedia original author not individually confirmed" in str(r.get("reason",""))))
                and r.get("git_blob_sha") in COMMONS_RIGHTS}
     report_path=site.parent/"workflow"/"multi-family-commons-direct-cc-recovery-2026-11-03.json"

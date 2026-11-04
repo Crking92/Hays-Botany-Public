@@ -7,7 +7,7 @@ are preserved. No guesses about image rights; no new downloads.
 Operates within ONE family checkout, with a separate immutable staging worktree.
 """
 from __future__ import annotations
-import argparse, csv, hashlib, io, json, re
+import argparse, csv, hashlib, io, json, re, time, urllib.request, urllib.error
 from collections import Counter, defaultdict
 from pathlib import Path
 from PIL import Image, ImageOps
@@ -89,6 +89,55 @@ def grant(row,noncommercial):
  if photo_id and photo_id.isdecimal() and direct and ("/photos/"+photo_id+"/") not in direct:
   raise ValueError("PHOTO_ID_DIRECT_URL_DISAGREE")
  return code,canon,creator,page,photo_id
+_OBS_CACHE={}
+_LAST_REQUEST=0.0
+def verify_inat_observation_photo(row,scientific,noncommercial):
+ """Verify exact individual photo license and assignment from live iNat observation.
+    Do not rely on guide-level licenses, taxon images or observation licenses.
+ """
+ global _LAST_REQUEST
+ oid=str(row.get("observation_id") or "").strip()
+ pid=str(row.get("photo_id") or "").strip()
+ code=str(row.get("license_code") or "").lower().strip()
+ if not oid.isdecimal() or not pid.isdecimal():raise ValueError("INAT_NO_OBSERVATION_AND_PHOTO_IDS")
+ if code not in ("cc0","cc-by","cc-by-sa","cc-by-nc","cc-by-nc-sa"):
+  raise ValueError("INAT_NO_APPROVED_INDIVIDUAL_CC_LICENSE")
+ direct=str(row.get("direct_image_url") or "").strip()
+ if "/photos/"+pid+"/" not in direct:
+  raise ValueError("INAT_ARCHIVED_IMAGE_ID_MISMATCH")
+ if oid not in _OBS_CACHE:
+  delta=time.monotonic()-_LAST_REQUEST
+  if delta<1.15:time.sleep(1.15-delta)
+  req=urllib.request.Request("https://api.inaturalist.org/v1/observations/"+oid,
+         headers={"User-Agent":"HaysBotanyHistoricalPhotoRightsReview/1.0 (education; 1rps)","Accept":"application/json"})
+  try:
+   with urllib.request.urlopen(req,timeout=22) as resp: payload=json.load(resp)
+   _OBS_CACHE[oid]=(payload.get("results") or [None])[0]
+  except (urllib.error.HTTPError,urllib.error.URLError,TimeoutError,ValueError) as ex:
+   raise ValueError("INAT_LIVE_LICENSE_LOOKUP_FAILED_"+type(ex).__name__)
+  _LAST_REQUEST=time.monotonic()
+ obs=_OBS_CACHE[oid]
+ if not obs or str(obs.get("id"))!=oid:raise ValueError("INAT_SOURCE_OBSERVATION_MISSING")
+ source_taxon=str((obs.get("taxon") or {}).get("name") or "")
+ if re.sub(r"[^a-z]","",source_taxon.lower())!=re.sub(r"[^a-z]","",scientific.lower()):
+  raise ValueError("INAT_SOURCE_TAXON_DOES_NOT_MATCH")
+ photo=next((p for p in obs.get("photos") or [] if str(p.get("id"))==pid),None)
+ if not photo:raise ValueError("INAT_SOURCE_PHOTO_NOT_ON_OBSERVATION")
+ actual_license=str(photo.get("license_code") or "").lower().strip()
+ if actual_license!=code:raise ValueError("INAT_PHOTO_LICENSE_CHANGED_OR_MISMATCHED")
+ k="cc0" if code=="cc0" else code[3:]
+ label,url=CC[k]
+ if "NC" in label and not noncommercial:raise ValueError("NC_NOT_ALLOWED")
+ credited=str(row.get("attribution") or row.get("creator") or "").strip()
+ observed_credit=str(photo.get("attribution") or "").strip()
+ def creator_key(x):
+  x=re.sub(r"^\(c\)\s*","",x.lower().strip())
+  x=x.split(",")[0].split(" some rights")[0].split(" uploaded by")[0]
+  return re.sub(r"[^a-z0-9]","",x)
+ if not creator_key(credited) or not observed_credit or creator_key(credited)!=creator_key(observed_credit):
+  raise ValueError("INAT_PHOTO_CREATOR_DIFFERENT")
+ return label,url,credited,"https://www.inaturalist.org/photos/"+pid,pid
+
 def main():
  ap=argparse.ArgumentParser()
  ap.add_argument("--archive",required=True)
@@ -153,7 +202,10 @@ def main():
    source=photo_entries[0]
    if str(source.get("public_reuse") or "").strip().lower() in ("no","false","private_study_only"):
     raise ValueError("SOURCE_SPECIFIC_REUSE_HOLD")
-   code,lurl,creator,page,pid=grant(row,noncommercial)
+   if str(row.get("observation_id") or "").isdigit() and str(row.get("photo_id") or "").isdigit() and str(row.get("license_code") or "").lower().startswith("cc-"):
+    code,lurl,creator,page,pid=verify_inat_observation_photo(row,str(card.get("scientific_name") or ""),noncommercial)
+   else:
+    code,lurl,creator,page,pid=grant(row,noncommercial)
    old_license=str(source.get("license") or "").lower()
    if "all rights reserved" in old_license or "private study" in old_license:
     raise ValueError("ARCHIVED_RIGHTS_HOLD")

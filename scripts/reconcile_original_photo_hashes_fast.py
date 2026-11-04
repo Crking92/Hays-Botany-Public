@@ -64,7 +64,7 @@ def match_status(manifest_row, media_by_sha):
         return "NOT_EXACTLY_PUBLISHED"
     parts = Path(manifest_row["source_path"]).parts
     species = parts[-3] if len(parts) >= 7 else ""
-    if species == "genus-images":
+    if parts[-2] == "genus-images":
         stem = Path(manifest_row["source_path"]).stem
         if any(Path(path).parent.name in stem for path in paths):
             return "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA"

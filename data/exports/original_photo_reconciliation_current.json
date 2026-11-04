@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "description": "Metadata-only cross-family original-photo inventory. Not a license approval, taxon verification or live Pages test.",
-  "checked_at_utc": "2026-11-04T14:49:04.016538+00:00",
+  "checked_at_utc": "2026-11-04T17:05:43.552744+00:00",
   "family_count": 7,
   "original_archive_photos": 1782,
   "counts": {
-    "EXACT_IN_SPECIES_MEDIA": 1560,
-    "NOT_EXACTLY_PUBLISHED": 219,
-    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 210,
+    "EXACT_IN_SPECIES_MEDIA": 1573,
+    "NOT_EXACTLY_PUBLISHED": 206,
+    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 197,
     "UNMATCHED_HELD": 9,
     "OWNER_CLOSED_EXCLUDED_UNMATCHED": 9,
     "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3
@@ -15,11 +15,11 @@
   "family_audits": [
     {
       "repository": "Crking92/Hays-Botany-Trees-Shrubs",
-      "main_tree_sha": "71f30c1658fbcca01941ace3d1c851bc32a09622",
+      "main_tree_sha": "7530e36d3973fcbab82bc41f6e9770c7fd57a366",
       "source_manifest_blob_sha": "27ca39dab7cd744deb73e4ea7f5268f21b71c1c0",
       "historical_review_blob_sha": "7da7f7f3c71f7e70a795b19f6ee7409c95b712a7",
       "original_archive_photos": 320,
-      "site_media_files": 758,
+      "site_media_files": 801,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 298,
         "NOT_EXACTLY_PUBLISHED": 22,
@@ -252,11 +252,11 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Lamiales",
-      "main_tree_sha": "177228ec83451291914f5f5bd6838d1f7d34a187",
+      "main_tree_sha": "6bb8fe42bcafe5b8135507937fc8e90c209a3b29",
       "source_manifest_blob_sha": "89e1c426a4f8bec9fae9c7bd886b9d697bc22b04",
       "historical_review_blob_sha": "8710f3d7a126144e1316b41152d6ae84fb935030",
       "original_archive_photos": 240,
-      "site_media_files": 625,
+      "site_media_files": 624,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 210,
         "NOT_EXACTLY_PUBLISHED": 27,
@@ -538,11 +538,11 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Monocots-Aquatics",
-      "main_tree_sha": "9357e6be3be666bea6578776517156b99b4738ed",
+      "main_tree_sha": "325576f96337cbef9fcd0baa1a513cbae4bd055d",
       "source_manifest_blob_sha": "8b2196c0a87ea32adb1bad64d6d04ec170e639f5",
       "historical_review_blob_sha": "eb53a612c217b0c688be0f689cbb8cd3086e5487",
       "original_archive_photos": 205,
-      "site_media_files": 466,
+      "site_media_files": 491,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 178,
         "NOT_EXACTLY_PUBLISHED": 27,
@@ -823,15 +823,15 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Mixed-Families",
-      "main_tree_sha": "32a2bcff92a50e2628295379488b426440b954cd",
+      "main_tree_sha": "898c417b6e064240be23c45897a6061311aa814e",
       "source_manifest_blob_sha": "82ccc6e5d1a56b1391e3f7f8d7f9215621a1431e",
       "historical_review_blob_sha": "c2dbd1f4b74086848de4401966c571fe162f3256",
       "original_archive_photos": 170,
-      "site_media_files": 525,
+      "site_media_files": 592,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 151,
-        "NOT_EXACTLY_PUBLISHED": 19,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 18,
+        "EXACT_IN_SPECIES_MEDIA": 153,
+        "NOT_EXACTLY_PUBLISHED": 17,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 16,
         "UNMATCHED_HELD": 1,
         "OWNER_CLOSED_EXCLUDED_UNMATCHED": 1
       },
@@ -998,26 +998,6 @@
         },
         {
           "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Oxalidaceae/Oxalis/oxalis-drummondii/images/oxalis-drummondii-conrad-uvalde-flower-leaves.jpg",
-          "archive_path": "migration/private-original-photo-holds/Oxalidaceae/Oxalis/oxalis-drummondii/images/oxalis-drummondii-conrad-uvalde-flower-leaves.jpg",
-          "source_blob_sha": "88ee3545e9f4f67124fcf81e66d08df52219e7ef",
-          "bytes": 78755,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
-          "source_path": "content/taxa/Oxalidaceae/Oxalis/oxalis-drummondii/images/oxalis-drummondii-conrad-uvalde-flower-side.jpg",
-          "archive_path": "migration/private-original-photo-holds/Oxalidaceae/Oxalis/oxalis-drummondii/images/oxalis-drummondii-conrad-uvalde-flower-side.jpg",
-          "source_blob_sha": "261ca068abf940c068e260e172f17657ec7660ee",
-          "bytes": 44999,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Mixed-Families",
           "source_path": "content/taxa/Pteridaceae/Adiantum/adiantum-capillus-veneris/images/adiantum-capillus-veneris_fertile-frond-pseudoindusium_15-55.0.jpg",
           "archive_path": "migration/private-original-photo-holds/Pteridaceae/Adiantum/adiantum-capillus-veneris/images/adiantum-capillus-veneris_fertile-frond-pseudoindusium_15-55.0.jpg",
           "source_blob_sha": "582f2a8d56ad080f1bde8ebde34e8f12f1abb404",
@@ -1030,7 +1010,7 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Spurges-Mallows",
-      "main_tree_sha": "83c263d5eaf7364454e61c261315fbf57dc9de76",
+      "main_tree_sha": "9245a2e8ee72d43fc71fa03a4e343706ffe8ecd8",
       "source_manifest_blob_sha": "0a88e782dfda8d85b6cf24812bc77bfd8cb8e6d9",
       "historical_review_blob_sha": "050c45a48f2c2ea886fae62062e9915f8ad41e5f",
       "original_archive_photos": 347,
@@ -1477,15 +1457,15 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Asterid-Allies",
-      "main_tree_sha": "1fe832ae4f46d161b37de83d803fb57da3d07260",
+      "main_tree_sha": "d74162071a75e6c3bec3114284f756d84202c341",
       "source_manifest_blob_sha": "5dcf9a67554178fa2cc4736c29dbb8387792f016",
       "historical_review_blob_sha": "a1ad4a299f149d25a8aaae8f26ede6d84080d387",
       "original_archive_photos": 306,
-      "site_media_files": 630,
+      "site_media_files": 641,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 239,
-        "NOT_EXACTLY_PUBLISHED": 67,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 67
+        "EXACT_IN_SPECIES_MEDIA": 250,
+        "NOT_EXACTLY_PUBLISHED": 56,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 56
       },
       "unmatched_photos": [
         {
@@ -1760,36 +1740,6 @@
         },
         {
           "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Convolvulaceae/Ipomoea/ipomoea-coccinea/images/03-same-plant-field-view-1.jpg",
-          "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Ipomoea/ipomoea-coccinea/images/03-same-plant-field-view-1.jpg",
-          "source_blob_sha": "b007616aea45ad71dfe963380c143b5d086e96c2",
-          "bytes": 754057,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Convolvulaceae/Ipomoea/ipomoea-coccinea/images/04-same-plant-field-view-2.jpg",
-          "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Ipomoea/ipomoea-coccinea/images/04-same-plant-field-view-2.jpg",
-          "source_blob_sha": "97d7b66720e0496d8ab8b508b8eae23e07797bcf",
-          "bytes": 465513,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Convolvulaceae/Ipomoea/ipomoea-coccinea/images/05-same-plant-field-view-3.jpg",
-          "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Ipomoea/ipomoea-coccinea/images/05-same-plant-field-view-3.jpg",
-          "source_blob_sha": "d6ad4622a687efa3ba0b0e5c74edd73a4b154692",
-          "bytes": 486093,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
           "source_path": "content/taxa/Convolvulaceae/Ipomoea/ipomoea-cordatotriloba/images/01-flowering-habit.jpg",
           "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Ipomoea/ipomoea-cordatotriloba/images/01-flowering-habit.jpg",
           "source_blob_sha": "4812365341be88ac17ba15d0d8fc05cb27f3f41f",
@@ -1970,16 +1920,6 @@
         },
         {
           "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Convolvulaceae/Ipomoea/ipomoea-triloba/images/01-curated-reference.jpg",
-          "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Ipomoea/ipomoea-triloba/images/01-curated-reference.jpg",
-          "source_blob_sha": "06144f49decbc263b07545de3b7feffdb873c752",
-          "bytes": 214315,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
           "source_path": "content/taxa/Convolvulaceae/Ipomoea/ipomoea-triloba/images/01-habit.jpg",
           "archive_path": "migration/private-original-photo-holds/Convolvulaceae/Ipomoea/ipomoea-triloba/images/01-habit.jpg",
           "source_blob_sha": "cd8729e3f58b863f479b567752b3f46ae6538ac6",
@@ -2050,76 +1990,6 @@
         },
         {
           "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Solanum/solanum-emulans/images/04-leaf-underside-figure16b.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Solanum/solanum-emulans/images/04-leaf-underside-figure16b.jpg",
-          "source_blob_sha": "d6370b514f588e66bf198e730025e7a16ff8ec0c",
-          "bytes": 142736,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Solanum/solanum-emulans/images/05-flower-anthers-figure16c.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Solanum/solanum-emulans/images/05-flower-anthers-figure16c.jpg",
-          "source_blob_sha": "4fe36842f25ba9fb6e955e099192b0d1e064cca7",
-          "bytes": 68153,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Solanum/solanum-emulans/images/06-developing-green-fruit-calyx-figure16d.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Solanum/solanum-emulans/images/06-developing-green-fruit-calyx-figure16d.jpg",
-          "source_blob_sha": "06cb8ba9551e8b71ebcc19202b747216d00c22f8",
-          "bytes": 67181,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Solanum/solanum-interius/images/01-habit-figure22a.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Solanum/solanum-interius/images/01-habit-figure22a.jpg",
-          "source_blob_sha": "0e4a1297811ecfbca6106631aa1ffe690741df12",
-          "bytes": 144102,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Solanum/solanum-interius/images/02-flower-branches-figure22b.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Solanum/solanum-interius/images/02-flower-branches-figure22b.jpg",
-          "source_blob_sha": "4c294b912df0e14b90b918ac99a72be1fefe9822",
-          "bytes": 65802,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Solanum/solanum-interius/images/03-developing-fruit-calyx-figure22c.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Solanum/solanum-interius/images/03-developing-fruit-calyx-figure22c.jpg",
-          "source_blob_sha": "8c93cf1f0a8779da0de7cdf83b2c4485f70b2cc5",
-          "bytes": 88295,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Solanaceae/Solanum/solanum-interius/images/04-ripe-black-fruit-figure22d.jpg",
-          "archive_path": "migration/private-original-photo-holds/Solanaceae/Solanum/solanum-interius/images/04-ripe-black-fruit-figure22d.jpg",
-          "source_blob_sha": "005749f911a65aada84f064111156784323de20b",
-          "bytes": 75382,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
           "source_path": "content/taxa/Solanaceae/Solanum/solanum-nigrescens/images/05-ripe-fruit-cluster-fig03a.jpg",
           "archive_path": "migration/private-original-photo-holds/Solanaceae/Solanum/solanum-nigrescens/images/05-ripe-fruit-cluster-fig03a.jpg",
           "source_blob_sha": "80854f8d243514c6efed8469a9c9db4c76adeaf1",
@@ -2162,11 +2032,11 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Cacti-Buttercups",
-      "main_tree_sha": "57bb68cfa420b85fb6182e5351182acc5b135759",
+      "main_tree_sha": "87648da4056edfed275a1c1007650687178e4362",
       "source_manifest_blob_sha": "048d6bb3ce68cbc7247d396c96719dc498476592",
       "historical_review_blob_sha": "16a5cf8687fd10eeb0bb756c0e3e2957d0d6b0a6",
       "original_archive_photos": 194,
-      "site_media_files": 569,
+      "site_media_files": 634,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 180,
         "NOT_EXACTLY_PUBLISHED": 14,

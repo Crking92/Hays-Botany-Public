@@ -30,7 +30,7 @@ A high-quality record is **one needed camera view**, not a generic request like 
 
 ## Responsibility and reporting
 
-Five existing gallery-quality automations cover Asterids & Allies; Spurges & Mallows; Lamiales & Mixed Families; Monocots & Trees/Shrubs; Cacti & QA. Other dedicated repositories (notably Poaceae, Fabaceae, Asteraceae) are **not covered by those seven grouped-family site lanes**; their future review must use their assigned existing family repository and this same queue. Do not assume their gallery coverage has been assessed.
+Five existing gallery-quality automations cover **all ten family collection repositories**: Asterids & Allies + dedicated Asteraceae; Spurges & Mallows + dedicated Fabaceae; Lamiales & Mixed Families; Monocots & Aquatics + Trees & Shrubs + dedicated Poaceae; and Cacti & Buttercups + cross-collection read-only QA. Each worker writes only its explicitly assigned repositories, reviews one repository at a time, and uses the same Photo Needs Queue. Do not assume a repository is already audited merely because it has been assigned.
 
 Each run should report: species visually reviewed, genuinely useful site corrections **verified live**, existing photographic structures found, exact queue targets updated/added, unresolved source/ID holds, and future download targets by family/genus. A missing role may remain pending rather than inventing coverage or missing structure. Only make Sheets changes after checking the specific row against current GitHub and existing queue state; preserve all other tracker tabs and formulas.
 

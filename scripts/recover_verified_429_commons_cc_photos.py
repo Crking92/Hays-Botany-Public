@@ -38,6 +38,23 @@ COMMONS_RIGHTS={
 # by Wikimedia iNaturalistReviewBot (2025-12-16); archive preserves exact
 # photo IDs, individual credits, original photo bytes and original URLs.
 # The image fingerprint and archived metadata must still match to publish.
+  # Historical Salvia cards carried provisional creator/license placeholders.
+  # Both precise Commons files are independently iNaturalistReviewBot-confirmed
+  # CC BY 4.0 with Michelle W. as photographer. The archive pixels must match.
+  "2dcff4c4de863215ffc26bcecfb509e23e57b1be": {
+    "page": "https://commons.wikimedia.org/wiki/File:Salvia_ballotiflora_343007199.jpg",
+    "creator": "Michelle W. （鍾偉瑋）",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/343007199/original.jpg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "392296e89c0cc955770ac01f691582ff4c79060a": {
+    "page": "https://commons.wikimedia.org/wiki/File:Salvia_ballotiflora_589592598.jpg",
+    "creator": "Michelle W. （鍾偉瑋）",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/589592598/original.jpg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+  },
   "d87f7f60922a052103f44faeb7891f2eb4dd03a7": {
     "page": "https://commons.wikimedia.org/wiki/File:Dichondra_carolinensis_258349465.jpg",
     "creator": "Alex Abair",
@@ -370,6 +387,10 @@ def commons_verify(c:dict)->dict:
             # photo names its staff photographer, Clarence A. Rechenthin.
             "a116d752445fd93164120ad7b5e2e58cdcaa7783":
                 ("USDA NRCS Texas State Office","Clarence A. Rechenthin"),
+            "2dcff4c4de863215ffc26bcecfb509e23e57b1be":
+                ("iNaturalist photographer, exact Commons page awaiting verification","Michelle W. （鍾偉瑋）"),
+            "392296e89c0cc955770ac01f691582ff4c79060a":
+                ("iNaturalist photographer, exact Commons page awaiting verification","Michelle W. （鍾偉瑋）"),
             "55c26649d0c89b43fbec91e0898afdb06d1d73f4":
                 ("Krzysztof Ziarnek (Kenraiz)","Franz Xaver"),
             "172f28f578b28fa9b42b29f30c9bdadd0433a87e":
@@ -390,6 +411,13 @@ def commons_verify(c:dict)->dict:
     if claim in {"PUBLIC DOMAIN (US FEDERAL GOVERNMENT)","PUBLIC DOMAIN (U.S. FEDERAL GOVERNMENT)"} and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
         claim=entry["license"]
     if c["git_blob_sha"]=="e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952" and claim=="CC BY-SA 3.0 / GFDL" and entry["license"]=="CC BY-SA 3.0":
+        claim=entry["license"]
+    if (c["git_blob_sha"] in {
+        "2dcff4c4de863215ffc26bcecfb509e23e57b1be",
+        "392296e89c0cc955770ac01f691582ff4c79060a"
+    } and claim=="FILE LICENSE STILL TO VERIFY" and entry["license"]=="CC BY 4.0"):
+        # Promote only the named file after its actual Commons CC BY 4.0
+        # individual photo and photographer have been verified; dHash still gates.
         claim=entry["license"]
     if claim!=entry["license"] and not (
         entry["license"]=="CC BY-SA 2.5 AU" and claim=="CC BY-SA 2.5 AUSTRALIA"):
@@ -472,7 +500,9 @@ def main()->None:
                         "858031ecb313b428abbc470d8ff344ecd84374fa",
                         "3fd1c28c02482d2b77094904a81d71ed9ee6dbd3",
                         "172f28f578b28fa9b42b29f30c9bdadd0433a87e",
-                        "55c26649d0c89b43fbec91e0898afdb06d1d73f4"
+                        "55c26649d0c89b43fbec91e0898afdb06d1d73f4",
+                        "2dcff4c4de863215ffc26bcecfb509e23e57b1be",
+                        "392296e89c0cc955770ac01f691582ff4c79060a"
                     } and "Wikimedia original author not individually confirmed" in str(r.get("reason",""))))
                and r.get("git_blob_sha") in COMMONS_RIGHTS}
     report_path=site.parent/"workflow"/"multi-family-commons-direct-cc-recovery-2026-11-03.json"

@@ -143,7 +143,7 @@ def main():
       try:hash_images[slug].append(dhash(local.read_bytes()))
       except Exception:pass
    path,card=cards[slug]
-   if card.get("id")!=slug or len(card["verified_photos"])!=rows[slug]["photo_count"]:
+   if card.get("id")!=slug or len(card["verified_photos"])!=rows[slug]["photo_count"]+added[slug]:
     raise ValueError("CARD_INDEX_MISMATCH")
    candidates=hashes[slug].get(name,[])
    if len(candidates)!=1:raise ValueError("NO_SINGLE_EXACT_SOURCE_RECORD")

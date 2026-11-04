@@ -74,6 +74,28 @@ COMMONS_RIGHTS={
   # Commons and Flickr reviewed originals: author aliases are pinned per original Git SHA.
   # Individual public-domain Commons images: not reclassified as CC0.
   # Three precise Commons CC images; author aliases checked against their original file pages.
+  # Current individual Wikimedia file pages identify these USDA federal employees/photos.
+  "47f91e7579276758d2abb3d3329ff8112052a999": {
+    "page": "https://commons.wikimedia.org/wiki/File:Impatiens_capensis.jpg",
+    "creator": "Robert H. Mohlenbrock",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Impatiens_capensis.jpg",
+    "license": "PUBLIC DOMAIN (U.S. FEDERAL WORK)",
+    "license_url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
+  "2acd0cdf675e7fb2696018185f3acb33e8a6d4fd": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pavonia_lasiopetala.jpg",
+    "creator": "Clarence A. Rechenthin",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Pavonia_lasiopetala.jpg",
+    "license": "PUBLIC DOMAIN (U.S. FEDERAL WORK)",
+    "license_url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
+  "a116d752445fd93164120ad7b5e2e58cdcaa7783": {
+    "page": "https://commons.wikimedia.org/wiki/File:Penstemon_baccharifolius.jpg",
+    "creator": "Clarence A. Rechenthin",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Penstemon_baccharifolius.jpg",
+    "license": "PUBLIC DOMAIN (U.S. FEDERAL WORK)",
+    "license_url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
   "e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952": {
     "page": "https://commons.wikimedia.org/wiki/File:Ulmus_rubra_flower_buds.jpg",
     "creator": "Phyzome",
@@ -285,6 +307,10 @@ def commons_verify(c:dict)->dict:
         aliases={
             "5f64ef8bc1d0a138f92e7caf72036156f2b408f4":
                 ("Ivengo (Russian Wikipedia)","Ivengo(RUS)"),
+            # The archived source names USDA's Texas office; the exact Commons
+            # photo names its staff photographer, Clarence A. Rechenthin.
+            "a116d752445fd93164120ad7b5e2e58cdcaa7783":
+                ("USDA NRCS Texas State Office","Clarence A. Rechenthin"),
             "858031ecb313b428abbc470d8ff344ecd84374fa":
                 ("Krzysztof Ziarnek (Kenraiz)","Krzysztof Ziarnek, Kenraiz"),
             "3fd1c28c02482d2b77094904a81d71ed9ee6dbd3":
@@ -298,7 +324,7 @@ def commons_verify(c:dict)->dict:
         if not pair or (c.get("claimed_creator"),entry["creator"])!=pair:
             raise RuntimeError("Archived photographer does not match current Commons individual file")
     claim=re.sub(r"\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
-    if claim=="PUBLIC DOMAIN (US FEDERAL GOVERNMENT)" and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
+    if claim in {"PUBLIC DOMAIN (US FEDERAL GOVERNMENT)","PUBLIC DOMAIN (U.S. FEDERAL GOVERNMENT)"} and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
         claim=entry["license"]
     if c["git_blob_sha"]=="e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952" and claim=="CC BY-SA 3.0 / GFDL" and entry["license"]=="CC BY-SA 3.0":
         claim=entry["license"]
@@ -373,7 +399,10 @@ def main()->None:
                     } and "Wikimedia original author not individually confirmed" in str(r.get("reason",""))) or
                     (r.get("git_blob_sha") in {
                         "5f64ef8bc1d0a138f92e7caf72036156f2b408f4",
-                        "a1b0b915fc9053d8965fcb9b4796b30cec8e9dda"
+                        "a1b0b915fc9053d8965fcb9b4796b30cec8e9dda",
+                        "47f91e7579276758d2abb3d3329ff8112052a999",
+                        "2acd0cdf675e7fb2696018185f3acb33e8a6d4fd",
+                        "a116d752445fd93164120ad7b5e2e58cdcaa7783"
                     } and "Wikimedia current image license URL unsupported" in str(r.get("reason",""))) or
                     (r.get("git_blob_sha") in {
                         "e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952",

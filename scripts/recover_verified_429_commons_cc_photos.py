@@ -72,6 +72,21 @@ COMMONS_RIGHTS={
   # Individually verified Commons page 2026-11-03, original file author Bidgee, jurisdictional license.
   # The original archive independently records the same creator, file page and CC BY-SA 2.5 Australia.
   # Commons and Flickr reviewed originals: author aliases are pinned per original Git SHA.
+  # Individual public-domain Commons images: not reclassified as CC0.
+  "5f64ef8bc1d0a138f92e7caf72036156f2b408f4": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ribes_aureum.jpg",
+    "creator": "Ivengo(RUS)",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Ribes_aureum.jpg",
+    "license": "PUBLIC DOMAIN (AUTHOR RELEASED)",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "a1b0b915fc9053d8965fcb9b4796b30cec8e9dda": {
+    "page": "https://commons.wikimedia.org/wiki/File:Lepidium_virginicum.jpg",
+    "creator": "Robert H. Mohlenbrock",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Lepidium_virginicum.jpg",
+    "license": "PUBLIC DOMAIN (U.S. FEDERAL WORK)",
+    "license_url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
   "83fee84b339ba84b9dc9a4b4cd5b98eea561b0bc": {
     "page": "https://commons.wikimedia.org/wiki/File:Pinus_echinata_conelet_and_leaves.jpg",
     "creator": "John B. from Highland Park, NJ, United States",
@@ -246,6 +261,8 @@ def commons_verify(c:dict)->dict:
         # Two archive-specific Flickr alias pairs confirmed on their individual
         # Commons source pages. Do not permit generic partial-name exceptions.
         aliases={
+            "5f64ef8bc1d0a138f92e7caf72036156f2b408f4":
+                ("Ivengo (Russian Wikipedia)","Ivengo(RUS)"),
             "83fee84b339ba84b9dc9a4b4cd5b98eea561b0bc":
                 ("John B. / Dendroica cerulea (Flickr)","John B. from Highland Park, NJ, United States"),
             "7f49d09b21ccefb0c6f7c8d0800ddfd1426f839a":
@@ -255,11 +272,17 @@ def commons_verify(c:dict)->dict:
         if not pair or (c.get("claimed_creator"),entry["creator"])!=pair:
             raise RuntimeError("Archived photographer does not match current Commons individual file")
     claim=re.sub(r"\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
+    if claim=="PUBLIC DOMAIN (US FEDERAL GOVERNMENT)" and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
+        claim=entry["license"]
     if claim!=entry["license"] and not (
         entry["license"]=="CC BY-SA 2.5 AU" and claim=="CC BY-SA 2.5 AUSTRALIA"):
         raise RuntimeError("Original archive license does not match page-verified photo license")
     if entry["license"]=="CC BY-SA 2.5 AU":
         expected="https://creativecommons.org/licenses/by-sa/2.5/au/"
+    elif entry["license"]=="PUBLIC DOMAIN (AUTHOR RELEASED)":
+        expected="https://creativecommons.org/publicdomain/mark/1.0/"
+    elif entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
+        expected="https://www.copyright.gov/title17/92chap1.html#105"
     else:
         kind,version=entry["license"].removeprefix("CC ").rsplit(" ",1)
         expected="https://creativecommons.org/licenses/"+kind.lower()+"/"+version+"/"
@@ -319,7 +342,11 @@ def main()->None:
                     (r.get("git_blob_sha") in {
                         "83fee84b339ba84b9dc9a4b4cd5b98eea561b0bc",
                         "7f49d09b21ccefb0c6f7c8d0800ddfd1426f839a"
-                    } and "Wikimedia original author not individually confirmed" in str(r.get("reason",""))))
+                    } and "Wikimedia original author not individually confirmed" in str(r.get("reason",""))) or
+                    (r.get("git_blob_sha") in {
+                        "5f64ef8bc1d0a138f92e7caf72036156f2b408f4",
+                        "a1b0b915fc9053d8965fcb9b4796b30cec8e9dda"
+                    } and "Wikimedia current image license URL unsupported" in str(r.get("reason",""))))
                and r.get("git_blob_sha") in COMMONS_RIGHTS}
     report_path=site.parent/"workflow"/"multi-family-commons-direct-cc-recovery-2026-11-03.json"
     previous=json.loads(report_path.read_text()) if report_path.is_file() else {}

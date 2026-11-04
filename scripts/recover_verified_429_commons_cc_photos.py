@@ -73,6 +73,28 @@ COMMONS_RIGHTS={
   # The original archive independently records the same creator, file page and CC BY-SA 2.5 Australia.
   # Commons and Flickr reviewed originals: author aliases are pinned per original Git SHA.
   # Individual public-domain Commons images: not reclassified as CC0.
+  # Three precise Commons CC images; author aliases checked against their original file pages.
+  "e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ulmus_rubra_flower_buds.jpg",
+    "creator": "Phyzome",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Ulmus_rubra_flower_buds.jpg",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "858031ecb313b428abbc470d8ff344ecd84374fa": {
+    "page": "https://commons.wikimedia.org/wiki/File:Rumex_pulcher_kz08.jpg",
+    "creator": "Krzysztof Ziarnek, Kenraiz",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Rumex_pulcher_kz08.jpg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "3fd1c28c02482d2b77094904a81d71ed9ee6dbd3": {
+    "page": "https://commons.wikimedia.org/wiki/File:Lythrum_alatum_(20363896053).jpg",
+    "creator": "Joshua Mayey",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Lythrum_alatum_%2820363896053%29.jpg",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
   "5f64ef8bc1d0a138f92e7caf72036156f2b408f4": {
     "page": "https://commons.wikimedia.org/wiki/File:Ribes_aureum.jpg",
     "creator": "Ivengo(RUS)",
@@ -263,6 +285,10 @@ def commons_verify(c:dict)->dict:
         aliases={
             "5f64ef8bc1d0a138f92e7caf72036156f2b408f4":
                 ("Ivengo (Russian Wikipedia)","Ivengo(RUS)"),
+            "858031ecb313b428abbc470d8ff344ecd84374fa":
+                ("Krzysztof Ziarnek (Kenraiz)","Krzysztof Ziarnek, Kenraiz"),
+            "3fd1c28c02482d2b77094904a81d71ed9ee6dbd3":
+                ("Joshua Mayer (wackybadger)","Joshua Mayey"),
             "83fee84b339ba84b9dc9a4b4cd5b98eea561b0bc":
                 ("John B. / Dendroica cerulea (Flickr)","John B. from Highland Park, NJ, United States"),
             "7f49d09b21ccefb0c6f7c8d0800ddfd1426f839a":
@@ -273,6 +299,8 @@ def commons_verify(c:dict)->dict:
             raise RuntimeError("Archived photographer does not match current Commons individual file")
     claim=re.sub(r"\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
     if claim=="PUBLIC DOMAIN (US FEDERAL GOVERNMENT)" and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
+        claim=entry["license"]
+    if c["git_blob_sha"]=="e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952" and claim=="CC BY-SA 3.0 / GFDL" and entry["license"]=="CC BY-SA 3.0":
         claim=entry["license"]
     if claim!=entry["license"] and not (
         entry["license"]=="CC BY-SA 2.5 AU" and claim=="CC BY-SA 2.5 AUSTRALIA"):
@@ -346,7 +374,12 @@ def main()->None:
                     (r.get("git_blob_sha") in {
                         "5f64ef8bc1d0a138f92e7caf72036156f2b408f4",
                         "a1b0b915fc9053d8965fcb9b4796b30cec8e9dda"
-                    } and "Wikimedia current image license URL unsupported" in str(r.get("reason",""))))
+                    } and "Wikimedia current image license URL unsupported" in str(r.get("reason",""))) or
+                    (r.get("git_blob_sha") in {
+                        "e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952",
+                        "858031ecb313b428abbc470d8ff344ecd84374fa",
+                        "3fd1c28c02482d2b77094904a81d71ed9ee6dbd3"
+                    } and "Wikimedia original author not individually confirmed" in str(r.get("reason",""))))
                and r.get("git_blob_sha") in COMMONS_RIGHTS}
     report_path=site.parent/"workflow"/"multi-family-commons-direct-cc-recovery-2026-11-03.json"
     previous=json.loads(report_path.read_text()) if report_path.is_file() else {}

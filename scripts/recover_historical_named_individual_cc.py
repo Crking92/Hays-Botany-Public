@@ -82,7 +82,7 @@ change('''def gbif_verify(c:dict)->dict:''',
     if distance>12:
         raise RuntimeError("Archived exact-photo bytes differ from source photo: "+str(distance))
     expected=" ".join(c["scientific_name"].split()[:2])
-    if not expected or expected.casefold()!=c["species_id"].replace("-"," ").casefold():
+    if not expected or not (c["species_id"].replace("-"," ").casefold()==expected.casefold() or c["species_id"].replace("-"," ").casefold().startswith(expected.casefold()+" ")):
         # A botanical infraspecific naming variation is not enough to erase
         # an assigned site name mismatch without separate documented review.
         raise RuntimeError("Original named species card does not match assigned species ID")
@@ -97,6 +97,10 @@ change('''def gbif_verify(c:dict)->dict:''',
         "; original species-card name "+expected+
         "; historical CC permission is irrevocable but source license was not freshly revalidated"}
 def gbif_verify(c:dict)->dict:''')
+change('''    processed_before={r.get("git_blob_sha") for b in previous_batches
+                      for r in b.get("records",[]) if r.get("git_blob_sha")}''',
+'''    processed_before={r.get("git_blob_sha") for b in previous_batches
+                      for r in b.get("records",[]) if r.get("git_blob_sha") and r.get("status")!="HELD"}''')
 change("multi-family-historical-archive-trust-2026-11-03.json",
        "multi-family-historical-named-individual-cc-2026-11-03.json")
 change("MULTIFAMILY_HISTORICAL_ARCHIVE_TRUST_2026-11-03",

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "description": "Metadata-only cross-family original-photo inventory. Not a license approval, taxon verification or live Pages test.",
-  "checked_at_utc": "2026-11-04T03:12:43.250286+00:00",
+  "checked_at_utc": "2026-11-04T03:29:53.657468+00:00",
   "family_count": 7,
   "original_archive_photos": 1782,
   "counts": {
-    "EXACT_IN_SPECIES_MEDIA": 1555,
-    "NOT_EXACTLY_PUBLISHED": 224,
-    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 215,
+    "EXACT_IN_SPECIES_MEDIA": 1556,
+    "NOT_EXACTLY_PUBLISHED": 223,
+    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 214,
     "UNMATCHED_HELD": 9,
     "OWNER_CLOSED_EXCLUDED_UNMATCHED": 9,
     "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3
@@ -538,11 +538,11 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Monocots-Aquatics",
-      "main_tree_sha": "20961c04a038250c83b0ab9ee10f358419ded6a2",
+      "main_tree_sha": "34934c71c56eeabb5393b22f52a9988ade0be2f1",
       "source_manifest_blob_sha": "8b2196c0a87ea32adb1bad64d6d04ec170e639f5",
       "historical_review_blob_sha": "eb53a612c217b0c688be0f689cbb8cd3086e5487",
       "original_archive_photos": 205,
-      "site_media_files": 347,
+      "site_media_files": 421,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 178,
         "NOT_EXACTLY_PUBLISHED": 27,
@@ -823,11 +823,11 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Mixed-Families",
-      "main_tree_sha": "02879f9368ac8e14db10872bacf73e26696e6333",
+      "main_tree_sha": "bd80d118ea63a636d7c7063e6df5119462418085",
       "source_manifest_blob_sha": "82ccc6e5d1a56b1391e3f7f8d7f9215621a1431e",
       "historical_review_blob_sha": "c2dbd1f4b74086848de4401966c571fe162f3256",
       "original_archive_photos": 170,
-      "site_media_files": 505,
+      "site_media_files": 520,
       "counts": {
         "EXACT_IN_SPECIES_MEDIA": 151,
         "NOT_EXACTLY_PUBLISHED": 19,
@@ -2202,15 +2202,15 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Cacti-Buttercups",
-      "main_tree_sha": "ca992f98fe0c6a9a7def2c53d5188d2c578b2d53",
+      "main_tree_sha": "57bb68cfa420b85fb6182e5351182acc5b135759",
       "source_manifest_blob_sha": "048d6bb3ce68cbc7247d396c96719dc498476592",
       "historical_review_blob_sha": "16a5cf8687fd10eeb0bb756c0e3e2957d0d6b0a6",
       "original_archive_photos": 194,
-      "site_media_files": 568,
+      "site_media_files": 569,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 179,
-        "NOT_EXACTLY_PUBLISHED": 15,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 10,
+        "EXACT_IN_SPECIES_MEDIA": 180,
+        "NOT_EXACTLY_PUBLISHED": 14,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 9,
         "UNMATCHED_HELD": 5,
         "OWNER_CLOSED_EXCLUDED_UNMATCHED": 5
       },
@@ -2324,16 +2324,6 @@
           "historical_review_status": "HELD",
           "historical_review_reason": "Current photo creator differs from original image CSV: no rights reserved",
           "owner_closed_excluded": true
-        },
-        {
-          "repository": "Hays-Botany-Cacti-Buttercups",
-          "source_path": "content/taxa/Papaveraceae/Argemone/argemone-aurantiaca/images/01-curated-reference.jpg",
-          "archive_path": "migration/private-original-photo-holds/Papaveraceae/Argemone/argemone-aurantiaca/images/01-curated-reference.jpg",
-          "source_blob_sha": "40a1db8ba602ad8b0a29b3b8c4fbcc49dd6d74f9",
-          "bytes": 242542,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
         },
         {
           "repository": "Hays-Botany-Cacti-Buttercups",

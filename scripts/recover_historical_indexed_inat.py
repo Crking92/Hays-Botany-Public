@@ -53,6 +53,14 @@ change('''    validate_claim(c.get("claimed_license"),code)''',
 '''    validate_claim(c.get("claimed_license"),code)
     if c.get("claimed_license")=="cc0" and code!="cc0":
         raise RuntimeError("Archived CC0 claim not confirmed on current exact photo")''')
+change('''    if len(expected.split())!=2 or not (taxon==expected or taxon.startswith(expected+" ")):
+        raise RuntimeError("Taxon mismatch: "+taxon+" vs "+expected)''',
+'''    if len(expected.split())!=2 or not (taxon.casefold()==expected.casefold() or taxon.casefold().startswith(expected.casefold()+" ")):
+        raise RuntimeError("Taxon mismatch: "+taxon+" vs "+expected)''')
+change('''    processed_before={r.get("git_blob_sha") for b in previous_batches
+                      for r in b.get("records",[]) if r.get("git_blob_sha")}''',
+'''    processed_before={r.get("git_blob_sha") for b in previous_batches
+                      for r in b.get("records",[]) if r.get("git_blob_sha") and r.get("status")!="HELD"}''')
 change("multi-family-historical-archive-trust-2026-11-03.json",
        "multi-family-historical-indexed-inat-2026-11-03.json")
 change("MULTIFAMILY_HISTORICAL_ARCHIVE_TRUST_2026-11-03",

@@ -30,6 +30,8 @@ for kind in ("by","by-sa","by-nc","by-nc-sa"):
     for ver in ("2.0","3.0","4.0"):
         KNOWN_LICENSE_URLS[f"https://creativecommons.org/licenses/{kind}/{ver}/"]=(f"CC {kind.upper().replace('-','-')} {ver}",f"https://creativecommons.org/licenses/{kind}/{ver}/")
 KNOWN_LICENSE_URLS["https://creativecommons.org/publicdomain/zero/1.0/"]=PHOTO_CODES["cc0"]
+# Specific CC BY-SA 2.5 Australia license: do not collapse jurisdictional versions to a generic license.
+KNOWN_LICENSE_URLS["https://creativecommons.org/licenses/by-sa/2.5/au/"]=("CC BY-SA 2.5 AU","https://creativecommons.org/licenses/by-sa/2.5/au/")
 SOURCE_IMAGE_HOSTS=("inaturalist-open-data.s3.amazonaws.com","static.inaturalist.org","upload.wikimedia.org")
 USER_AGENT="Hays-Botany-Historical-CrossFamily/2026-11-03 (+educational photo-license auditing)"
 
@@ -174,6 +176,8 @@ def canonical_commons_cc_url(raw:str)->str:
     if parsed.scheme!="https" or parsed.netloc.lower()!="creativecommons.org":
         return ""
     p=parsed.path.rstrip("/")
+    if re.fullmatch(r"/licenses/by-sa/2\.5/au(?:/deed(?:\.en)?)?",p,flags=re.I):
+        return "https://creativecommons.org/licenses/by-sa/2.5/au/"
     m=re.fullmatch(r"/licenses/(by|by-sa|by-nc|by-nc-sa)/(2\.0|3\.0|4\.0)(?:/[a-z]{2}(?:-[a-z]{2})?)?(?:/deed(?:\.[a-z]{2})?)?",p,flags=re.I)
     if m:
         kind,version=m.groups()

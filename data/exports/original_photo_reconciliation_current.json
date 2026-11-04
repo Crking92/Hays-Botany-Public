@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "description": "Metadata-only cross-family original-photo inventory. Not a license approval, taxon verification or live Pages test.",
-  "checked_at_utc": "2026-11-04T03:03:39.691913+00:00",
+  "checked_at_utc": "2026-11-04T03:12:43.250286+00:00",
   "family_count": 7,
   "original_archive_photos": 1782,
   "counts": {
-    "EXACT_IN_SPECIES_MEDIA": 1547,
-    "NOT_EXACTLY_PUBLISHED": 232,
-    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 223,
+    "EXACT_IN_SPECIES_MEDIA": 1555,
+    "NOT_EXACTLY_PUBLISHED": 224,
+    "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 215,
     "UNMATCHED_HELD": 9,
     "OWNER_CLOSED_EXCLUDED_UNMATCHED": 9,
     "EXACT_GENUS_IMAGE_IN_NAMED_SPECIES_MEDIA": 3
@@ -15,15 +15,15 @@
   "family_audits": [
     {
       "repository": "Crking92/Hays-Botany-Trees-Shrubs",
-      "main_tree_sha": "202799109b757960b525af44c897213afea7be1c",
+      "main_tree_sha": "8f970ef294a10b36174aa7be2838383cb5ada616",
       "source_manifest_blob_sha": "27ca39dab7cd744deb73e4ea7f5268f21b71c1c0",
       "historical_review_blob_sha": "7da7f7f3c71f7e70a795b19f6ee7409c95b712a7",
       "original_archive_photos": 320,
-      "site_media_files": 722,
+      "site_media_files": 723,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 297,
-        "NOT_EXACTLY_PUBLISHED": 23,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 22,
+        "EXACT_IN_SPECIES_MEDIA": 298,
+        "NOT_EXACTLY_PUBLISHED": 22,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 21,
         "UNMATCHED_HELD": 1,
         "OWNER_CLOSED_EXCLUDED_UNMATCHED": 1
       },
@@ -64,16 +64,6 @@
           "archive_path": "migration/private-original-photo-holds/Ericaceae/Arbutus/arbutus-xalapensis/images/arbutus-xalapensis_immature-fruits-evergreen-leaves_00-13-21.0.jpg",
           "source_blob_sha": "6e35d82d9c10607328c14299cfdcff3033390521",
           "bytes": 254369,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Trees-Shrubs",
-          "source_path": "content/taxa/Ericaceae/Arbutus/arbutus-xalapensis/images/public-inat-texas-madrone-751142077.jpg",
-          "archive_path": "migration/private-original-photo-holds/Ericaceae/Arbutus/arbutus-xalapensis/images/public-inat-texas-madrone-751142077.jpg",
-          "source_blob_sha": "2cff652287eec18bc3744f9ed7de5a96e9d20023",
-          "bytes": 270285,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -262,7 +252,7 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Lamiales",
-      "main_tree_sha": "cb921cda4c082576935da8a6382a83edabb7c087",
+      "main_tree_sha": "e2cc791d3517a6a73b6580e61fb4036bd0029387",
       "source_manifest_blob_sha": "89e1c426a4f8bec9fae9c7bd886b9d697bc22b04",
       "historical_review_blob_sha": "8710f3d7a126144e1316b41152d6ae84fb935030",
       "original_archive_photos": 240,
@@ -548,7 +538,7 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Monocots-Aquatics",
-      "main_tree_sha": "8017f2181c0569782787db17aec839561e32d805",
+      "main_tree_sha": "20961c04a038250c83b0ab9ee10f358419ded6a2",
       "source_manifest_blob_sha": "8b2196c0a87ea32adb1bad64d6d04ec170e639f5",
       "historical_review_blob_sha": "eb53a612c217b0c688be0f689cbb8cd3086e5487",
       "original_archive_photos": 205,
@@ -833,7 +823,7 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Mixed-Families",
-      "main_tree_sha": "6dd87c855b182f5ee85f58fe06025fedd19697c2",
+      "main_tree_sha": "02879f9368ac8e14db10872bacf73e26696e6333",
       "source_manifest_blob_sha": "82ccc6e5d1a56b1391e3f7f8d7f9215621a1431e",
       "historical_review_blob_sha": "c2dbd1f4b74086848de4401966c571fe162f3256",
       "original_archive_photos": 170,
@@ -1040,7 +1030,7 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Spurges-Mallows",
-      "main_tree_sha": "e03a2d37319196fabb7ab28eb312e1e5f51ddf11",
+      "main_tree_sha": "b7ba96a6dedf54b7b4b3cbf55ad092b3c4a55f6a",
       "source_manifest_blob_sha": "0a88e782dfda8d85b6cf24812bc77bfd8cb8e6d9",
       "historical_review_blob_sha": "050c45a48f2c2ea886fae62062e9915f8ad41e5f",
       "original_archive_photos": 347,
@@ -1527,15 +1517,15 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Asterid-Allies",
-      "main_tree_sha": "8035eaa9a52c515071f54d9f2a8740fdf9e18720",
+      "main_tree_sha": "5beaf5b1b5d7e199f53c3c818c6d0a5104d84a0f",
       "source_manifest_blob_sha": "5dcf9a67554178fa2cc4736c29dbb8387792f016",
       "historical_review_blob_sha": "a1ad4a299f149d25a8aaae8f26ede6d84080d387",
       "original_archive_photos": 306,
-      "site_media_files": 519,
+      "site_media_files": 526,
       "counts": {
-        "EXACT_IN_SPECIES_MEDIA": 232,
-        "NOT_EXACTLY_PUBLISHED": 74,
-        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 74
+        "EXACT_IN_SPECIES_MEDIA": 239,
+        "NOT_EXACTLY_PUBLISHED": 67,
+        "UNMATCHED_NOT_IN_214_HISTORICAL_HOLD_REVIEW": 67
       },
       "unmatched_photos": [
         {
@@ -1710,80 +1700,10 @@
         },
         {
           "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Boraginaceae/Euploca/euploca-tenella/images/joey-205825167.jpg",
-          "archive_path": "migration/private-original-photo-holds/Boraginaceae/Euploca/euploca-tenella/images/joey-205825167.jpg",
-          "source_blob_sha": "a600cd32c4d77f2f90cde5df00e23db409a68afc",
-          "bytes": 79475,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Boraginaceae/Euploca/euploca-tenella/images/joey-205825192.jpg",
-          "archive_path": "migration/private-original-photo-holds/Boraginaceae/Euploca/euploca-tenella/images/joey-205825192.jpg",
-          "source_blob_sha": "56e191658c8d2215e41f886835ee216713105db0",
-          "bytes": 63690,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Boraginaceae/Euploca/euploca-tenella/images/joey-714169528.jpg",
-          "archive_path": "migration/private-original-photo-holds/Boraginaceae/Euploca/euploca-tenella/images/joey-714169528.jpg",
-          "source_blob_sha": "7a7630aa3d7248b6a0ad89d9c74f80ed037466f6",
-          "bytes": 103911,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
           "source_path": "content/taxa/Boraginaceae/Phacelia/phacelia-congesta/images/inat-491326175.jpg",
           "archive_path": "migration/private-original-photo-holds/Boraginaceae/Phacelia/phacelia-congesta/images/inat-491326175.jpg",
           "source_blob_sha": "f24290cd922499d5d876002ccbda5c43896832f1",
           "bytes": 187672,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Campanulaceae/Triodanis/triodanis-coloradoensis/images/triodanis-coloradoensis-texas-664638884.jpg",
-          "archive_path": "migration/private-original-photo-holds/Campanulaceae/Triodanis/triodanis-coloradoensis/images/triodanis-coloradoensis-texas-664638884.jpg",
-          "source_blob_sha": "b8f35fb23aeaa39812fe3cffb35749f8ccf6eb60",
-          "bytes": 160786,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Campanulaceae/Triodanis/triodanis-coloradoensis/images/triodanis-coloradoensis-texas-664638941.jpg",
-          "archive_path": "migration/private-original-photo-holds/Campanulaceae/Triodanis/triodanis-coloradoensis/images/triodanis-coloradoensis-texas-664638941.jpg",
-          "source_blob_sha": "0e7315e6f426336412feeca2dccc24c6b0d172aa",
-          "bytes": 252985,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Campanulaceae/Triodanis/triodanis-texana/images/triodanis-texana-texas-648663557.jpg",
-          "archive_path": "migration/private-original-photo-holds/Campanulaceae/Triodanis/triodanis-texana/images/triodanis-texana-texas-648663557.jpg",
-          "source_blob_sha": "b8bfb42a666c83b64a3c5ba49d81ccaa63d27198",
-          "bytes": 118166,
-          "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
-          "historical_review_reason": null,
-          "owner_closed_excluded": false
-        },
-        {
-          "repository": "Hays-Botany-Asterid-Allies",
-          "source_path": "content/taxa/Campanulaceae/Triodanis/triodanis-texana/images/triodanis-texana-texas-665240815.jpg",
-          "archive_path": "migration/private-original-photo-holds/Campanulaceae/Triodanis/triodanis-texana/images/triodanis-texana-texas-665240815.jpg",
-          "source_blob_sha": "91d305c7aa48748d1a61d56145c11b0476ef0e6a",
-          "bytes": 141486,
           "historical_review_status": "NOT_IN_214_HISTORICAL_HOLD_REVIEW",
           "historical_review_reason": null,
           "owner_closed_excluded": false
@@ -2282,7 +2202,7 @@
     },
     {
       "repository": "Crking92/Hays-Botany-Cacti-Buttercups",
-      "main_tree_sha": "e0ee6c0a85268e502d51b60e5b6eab315fc8fb16",
+      "main_tree_sha": "ca992f98fe0c6a9a7def2c53d5188d2c578b2d53",
       "source_manifest_blob_sha": "048d6bb3ce68cbc7247d396c96719dc498476592",
       "historical_review_blob_sha": "16a5cf8687fd10eeb0bb756c0e3e2957d0d6b0a6",
       "original_archive_photos": 194,

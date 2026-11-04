@@ -1,4 +1,5 @@
 name: Fast bulk reconciliation of original family photos
+# Chat-safe remote reconciliation rerun requested 2026-11-03; reusable JSON report is saved to data/exports.
 on:
   push:
     branches: [main]

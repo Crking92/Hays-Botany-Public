@@ -36,6 +36,15 @@ USER_AGENT="Hays-Botany-Exact-Commons-CC0-Recheck/2026-11-03 (+https://github.co
 COMMONS_RIGHTS={
   # Exact NPS accession 690f9968-2897-4893-9a2c-c56b240218dc:
   # Commons confirms NPS employee photo, federal-work public domain.
+  # BLM Arizona Flickr photo 54821170528; Commons FlickreviewR confirms
+  # public-domain federal employee source and categorizes it as Funastrum cynanchoides.
+  "5e03fb2af7ccea4a2e90263bedfd37d623b05c17": {
+    "page": "https://commons.wikimedia.org/wiki/File:Climbing_milkweed_(54821170528).jpg",
+    "creator": "BLMArizona",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Climbing_milkweed_%2854821170528%29.jpg",
+    "license": "PUBLIC DOMAIN (U.S. FEDERAL WORK)",
+    "license_url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
   "3726e714cadf623a75a6db53bcf1264ea6e26691": {
     "page": "https://commons.wikimedia.org/wiki/File:Chisos_Hedgehog_Cactus_(690f9968-2897-4893-9a2c-c56b240218dc).JPG",
     "creator": "NPS Photo",
@@ -396,6 +405,8 @@ def commons_verify(c:dict)->dict:
             # photo names its staff photographer, Clarence A. Rechenthin.
             "a116d752445fd93164120ad7b5e2e58cdcaa7783":
                 ("USDA NRCS Texas State Office","Clarence A. Rechenthin"),
+            "5e03fb2af7ccea4a2e90263bedfd37d623b05c17":
+                ("U.S. Bureau of Land Management Arizona","BLMArizona"),
             "3726e714cadf623a75a6db53bcf1264ea6e26691":
                 ("National Park Service (NPS)","NPS Photo"),
             "2dcff4c4de863215ffc26bcecfb509e23e57b1be":
@@ -421,8 +432,10 @@ def commons_verify(c:dict)->dict:
     claim=re.sub(r"\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
     if claim in {"PUBLIC DOMAIN (US FEDERAL GOVERNMENT)","PUBLIC DOMAIN (U.S. FEDERAL GOVERNMENT)"} and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)":
         claim=entry["license"]
-    if (c["git_blob_sha"]=="3726e714cadf623a75a6db53bcf1264ea6e26691"
-            and claim=="PUBLIC DOMAIN" and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)"):
+    if (c["git_blob_sha"] in {
+        "3726e714cadf623a75a6db53bcf1264ea6e26691",
+        "5e03fb2af7ccea4a2e90263bedfd37d623b05c17"
+    } and claim=="PUBLIC DOMAIN" and entry["license"]=="PUBLIC DOMAIN (U.S. FEDERAL WORK)"):
         claim=entry["license"]
     if c["git_blob_sha"]=="e5df2a6d681f9b9c0e08aa9a91658c9a3c75b952" and claim=="CC BY-SA 3.0 / GFDL" and entry["license"]=="CC BY-SA 3.0":
         claim=entry["license"]

@@ -1,28 +1,74 @@
-name: Read-only one-pass reconciliation of all archived family photos
+name: Fast bulk reconciliation of original family photos
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/reconcile-original-photo-hashes.yml'
+      - 'scripts/reconcile_original_photo_hashes_fast.py'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: hays-botany-original-photo-reconciliation
+  cancel-in-progress: false
 jobs:
-  reconcile-originals:
+  reconcile-all-seven:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 15
     steps:
-      - name: Checkout pinned shared photo reconciliation code
+      - name: Check out current shared reconciliation code
         uses: actions/checkout@v4
         with:
-          ref: d51a2927037a2974275062eaeb58e7ba8dd3db59
-      - name: Install local image comparison only
-        run: python3 -m pip install --disable-pip-version-check Pillow==11.3.0
-      - name: Compare seven archived source manifests against current family media and original pixels
+          fetch-depth: 0
+      - name: Verify fast script syntax
+        run: python3 -m py_compile scripts/reconcile_original_photo_hashes_fast.py
+      - name: Reconcile seven source manifests in one pass without image downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          set -o pipefail
-          python3 scripts/reconcile_original_photo_hashes_20261103.py | tee "$RUNNER_TEMP/hays-original-source-comparison.log"
-      - name: Require a seven-family audit checkpoint in the log
+          set -euo pipefail
+          python3 scripts/reconcile_original_photo_hashes_fast.py \
+            --output data/exports/original_photo_reconciliation_current.json \
+            | tee "$RUNNER_TEMP/hays-original-photo-hash-audit.log"
+          test "$(grep -c '^HAYS_FAST_ARCHIVE_RECONCILED' "$RUNNER_TEMP/hays-original-photo-hash-audit.log")" -eq 7
+      - name: Validate seven-family output and capture job summary
         run: |
-          test "$(grep -c '^ARCHIVE_FAMILY_RECONCILED' "$RUNNER_TEMP/hays-original-source-comparison.log")" -eq 7
-          grep '^ARCHIVE_BULK_RECONCILIATION_SUMMARY' "$RUNNER_TEMP/hays-original-source-comparison.log"
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path("data/exports/original_photo_reconciliation_current.json")
+          r=json.loads(p.read_text(encoding="utf-8"))
+          assert r["family_count"]==7
+          assert len(r["family_audits"])==7
+          assert sum(len(f["unmatched_photos"]) for f in r["family_audits"]) == r["counts"].get("NOT_EXACTLY_PUBLISHED",0)
+          assert sum(f["original_archive_photos"] for f in r["family_audits"]) == r["original_archive_photos"]
+          counts=r["counts"]
+          body=(f"### Original archive — fast batch reconciliation\n\n"
+                f"- Archived: **{r['original_archive_photos']}**\n"
+                f"- Exact, species media: **{counts.get('EXACT_IN_SPECIES_MEDIA',0)}**\n"
+                f"- Exact in other media (review): **{counts.get('EXACT_OTHER_SITE_MEDIA_REVIEW',0)}**\n"
+                f"- Without exact public bytes: **{counts.get('NOT_EXACTLY_PUBLISHED',0)}**\n"
+                f"- Prior recorded holds still without exact file: **{counts.get('UNMATCHED_HELD',0)}**\n"
+                f"- No individual photos downloaded; no image publication or license changes.\n")
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as f:f.write(body)
+          print(body)
+          PY
+      - name: Save consolidated reconciliation snapshot for subsequent runs
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/exports/original_photo_reconciliation_current.json
+          if git diff --cached --quiet; then
+            echo "No snapshot changes"
+            exit 0
+          fi
+          git commit -m "Record one-pass historical photo hash reconciliation across family repositories"
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          echo "Failed to save reconciliation snapshot due to concurrent GitHub edits"
+          exit 1

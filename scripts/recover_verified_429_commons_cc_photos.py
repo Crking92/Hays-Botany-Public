@@ -69,6 +69,15 @@ COMMONS_RIGHTS={
     "license": "CC BY 2.0",
     "license_url": "https://creativecommons.org/licenses/by/2.0/"
   },
+  # Individually verified Commons page 2026-11-03, original file author Bidgee, jurisdictional license.
+  # The original archive independently records the same creator, file page and CC BY-SA 2.5 Australia.
+  "094a195584d135a226667f7dba5a8f34313d8610": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ligustrum_sinense_leaves_and_flowers.jpg",
+    "creator": "Bidgee",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Ligustrum_sinense_leaves_and_flowers.jpg",
+    "license": "CC BY-SA 2.5 AU",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/au/"
+  },
   "f8ee63311212b0da7f73ecb5f70402de56ff0fc2": {
     "page": "https://commons.wikimedia.org/wiki/File:Koeberlinia_spinosa_12747630.jpg",
     "creator": "Alex Abair",
@@ -221,10 +230,14 @@ def commons_verify(c:dict)->dict:
     if not creator_matches(c.get("claimed_creator"),entry["creator"]):
         raise RuntimeError("Archived photographer does not match current Commons individual file")
     claim=re.sub(r"\s+"," ",str(c.get("claimed_license") or "").upper()).strip()
-    if claim!=entry["license"]:
+    if claim!=entry["license"] and not (
+        entry["license"]=="CC BY-SA 2.5 AU" and claim=="CC BY-SA 2.5 AUSTRALIA"):
         raise RuntimeError("Original archive license does not match page-verified photo license")
-    kind,version=entry["license"].removeprefix("CC ").rsplit(" ",1)
-    expected="https://creativecommons.org/licenses/"+kind.lower()+"/"+version+"/"
+    if entry["license"]=="CC BY-SA 2.5 AU":
+        expected="https://creativecommons.org/licenses/by-sa/2.5/au/"
+    else:
+        kind,version=entry["license"].removeprefix("CC ").rsplit(" ",1)
+        expected="https://creativecommons.org/licenses/"+kind.lower()+"/"+version+"/"
     if entry["license_url"]!=expected:
         raise RuntimeError("License name and URL inconsistent")
     url=collect_photo_url(entry["url"])
@@ -274,7 +287,10 @@ def main()->None:
     archived_decisions=[r for b in (original.get("previous_batches") or [])+[original]
                         for r in b.get("records",[])]
     cc0_holds={r.get("git_blob_sha") for r in archived_decisions
-               if r.get("status")=="HELD" and "429" in str(r.get("reason",""))
+               if r.get("status")=="HELD" and (
+                    "429" in str(r.get("reason","")) or
+                    (r.get("git_blob_sha")=="094a195584d135a226667f7dba5a8f34313d8610" and
+                    "Wikimedia current image license URL unsupported" in str(r.get("reason",""))))
                and r.get("git_blob_sha") in COMMONS_RIGHTS}
     report_path=site.parent/"workflow"/"multi-family-commons-direct-cc-recovery-2026-11-03.json"
     previous=json.loads(report_path.read_text()) if report_path.is_file() else {}

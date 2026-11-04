@@ -2,7 +2,7 @@
 
 **Record date:** 2026-11-03
 
-The owner has stated in this project's conversation that the photographs personally made by Glass Root Garden may appear on the public, noncommercial Hays Botany educational learner, with credit to **Glass Root Garden**, including the older archived images originally labelled private-study-only. This entry records that owner-granted site display permission; it does **not** claim that individual iNaturalist files with a null or all-rights-reserved license were individually relicensed to Creative Commons.
+The owner confirmed in this project's conversation that Glass Root Garden is their own photo credit and that the photographs they made may appear on the public, noncommercial Hays Botany educational learner, with credit to **Glass Root Garden**, including the older archived images originally labelled private-study-only. This entry records that owner-granted site display permission; it does **not** claim that individual iNaturalist files with a null or all-rights-reserved license were individually relicensed to Creative Commons.
 
 **Rights label in the family galleries:** OWNER PUBLIC DISPLAY PERMISSION.
 
@@ -24,4 +24,4 @@ Exact original Git blob SHAs authorized for this constrained lane (the published
 - Trees & Shrubs — Quercus nigra: 80ffde56f0e3b1c729ba5808910ecacc48c74a42
 - Trees & Shrubs — Quercus phellos: 60af75b13458b90febb53658e94bef2838f61052
 
-**Publication conditions:** original file SHA and photo ID validated; iNaturalist attribution matches the recorded owner; field taxon matches; image pixels credibly match the exact source; existing family photo publisher accepts only this explicitly documented owner-display license for the thirteen named hashes; live website validates both image bytes and credits. No work is counted as published on a repository commit alone.
+**Publication conditions:** original file SHA and photo ID validated; original archived creator record is Glass Root Garden; owner explicitly confirms authorship and public-site display permission; field taxon matches; image pixels credibly match the exact source; existing family photo publisher accepts only this explicitly documented owner-display license for the thirteen named hashes; live website validates both image bytes and credits. No work is counted as published on a repository commit alone.

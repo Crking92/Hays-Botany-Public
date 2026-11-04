@@ -1,4 +1,5 @@
 name: Fast bulk reconciliation of original family photos
+# November 4 checkpoint after reconciliation-first publication pilot
 # Refresh after November 3 family-site ZIP releases and recoveries; metadata-only all-family check before worker startup.
 on:
   push:

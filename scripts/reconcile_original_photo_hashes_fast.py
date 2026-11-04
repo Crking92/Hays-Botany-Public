@@ -63,7 +63,9 @@ def match_status(manifest_row, media_by_sha):
     if not paths:
         return "NOT_EXACTLY_PUBLISHED"
     parts = Path(manifest_row["source_path"]).parts
-    # An archived photo can have images/images/<name>; take the component\n    # before the FIRST images folder, not a fixed offset from the filename.\n    species = parts[parts.index("images")-1] if "images" in parts and parts.index("images") >= 1 else (parts[-3] if len(parts) >= 7 else "")
+    # An archived photo can have images/images/<name>; take the component
+    # before the FIRST images folder, not a fixed offset from the filename.
+    species = parts[parts.index("images")-1] if "images" in parts and parts.index("images") >= 1 else (parts[-3] if len(parts) >= 7 else "")
     if parts[-2] == "genus-images":
         stem = Path(manifest_row["source_path"]).stem
         if any(Path(path).parent.name in stem for path in paths):

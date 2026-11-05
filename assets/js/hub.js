@@ -1,5 +1,5 @@
 "use strict";
-/* Family links use only explicitly verified destinations; Poaceae keeps the\n   original learner fallback. This does not change botanical source ownership. */
+/* Family links use verified destinations; grass search uses the dedicated review learner. Original fallback remains. This does not change botanical source ownership. */
 const state = {species:[],families:[],collections:[],source:null,shown:24,currentResults:[]};
 const $ = id => document.getElementById(id);
 function el(tag,className,text){
@@ -19,10 +19,10 @@ async function getJSON(path){
 }
 function familyRoute(sp){
   const c=state.collections.find(g=>g.families.includes(sp.family));
-  if(sp.family==="Poaceae" && sp.metadata_source==="Hays-Botany-Poaceae:published-site" &&
+  if(sp.family==="Poaceae" &&
      /^https:\/\/crking92\.github\.io\/Hays-Botany-Poaceae\/site\/$/.test(c?.review_url||"")){
     return {href:c.review_url+"?species="+encodeURIComponent(sp.id),
-      label:"New species · dedicated grass learner",family:true};
+      label:"Dedicated grass learner · photo-backed review (original fallback available)",family:true};
   }
   if(["LIVE_TEXT_ONLY_PREVIEW","LIVE_VERIFIED_CC_GALLERY"].includes(c?.status) && /^https:\/\/crking92\.github\.io\/Hays-Botany-[A-Za-z-]+\/site\/$/.test(c.live_url||"")){
     return {href:c.live_url+"?species="+encodeURIComponent(sp.id),label:c.status==="LIVE_VERIFIED_CC_GALLERY"?"Family learner · verified source-credited photographs":"Family field-ID text learner · photographs pending",family:true};
@@ -57,7 +57,7 @@ function renderResults(reset=true){
   const query=$("searchInput").value.trim();
   state.currentResults=rankedSpecies(query);
   const count=state.currentResults.length;
-  $("resultSummary").textContent=query?count.toLocaleString()+" matching species — available family lessons open directly; grass links use the original learner":"Showing a few indexed species. Search by common name, scientific name, genus, family, or ID.";
+  $("resultSummary").textContent=query?count.toLocaleString()+" matching species — available family lessons open directly; grass links open the dedicated photo-backed learner":"Showing a few indexed species. Search by common name, scientific name, genus, family, or ID.";
   const wrap=$("results");wrap.replaceChildren();
   const frag=document.createDocumentFragment();
   state.currentResults.slice(0,state.shown).forEach(sp=>frag.append(addSpeciesLink(sp)));

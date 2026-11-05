@@ -2,6 +2,16 @@
 
 **Effective:** 2026-11-04. **Owner approved:** gallery improvement alongside a single cross-family list of specific photo needs, without a general new-download campaign yet.
 
+## Fast bulk photo-needs consolidation (owner direction 2026-11-04, after Argemone audit)
+
+For the **queue-building lane**, reuse previously documented photo-role findings, Photo Coverage Log entries and existing cross-family queue rows **in batches**. **Do not rerun completed image inventories, contact-sheet creation, whole-genus audits, downloads, per-photo hash scans or publication checks just to record already-known needs.** They create redundant effort/storage and are not prerequisites for transferring supported role-level findings.
+
+- One exact diagnostic or seasonal camera view per queue row; preserve the existing 14-column Google Sheet, source/photo IDs, names, evidence, destination routing, rights gates and original records. Look up Species ID + target first and update rather than duplicate.
+- If an old record explicitly says a feature is unresolved, append a **historical lead** with status 'Not reviewed — current public gallery coverage unknown'; an old single-photo log cannot prove absence from today's family gallery. Never upgrade a lead to 'Confirmed absent' without actual relevant-image inspection.
+- The **download-ready subset is narrower than the queue**. Compare already-cleared current gallery or approved pending candidates before selecting focused downloads, and exclude unresolved taxonomy, nonlocal native-range holds and uncertain licensing until resolved. Historical recovery of retired archive holds remains closed.
+- Prioritize November–February crew use (dormant grasses/attached seedheads, winter-green basal growth, rosettes, woody buds/bark/persistent fruit) and field-ID structures. Do not add winter views when biologically inapplicable or already useful and covered.
+- No extra spreadsheets, temporary contact-sheet archives or image copies during this lane. Routine safe general-photo publication remains separate and should continue without waiting for anatomy lessons; **identity, rights, attribution and actual live Pages verification are never waived** for any new image.
+
 ## Authoritative sources and routing
 
 - Species identification, taxon treatment, per-photo credits, exact license, media SHA/source URL, photo roles, public gallery record and published website: **the current family GitHub repository's `main` branch** and actual family Pages site. The historical `staging/original-source-transfer` branches remain preserved.

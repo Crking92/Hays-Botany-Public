@@ -2,6 +2,17 @@
 
 **Effective:** 2026-11-04. **Owner approved:** gallery improvement alongside a single cross-family list of specific photo needs, without a general new-download campaign yet.
 
+## Chat-sized audit runs — low-overhead handoff (2026-11-05)
+
+Use this section when a user asks to continue a visual/photo audit and prior chats have run long or maxed out. This is a **work-size rule**, not a new phase, file, spreadsheet, or publishing gate.
+
+1. **Resume, don't reconstruct.** Read this workflow, the current family route/site, existing Photo Coverage Log or previously supported findings, and the single existing `Photo Needs Queue`. Start with unreviewed evidence. Do not rerun completed inventories or repeatedly reopen the same images just to produce a new chat summary.
+2. **Small independent passes.** For newly needed image-by-image reviews, aim for about **20–35 distinct existing photos or 3–5 species per pass**, whichever is the more manageable limit. Scale down for complicated grasses or ambiguous photos. For already-documented gaps, transfer supported queue entries in a compact batch without a new visual pass. Avoid automatically generating contact sheets, downloads, ZIPs, or new spreadsheets. Existing galleries and approved media are the first sources.
+3. **Save before switching tasks.** Update matching rows (Species ID + exact camera-view target) in the **existing** Google Sheet and any established family Photo Coverage Log used for audited coverage, preserving existing columns and source IDs. Save genuine reviewed/uncertain statuses, not guessed absences. Do not write new botanical/photo content into the legacy hub. Protect against parallel automation edits by rereading target rows before overwriting.
+4. **Stop at a clean boundary.** End each user-requested pass after the bounded review and confirmed saves. Summarize briefly: family/species, distinct photos actually visually inspected, exact new/updated queue targets, uncertain holds, and the next unreviewed target. Distinguish saved queue progress from photos **actually verified live** on the public family website.
+5. **Next chat handoff.** A new chat starts with the user's simple instruction “Continue the next Hays Botany photo-audit batch.” The worker discovers the latest existing queue/coverage records rather than requiring the owner to paste a large handoff, reupload photos, or run terminal commands. If there is no reliable completion checkpoint for a given photo, say so; do not claim it was reviewed.
+6. **Automations remain separate.** This section does not create or restart scheduled tasks, change their cadence, authorize downloads, waive license or identity checks, or alter public galleries.
+
 ## Fast bulk photo-needs consolidation (owner direction 2026-11-04, after Argemone audit)
 
 For the **queue-building lane**, reuse previously documented photo-role findings, Photo Coverage Log entries and existing cross-family queue rows **in batches**. **Do not rerun completed image inventories, contact-sheet creation, whole-genus audits, downloads, per-photo hash scans or publication checks just to record already-known needs.** They create redundant effort/storage and are not prerequisites for transferring supported role-level findings.

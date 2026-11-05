@@ -9,6 +9,21 @@
 - Cross-family **photo needs/planning**: existing native Google Sheet `Hays_Botany_ID_Master_Curation_Tracker`, tab `Photo Needs Queue`; file ID `15dcpbk3msvOiGtAo2GRQkCfdhBR9iav-yQ0HoTjS6wM`, 14 pre-existing columns. **One master queue only**: no per-family spreadsheets, no separate replacement photo trackers.
 - The historical recovery project is closed to new active work. `data/exports/historical_photo_recovery_retired_20261104.json` preserves the honest 206 unmatched snapshot (nine previously excluded). Old originals/metadata/rights remain intact and unpublished unless already positively verified and approved separately. Do not reopen recovery or manufacture zero unmatched by rewriting the audit.
 
+## Mandatory November–February / seasonal photo coverage check (owner approved 2026-11-04)
+
+**During every gallery-quality audit and any future search for specific missing plant parts, check practical winter and dormant-season ID views alongside whole-plant habit, foliage, stems, flowers, fruit and anatomy.** Field crews in the Kyle/Hays County region need to identify plants even when they are not flowering. Evaluate roles only when biologically applicable:
+
+- **Warm-season grasses after dormancy:** a whole rooted standing brown/copper clump, intact dry inflorescence, attached seedheads, basal remnants.
+- **Winter-active cool-season grasses/sedges:** green basal leaves, overall clump, blades and collar/ligule when visible. *Winter-green does not mean dormant.*
+- **Overwintering seedlings and rosettes:** recognizable basal leaves before flowering, including winter annual weeds and native spring-flowering annuals.
+- **Deciduous woody plants:** leafless silhouette and branching, bark, winter buds/leaf scars, persistent fruit or berries.
+- **Evergreens/cacti/yuccas:** foliage and winter habit if adding a useful nonduplicate seasonal view.
+- **Late-fall/post-freeze stages:** remaining flower clusters, mature fruit and seeds, standing stalks, senescence, resprouting bases, freeze events such as frostweed ice ribbons.
+
+**Checklist for marking gaps:** Inspect live family site images (not file names) and any already-approved archived/pending images **first**. Classify each relevant seasonal role as *present adequate*, *present inadequate*, *not visually reviewed/uncertain*, *confirmed absent*, or *not applicable*. Never call an unreviewed role absent or require winter photos for every species. Add an existing-queue row **only for a meaningful, actionable uncovered view**, recording exact seasonal target, camera view/scale, evidence, priority, family repo and later next step; do not create family spreadsheets or begin broad downloads. Existing general approved photos may still be published immediately—seasonal wishes, arrows and full lessons never block them.
+
+Keep exact photo identity, creator, source, license/permission, credits, original hashes, public-source rights restrictions and website verification unchanged. Consult BONAP/NAPA county-level distributions separately for native status. See the [owner-approved shared standing rule](https://github.com/Crking92/Hays-Botany-Public/issues/1) and `Hays_Botany_ID_Master_Curation_Tracker` → `Project Rules` row 45.
+
 ## Routine cycle while refining photos
 
 1. Read the assigned family repository card/gallery and its latest public website, plus any existing queue targets. Confirm source, species name, observed role, photo originality/credit and whether the photo actually renders in the public learner.

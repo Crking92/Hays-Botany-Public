@@ -40,12 +40,14 @@ async function run(){
           assert.match(await link.getAttribute("href"),/Hays-Botany-Fabaceae\/site\/\?species=amorpha-canescens/);
           assert.match(await link.textContent(),/Leadplant/i);
         });
-        await check("common-name grass search retains original website fallback",async()=>{
+        await check("grass species search opens dedicated Poaceae lesson",async()=>{
           await page.locator("#searchInput").fill("little bluestem");
           const link=page.locator("#results a.result[href*='schizachyrium-scoparium']").first();
           assert(await link.count()>0);
           const href=await link.getAttribute("href");
-          assert(href.startsWith("https://crking92.github.io/Hays-County-Botany/"),href);
+          assert.equal(href,"https://crking92.github.io/Hays-Botany-Poaceae/site/?species=schizachyrium-scoparium");
+          const original=page.locator("a[href='https://crking92.github.io/Hays-County-Botany/']").first();
+          assert(await original.count()>0,"Original Visual Learner fallback remains available");
         });
         await check("family button and browser Back restore previous search",async()=>{
           await page.locator("#searchInput").fill("");
